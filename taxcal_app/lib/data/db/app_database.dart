@@ -10,7 +10,9 @@ export 'factura_pendiente_ppd.dart';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Contribuyentes, Facturas, Inversiones, CapturasEspejo])
+@DriftDatabase(
+  tables: [Contribuyentes, Facturas, Inversiones, CapturasEspejo, DeduccionesPersonales],
+)
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(driftDatabase(name: 'taxcal'));
 
@@ -18,7 +20,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forExecutor(super.executor);
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -26,6 +28,9 @@ class AppDatabase extends _$AppDatabase {
     onUpgrade: (m, from, to) async {
       if (from < 2) {
         await m.createTable(capturasEspejo);
+      }
+      if (from < 3) {
+        await m.createTable(deduccionesPersonales);
       }
     },
   );
@@ -408,6 +413,7 @@ class AppDatabase extends _$AppDatabase {
       await delete(facturas).go();
       await delete(contribuyentes).go();
       await delete(capturasEspejo).go();
+      await delete(deduccionesPersonales).go();
     });
   }
 
@@ -454,4 +460,33 @@ class AppDatabase extends _$AppDatabase {
       ),
     );
   }
+
+  // ---------------------------------------------------------------------
+  // Deducciones personales (Anual)
+  // ---------------------------------------------------------------------
+
+  Stream<List<DeduccionPersonal>> watchDeduccionesPersonales(int ejercicioFiscal) =>
+      (select(deduccionesPersonales)
+            ..where((d) => d.ejercicioFiscal.equals(ejercicioFiscal))
+            ..orderBy([(d) => OrderingTerm.desc(d.creadoEn)]))
+          .watch();
+
+  Future<void> agregarDeduccionPersonal({
+    required int ejercicioFiscal,
+    required String concepto,
+    required double monto,
+    required FormaPagoPersonal formaPago,
+    required bool esFunerario,
+  }) => into(deduccionesPersonales).insert(
+    DeduccionesPersonalesCompanion.insert(
+      ejercicioFiscal: ejercicioFiscal,
+      concepto: concepto,
+      monto: monto,
+      formaPago: formaPago,
+      esFunerario: Value(esFunerario),
+    ),
+  );
+
+  Future<void> eliminarDeduccionPersonal(int id) =>
+      (delete(deduccionesPersonales)..where((d) => d.id.equals(id))).go();
 }

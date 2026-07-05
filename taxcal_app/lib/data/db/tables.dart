@@ -18,6 +18,11 @@ enum TipoActivo { computo, mobiliario, autoCombustion, autoHibrido, pickup }
 /// especificación funcional, paso "Configuración").
 enum TipoDeclaracion { normal, complementaria }
 
+/// Forma de pago simplificada de una deducción personal (README, sección
+/// "5. Anual": el formulario solo distingue Tarjeta/Efectivo, a diferencia
+/// del catálogo completo de `forma_pago` de un CFDI).
+enum FormaPagoPersonal { tarjeta, efectivo }
+
 /// Colección `contribuyentes` (CRM offline) — sección 3.1.
 class Contribuyentes extends Table {
   TextColumn get rfc => text()();
@@ -81,4 +86,21 @@ class CapturasEspejo extends Table {
 
   @override
   Set<Column> get primaryKey => {anio, mes};
+}
+
+/// Bolsa de deducciones personales del ejercicio (README, sección "5.
+/// Anual"; especificación funcional, sección 5.3, Art. 151 LISR): gastos
+/// médicos, dentales, seguros y colegiaturas capturados manualmente.
+@DataClassName('DeduccionPersonal')
+class DeduccionesPersonales extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get ejercicioFiscal => integer()();
+  TextColumn get concepto => text()();
+  RealColumn get monto => real()();
+  IntColumn get formaPago => intEnum<FormaPagoPersonal>()();
+
+  /// Excepción del Art. 151: los gastos funerarios sí se permiten en
+  /// efectivo.
+  BoolColumn get esFunerario => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get creadoEn => dateTime().withDefault(currentDateAndTime)();
 }

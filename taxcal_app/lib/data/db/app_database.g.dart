@@ -2338,6 +2338,480 @@ class CapturasEspejoCompanion extends UpdateCompanion<CapturasEspejoData> {
   }
 }
 
+class $DeduccionesPersonalesTable extends DeduccionesPersonales
+    with TableInfo<$DeduccionesPersonalesTable, DeduccionPersonal> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DeduccionesPersonalesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _ejercicioFiscalMeta = const VerificationMeta(
+    'ejercicioFiscal',
+  );
+  @override
+  late final GeneratedColumn<int> ejercicioFiscal = GeneratedColumn<int>(
+    'ejercicio_fiscal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _conceptoMeta = const VerificationMeta(
+    'concepto',
+  );
+  @override
+  late final GeneratedColumn<String> concepto = GeneratedColumn<String>(
+    'concepto',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _montoMeta = const VerificationMeta('monto');
+  @override
+  late final GeneratedColumn<double> monto = GeneratedColumn<double>(
+    'monto',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<FormaPagoPersonal, int>
+  formaPago =
+      GeneratedColumn<int>(
+        'forma_pago',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: true,
+      ).withConverter<FormaPagoPersonal>(
+        $DeduccionesPersonalesTable.$converterformaPago,
+      );
+  static const VerificationMeta _esFunerarioMeta = const VerificationMeta(
+    'esFunerario',
+  );
+  @override
+  late final GeneratedColumn<bool> esFunerario = GeneratedColumn<bool>(
+    'es_funerario',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("es_funerario" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _creadoEnMeta = const VerificationMeta(
+    'creadoEn',
+  );
+  @override
+  late final GeneratedColumn<DateTime> creadoEn = GeneratedColumn<DateTime>(
+    'creado_en',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    ejercicioFiscal,
+    concepto,
+    monto,
+    formaPago,
+    esFunerario,
+    creadoEn,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'deducciones_personales';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<DeduccionPersonal> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('ejercicio_fiscal')) {
+      context.handle(
+        _ejercicioFiscalMeta,
+        ejercicioFiscal.isAcceptableOrUnknown(
+          data['ejercicio_fiscal']!,
+          _ejercicioFiscalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_ejercicioFiscalMeta);
+    }
+    if (data.containsKey('concepto')) {
+      context.handle(
+        _conceptoMeta,
+        concepto.isAcceptableOrUnknown(data['concepto']!, _conceptoMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_conceptoMeta);
+    }
+    if (data.containsKey('monto')) {
+      context.handle(
+        _montoMeta,
+        monto.isAcceptableOrUnknown(data['monto']!, _montoMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_montoMeta);
+    }
+    if (data.containsKey('es_funerario')) {
+      context.handle(
+        _esFunerarioMeta,
+        esFunerario.isAcceptableOrUnknown(
+          data['es_funerario']!,
+          _esFunerarioMeta,
+        ),
+      );
+    }
+    if (data.containsKey('creado_en')) {
+      context.handle(
+        _creadoEnMeta,
+        creadoEn.isAcceptableOrUnknown(data['creado_en']!, _creadoEnMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DeduccionPersonal map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DeduccionPersonal(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      ejercicioFiscal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ejercicio_fiscal'],
+      )!,
+      concepto: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}concepto'],
+      )!,
+      monto: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}monto'],
+      )!,
+      formaPago: $DeduccionesPersonalesTable.$converterformaPago.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}forma_pago'],
+        )!,
+      ),
+      esFunerario: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}es_funerario'],
+      )!,
+      creadoEn: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}creado_en'],
+      )!,
+    );
+  }
+
+  @override
+  $DeduccionesPersonalesTable createAlias(String alias) {
+    return $DeduccionesPersonalesTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<FormaPagoPersonal, int, int> $converterformaPago =
+      const EnumIndexConverter<FormaPagoPersonal>(FormaPagoPersonal.values);
+}
+
+class DeduccionPersonal extends DataClass
+    implements Insertable<DeduccionPersonal> {
+  final int id;
+  final int ejercicioFiscal;
+  final String concepto;
+  final double monto;
+  final FormaPagoPersonal formaPago;
+
+  /// Excepción del Art. 151: los gastos funerarios sí se permiten en
+  /// efectivo.
+  final bool esFunerario;
+  final DateTime creadoEn;
+  const DeduccionPersonal({
+    required this.id,
+    required this.ejercicioFiscal,
+    required this.concepto,
+    required this.monto,
+    required this.formaPago,
+    required this.esFunerario,
+    required this.creadoEn,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['ejercicio_fiscal'] = Variable<int>(ejercicioFiscal);
+    map['concepto'] = Variable<String>(concepto);
+    map['monto'] = Variable<double>(monto);
+    {
+      map['forma_pago'] = Variable<int>(
+        $DeduccionesPersonalesTable.$converterformaPago.toSql(formaPago),
+      );
+    }
+    map['es_funerario'] = Variable<bool>(esFunerario);
+    map['creado_en'] = Variable<DateTime>(creadoEn);
+    return map;
+  }
+
+  DeduccionesPersonalesCompanion toCompanion(bool nullToAbsent) {
+    return DeduccionesPersonalesCompanion(
+      id: Value(id),
+      ejercicioFiscal: Value(ejercicioFiscal),
+      concepto: Value(concepto),
+      monto: Value(monto),
+      formaPago: Value(formaPago),
+      esFunerario: Value(esFunerario),
+      creadoEn: Value(creadoEn),
+    );
+  }
+
+  factory DeduccionPersonal.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DeduccionPersonal(
+      id: serializer.fromJson<int>(json['id']),
+      ejercicioFiscal: serializer.fromJson<int>(json['ejercicioFiscal']),
+      concepto: serializer.fromJson<String>(json['concepto']),
+      monto: serializer.fromJson<double>(json['monto']),
+      formaPago: $DeduccionesPersonalesTable.$converterformaPago.fromJson(
+        serializer.fromJson<int>(json['formaPago']),
+      ),
+      esFunerario: serializer.fromJson<bool>(json['esFunerario']),
+      creadoEn: serializer.fromJson<DateTime>(json['creadoEn']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'ejercicioFiscal': serializer.toJson<int>(ejercicioFiscal),
+      'concepto': serializer.toJson<String>(concepto),
+      'monto': serializer.toJson<double>(monto),
+      'formaPago': serializer.toJson<int>(
+        $DeduccionesPersonalesTable.$converterformaPago.toJson(formaPago),
+      ),
+      'esFunerario': serializer.toJson<bool>(esFunerario),
+      'creadoEn': serializer.toJson<DateTime>(creadoEn),
+    };
+  }
+
+  DeduccionPersonal copyWith({
+    int? id,
+    int? ejercicioFiscal,
+    String? concepto,
+    double? monto,
+    FormaPagoPersonal? formaPago,
+    bool? esFunerario,
+    DateTime? creadoEn,
+  }) => DeduccionPersonal(
+    id: id ?? this.id,
+    ejercicioFiscal: ejercicioFiscal ?? this.ejercicioFiscal,
+    concepto: concepto ?? this.concepto,
+    monto: monto ?? this.monto,
+    formaPago: formaPago ?? this.formaPago,
+    esFunerario: esFunerario ?? this.esFunerario,
+    creadoEn: creadoEn ?? this.creadoEn,
+  );
+  DeduccionPersonal copyWithCompanion(DeduccionesPersonalesCompanion data) {
+    return DeduccionPersonal(
+      id: data.id.present ? data.id.value : this.id,
+      ejercicioFiscal: data.ejercicioFiscal.present
+          ? data.ejercicioFiscal.value
+          : this.ejercicioFiscal,
+      concepto: data.concepto.present ? data.concepto.value : this.concepto,
+      monto: data.monto.present ? data.monto.value : this.monto,
+      formaPago: data.formaPago.present ? data.formaPago.value : this.formaPago,
+      esFunerario: data.esFunerario.present
+          ? data.esFunerario.value
+          : this.esFunerario,
+      creadoEn: data.creadoEn.present ? data.creadoEn.value : this.creadoEn,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DeduccionPersonal(')
+          ..write('id: $id, ')
+          ..write('ejercicioFiscal: $ejercicioFiscal, ')
+          ..write('concepto: $concepto, ')
+          ..write('monto: $monto, ')
+          ..write('formaPago: $formaPago, ')
+          ..write('esFunerario: $esFunerario, ')
+          ..write('creadoEn: $creadoEn')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    ejercicioFiscal,
+    concepto,
+    monto,
+    formaPago,
+    esFunerario,
+    creadoEn,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DeduccionPersonal &&
+          other.id == this.id &&
+          other.ejercicioFiscal == this.ejercicioFiscal &&
+          other.concepto == this.concepto &&
+          other.monto == this.monto &&
+          other.formaPago == this.formaPago &&
+          other.esFunerario == this.esFunerario &&
+          other.creadoEn == this.creadoEn);
+}
+
+class DeduccionesPersonalesCompanion
+    extends UpdateCompanion<DeduccionPersonal> {
+  final Value<int> id;
+  final Value<int> ejercicioFiscal;
+  final Value<String> concepto;
+  final Value<double> monto;
+  final Value<FormaPagoPersonal> formaPago;
+  final Value<bool> esFunerario;
+  final Value<DateTime> creadoEn;
+  const DeduccionesPersonalesCompanion({
+    this.id = const Value.absent(),
+    this.ejercicioFiscal = const Value.absent(),
+    this.concepto = const Value.absent(),
+    this.monto = const Value.absent(),
+    this.formaPago = const Value.absent(),
+    this.esFunerario = const Value.absent(),
+    this.creadoEn = const Value.absent(),
+  });
+  DeduccionesPersonalesCompanion.insert({
+    this.id = const Value.absent(),
+    required int ejercicioFiscal,
+    required String concepto,
+    required double monto,
+    required FormaPagoPersonal formaPago,
+    this.esFunerario = const Value.absent(),
+    this.creadoEn = const Value.absent(),
+  }) : ejercicioFiscal = Value(ejercicioFiscal),
+       concepto = Value(concepto),
+       monto = Value(monto),
+       formaPago = Value(formaPago);
+  static Insertable<DeduccionPersonal> custom({
+    Expression<int>? id,
+    Expression<int>? ejercicioFiscal,
+    Expression<String>? concepto,
+    Expression<double>? monto,
+    Expression<int>? formaPago,
+    Expression<bool>? esFunerario,
+    Expression<DateTime>? creadoEn,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (ejercicioFiscal != null) 'ejercicio_fiscal': ejercicioFiscal,
+      if (concepto != null) 'concepto': concepto,
+      if (monto != null) 'monto': monto,
+      if (formaPago != null) 'forma_pago': formaPago,
+      if (esFunerario != null) 'es_funerario': esFunerario,
+      if (creadoEn != null) 'creado_en': creadoEn,
+    });
+  }
+
+  DeduccionesPersonalesCompanion copyWith({
+    Value<int>? id,
+    Value<int>? ejercicioFiscal,
+    Value<String>? concepto,
+    Value<double>? monto,
+    Value<FormaPagoPersonal>? formaPago,
+    Value<bool>? esFunerario,
+    Value<DateTime>? creadoEn,
+  }) {
+    return DeduccionesPersonalesCompanion(
+      id: id ?? this.id,
+      ejercicioFiscal: ejercicioFiscal ?? this.ejercicioFiscal,
+      concepto: concepto ?? this.concepto,
+      monto: monto ?? this.monto,
+      formaPago: formaPago ?? this.formaPago,
+      esFunerario: esFunerario ?? this.esFunerario,
+      creadoEn: creadoEn ?? this.creadoEn,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (ejercicioFiscal.present) {
+      map['ejercicio_fiscal'] = Variable<int>(ejercicioFiscal.value);
+    }
+    if (concepto.present) {
+      map['concepto'] = Variable<String>(concepto.value);
+    }
+    if (monto.present) {
+      map['monto'] = Variable<double>(monto.value);
+    }
+    if (formaPago.present) {
+      map['forma_pago'] = Variable<int>(
+        $DeduccionesPersonalesTable.$converterformaPago.toSql(formaPago.value),
+      );
+    }
+    if (esFunerario.present) {
+      map['es_funerario'] = Variable<bool>(esFunerario.value);
+    }
+    if (creadoEn.present) {
+      map['creado_en'] = Variable<DateTime>(creadoEn.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DeduccionesPersonalesCompanion(')
+          ..write('id: $id, ')
+          ..write('ejercicioFiscal: $ejercicioFiscal, ')
+          ..write('concepto: $concepto, ')
+          ..write('monto: $monto, ')
+          ..write('formaPago: $formaPago, ')
+          ..write('esFunerario: $esFunerario, ')
+          ..write('creadoEn: $creadoEn')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -2345,6 +2819,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $FacturasTable facturas = $FacturasTable(this);
   late final $InversionesTable inversiones = $InversionesTable(this);
   late final $CapturasEspejoTable capturasEspejo = $CapturasEspejoTable(this);
+  late final $DeduccionesPersonalesTable deduccionesPersonales =
+      $DeduccionesPersonalesTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -2354,6 +2830,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     facturas,
     inversiones,
     capturasEspejo,
+    deduccionesPersonales,
   ];
 }
 
@@ -3926,6 +4403,262 @@ typedef $$CapturasEspejoTableProcessedTableManager =
       CapturasEspejoData,
       PrefetchHooks Function()
     >;
+typedef $$DeduccionesPersonalesTableCreateCompanionBuilder =
+    DeduccionesPersonalesCompanion Function({
+      Value<int> id,
+      required int ejercicioFiscal,
+      required String concepto,
+      required double monto,
+      required FormaPagoPersonal formaPago,
+      Value<bool> esFunerario,
+      Value<DateTime> creadoEn,
+    });
+typedef $$DeduccionesPersonalesTableUpdateCompanionBuilder =
+    DeduccionesPersonalesCompanion Function({
+      Value<int> id,
+      Value<int> ejercicioFiscal,
+      Value<String> concepto,
+      Value<double> monto,
+      Value<FormaPagoPersonal> formaPago,
+      Value<bool> esFunerario,
+      Value<DateTime> creadoEn,
+    });
+
+class $$DeduccionesPersonalesTableFilterComposer
+    extends Composer<_$AppDatabase, $DeduccionesPersonalesTable> {
+  $$DeduccionesPersonalesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get ejercicioFiscal => $composableBuilder(
+    column: $table.ejercicioFiscal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get concepto => $composableBuilder(
+    column: $table.concepto,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get monto => $composableBuilder(
+    column: $table.monto,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<FormaPagoPersonal, FormaPagoPersonal, int>
+  get formaPago => $composableBuilder(
+    column: $table.formaPago,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+
+  ColumnFilters<bool> get esFunerario => $composableBuilder(
+    column: $table.esFunerario,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get creadoEn => $composableBuilder(
+    column: $table.creadoEn,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$DeduccionesPersonalesTableOrderingComposer
+    extends Composer<_$AppDatabase, $DeduccionesPersonalesTable> {
+  $$DeduccionesPersonalesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get ejercicioFiscal => $composableBuilder(
+    column: $table.ejercicioFiscal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get concepto => $composableBuilder(
+    column: $table.concepto,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get monto => $composableBuilder(
+    column: $table.monto,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get formaPago => $composableBuilder(
+    column: $table.formaPago,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get esFunerario => $composableBuilder(
+    column: $table.esFunerario,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get creadoEn => $composableBuilder(
+    column: $table.creadoEn,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$DeduccionesPersonalesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DeduccionesPersonalesTable> {
+  $$DeduccionesPersonalesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get ejercicioFiscal => $composableBuilder(
+    column: $table.ejercicioFiscal,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get concepto =>
+      $composableBuilder(column: $table.concepto, builder: (column) => column);
+
+  GeneratedColumn<double> get monto =>
+      $composableBuilder(column: $table.monto, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<FormaPagoPersonal, int> get formaPago =>
+      $composableBuilder(column: $table.formaPago, builder: (column) => column);
+
+  GeneratedColumn<bool> get esFunerario => $composableBuilder(
+    column: $table.esFunerario,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get creadoEn =>
+      $composableBuilder(column: $table.creadoEn, builder: (column) => column);
+}
+
+class $$DeduccionesPersonalesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $DeduccionesPersonalesTable,
+          DeduccionPersonal,
+          $$DeduccionesPersonalesTableFilterComposer,
+          $$DeduccionesPersonalesTableOrderingComposer,
+          $$DeduccionesPersonalesTableAnnotationComposer,
+          $$DeduccionesPersonalesTableCreateCompanionBuilder,
+          $$DeduccionesPersonalesTableUpdateCompanionBuilder,
+          (
+            DeduccionPersonal,
+            BaseReferences<
+              _$AppDatabase,
+              $DeduccionesPersonalesTable,
+              DeduccionPersonal
+            >,
+          ),
+          DeduccionPersonal,
+          PrefetchHooks Function()
+        > {
+  $$DeduccionesPersonalesTableTableManager(
+    _$AppDatabase db,
+    $DeduccionesPersonalesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DeduccionesPersonalesTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$DeduccionesPersonalesTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$DeduccionesPersonalesTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> ejercicioFiscal = const Value.absent(),
+                Value<String> concepto = const Value.absent(),
+                Value<double> monto = const Value.absent(),
+                Value<FormaPagoPersonal> formaPago = const Value.absent(),
+                Value<bool> esFunerario = const Value.absent(),
+                Value<DateTime> creadoEn = const Value.absent(),
+              }) => DeduccionesPersonalesCompanion(
+                id: id,
+                ejercicioFiscal: ejercicioFiscal,
+                concepto: concepto,
+                monto: monto,
+                formaPago: formaPago,
+                esFunerario: esFunerario,
+                creadoEn: creadoEn,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int ejercicioFiscal,
+                required String concepto,
+                required double monto,
+                required FormaPagoPersonal formaPago,
+                Value<bool> esFunerario = const Value.absent(),
+                Value<DateTime> creadoEn = const Value.absent(),
+              }) => DeduccionesPersonalesCompanion.insert(
+                id: id,
+                ejercicioFiscal: ejercicioFiscal,
+                concepto: concepto,
+                monto: monto,
+                formaPago: formaPago,
+                esFunerario: esFunerario,
+                creadoEn: creadoEn,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$DeduccionesPersonalesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $DeduccionesPersonalesTable,
+      DeduccionPersonal,
+      $$DeduccionesPersonalesTableFilterComposer,
+      $$DeduccionesPersonalesTableOrderingComposer,
+      $$DeduccionesPersonalesTableAnnotationComposer,
+      $$DeduccionesPersonalesTableCreateCompanionBuilder,
+      $$DeduccionesPersonalesTableUpdateCompanionBuilder,
+      (
+        DeduccionPersonal,
+        BaseReferences<
+          _$AppDatabase,
+          $DeduccionesPersonalesTable,
+          DeduccionPersonal
+        >,
+      ),
+      DeduccionPersonal,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -3938,4 +4671,6 @@ class $AppDatabaseManager {
       $$InversionesTableTableManager(_db, _db.inversiones);
   $$CapturasEspejoTableTableManager get capturasEspejo =>
       $$CapturasEspejoTableTableManager(_db, _db.capturasEspejo);
+  $$DeduccionesPersonalesTableTableManager get deduccionesPersonales =>
+      $$DeduccionesPersonalesTableTableManager(_db, _db.deduccionesPersonales);
 }

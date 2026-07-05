@@ -489,4 +489,58 @@ void main() {
       expect(resultado, isEmpty);
     });
   });
+
+  group('Deducciones personales', () {
+    test('agregarDeduccionPersonal inserts and watchDeduccionesPersonales lists by ejercicio', () async {
+      await db.agregarDeduccionPersonal(
+        ejercicioFiscal: 2026,
+        concepto: 'Consulta dental',
+        monto: 800,
+        formaPago: FormaPagoPersonal.tarjeta,
+        esFunerario: false,
+      );
+      await db.agregarDeduccionPersonal(
+        ejercicioFiscal: 2025,
+        concepto: 'Del año pasado',
+        monto: 500,
+        formaPago: FormaPagoPersonal.tarjeta,
+        esFunerario: false,
+      );
+
+      final deducciones2026 = await db.watchDeduccionesPersonales(2026).first;
+      expect(deducciones2026, hasLength(1));
+      expect(deducciones2026.single.concepto, 'Consulta dental');
+      expect(deducciones2026.single.monto, 800);
+      expect(deducciones2026.single.formaPago, FormaPagoPersonal.tarjeta);
+    });
+
+    test('eliminarDeduccionPersonal removes the row', () async {
+      await db.agregarDeduccionPersonal(
+        ejercicioFiscal: 2026,
+        concepto: 'Seguro de gastos médicos',
+        monto: 5000,
+        formaPago: FormaPagoPersonal.tarjeta,
+        esFunerario: false,
+      );
+      final antes = await db.watchDeduccionesPersonales(2026).first;
+
+      await db.eliminarDeduccionPersonal(antes.single.id);
+
+      expect(await db.watchDeduccionesPersonales(2026).first, isEmpty);
+    });
+
+    test('borrarTodosLosDatos clears personal deductions too', () async {
+      await db.agregarDeduccionPersonal(
+        ejercicioFiscal: 2026,
+        concepto: 'Colegiatura',
+        monto: 3000,
+        formaPago: FormaPagoPersonal.tarjeta,
+        esFunerario: false,
+      );
+
+      await db.borrarTodosLosDatos();
+
+      expect(await db.watchDeduccionesPersonales(2026).first, isEmpty);
+    });
+  });
 }

@@ -22,3 +22,8 @@ String monthLabel(int mes, int anio) => '${monthNamesEs[mes - 1]} $anio';
 /// "4. Espejo SAT": "fecha límite estimada").
 String fechaLargaEs(DateTime fecha) =>
     '${fecha.day} de ${monthNamesEs[fecha.month - 1].toLowerCase()} de ${fecha.year}';
+
+/// Fecha corta en español, ej. "18 ago 2026" (Configuración, tarjeta de
+/// plazo límite de pago: espacio reducido, tipografía mono grande).
+String fechaCortaEs(DateTime fecha) =>
+    '${fecha.day} ${monthNamesEs[fecha.month - 1].substring(0, 3).toLowerCase()} ${fecha.year}';
