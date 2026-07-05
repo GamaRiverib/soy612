@@ -1,0 +1,16 @@
+{
+  "anio": 2021,
+  "renglones": [
+    { "limiteInferior": 0.01, "limiteSuperior": 644.58, "cuotaFija": 0, "tasa": 1.92 },
+    { "limiteInferior": 644.59, "limiteSuperior": 5470.92, "cuotaFija": 12.38, "tasa": 6.4 },
+    { "limiteInferior": 5470.93, "limiteSuperior": 9614.66, "cuotaFija": 321.26, "tasa": 10.88 },
+    { "limiteInferior": 9614.67, "limiteSuperior": 11176.62, "cuotaFija": 772.1, "tasa": 16 },
+    { "limiteInferior": 11176.63, "limiteSuperior": 13381.47, "cuotaFija": 1022.01, "tasa": 17.92 },
+    { "limiteInferior": 13381.48, "limiteSuperior": 26988.5, "cuotaFija": 1417.12, "tasa": 21.36 },
+    { "limiteInferior": 26988.51, "limiteSuperior": 42537.58, "cuotaFija": 4323.58, "tasa": 23.52 },
+    { "limiteInferior": 42537.59, "limiteSuperior": 81211.25, "cuotaFija": 7980.73, "tasa": 30 },
+    { "limiteInferior": 81211.26, "limiteSuperior": 108281.67, "cuotaFija": 19582.83, "tasa": 32 },
+    { "limiteInferior": 108281.68, "limiteSuperior": 324845.01, "cuotaFija": 28245.36, "tasa": 34 },
+    { "limiteInferior": 324845.02, "limiteSuperior": null, "cuotaFija": 101876.9, "tasa": 35 }
+  ]
+}
