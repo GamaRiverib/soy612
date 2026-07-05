@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "landing-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "48371", "--directory", "public"],
+      "port": 48371
+    }
+  ]
+}

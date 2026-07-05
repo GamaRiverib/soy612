@@ -1,0 +1,7 @@
+# Firebase CLI local cache (hosting deploy hashes, emulator data)
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Node (safety net; soy612_cloud/ has its own .gitignore too)
+node_modules/

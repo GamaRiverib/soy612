@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte - soy612</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Centro de soporte de soy612: cómo contactarnos, preguntas frecuentes sobre planes, privacidad, cancelaciones y el simulador fiscal del Régimen 612.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://soy612.click/soporte">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soy612.click/soporte">
+    <meta property="og:title" content="Soporte - soy612">
+    <meta property="og:description" content="Centro de soporte de soy612: cómo contactarnos y preguntas frecuentes.">
+    <meta property="og:image" content="https://soy612.click/og-image.png">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#080C16', surface: '#0F1626', electric: '#0052FF', cyan: '#00D2FF',
+                            silver: '#94A3B8', ice: '#F1F5F9', darkGray: '#1E293B', red: '#FF3B30', orange: '#FF9500'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 25px rgba(0, 82, 255, 0.25)',
+                        'glow-cyan': '0 0 25px rgba(0, 210, 255, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #080C16; color: #F1F5F9; }
+        .text-gradient-cyan { background: linear-gradient(135deg, #0052FF 0%, #00D2FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .chevron { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased selection:bg-brand-electric/30 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 z-50 w-full border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="relative flex h-10 w-10 items-center justify-center rounded-xl bg-brand-surface border border-brand-electric/20 overflow-hidden transition-all duration-300 group-hover:border-brand-cyan/40 shadow-glow-blue">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-electric/30 to-transparent"></div>
+                    <svg class="h-6 w-6 z-10 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8"/>
+                        <path d="M9 11h6"/>
+                    </svg>
+                </div>
+                <span class="font-sans text-xl font-extrabold tracking-tight">
+                    <span class="text-brand-silver">soy</span><span class="text-brand-cyan">612</span>
+                </span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-silver">
+                <a href="/#features" class="transition-colors hover:text-brand-ice">Características</a>
+                <a href="/#precios" class="transition-colors hover:text-brand-ice">Suscripción</a>
+                <a href="/privacidad" class="transition-colors hover:text-brand-ice">Privacidad</a>
+                <a href="/terminos" class="transition-colors hover:text-brand-ice">Términos</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/#precios" class="rounded-xl bg-brand-electric px-4 py-2 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-brand-electric/90 shadow-glow-blue">
+                    Descargar App
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <main class="mx-auto max-w-3xl px-6 pt-36 pb-24">
+        <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-3 py-1 text-xs font-semibold text-brand-cyan">
+            <i data-lucide="life-buoy" class="h-3.5 w-3.5"></i>
+            Centro de soporte
+        </div>
+        <h1 class="text-3xl font-extrabold tracking-tight text-brand-ice sm:text-4xl">¿En qué te podemos ayudar?</h1>
+        <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+            Este espacio concentra las dudas más comunes sobre soy612 y la forma de contactarnos directamente. Si eres profesionista independiente tributando bajo el Régimen 612, estamos para ayudarte a que tu bitácora fiscal sea simple, privada y sin sorpresas.
+        </p>
+
+        <!-- Contact channels -->
+        <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-brand-cyan/20 bg-brand-surface p-6">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </div>
+                <h3 class="mt-4 text-sm font-bold text-brand-ice">Soporte general</h3>
+                <p class="mt-1 text-xs text-brand-silver leading-relaxed">Dudas de uso, facturación, o problemas técnicos con la app.</p>
+                <a href="mailto:soporte@soy612.click" class="mt-3 inline-block text-sm font-semibold text-brand-cyan hover:underline">soporte@soy612.click</a>
+                <p class="mt-2 text-[11px] text-brand-silver/60">Tiempo de respuesta habitual: 1 a 2 días hábiles.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-brand-surface p-6">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-electric/10 text-brand-cyan border border-white/10">
+                    <i data-lucide="shield-check" class="h-5 w-5"></i>
+                </div>
+                <h3 class="mt-4 text-sm font-bold text-brand-ice">Privacidad y datos (ARCO)</h3>
+                <p class="mt-1 text-xs text-brand-silver leading-relaxed">Solicitudes de acceso, rectificación, cancelación u oposición sobre tus datos.</p>
+                <a href="mailto:privacidad@soy612.click" class="mt-3 inline-block text-sm font-semibold text-brand-cyan hover:underline">privacidad@soy612.click</a>
+                <p class="mt-2 text-[11px] text-brand-silver/60">Respuesta dentro de 20 días hábiles (LFPDPPP).</p>
+            </div>
+        </div>
+
+        <!-- Before writing tips -->
+        <div class="mt-8 rounded-xl bg-brand-surface/40 border border-white/5 p-4">
+            <p class="text-xs leading-relaxed text-brand-silver">
+                <strong class="text-brand-ice">Antes de escribirnos:</strong> revisa las preguntas frecuentes abajo — cubren la mayoría de los casos de cancelación, privacidad y funcionamiento del simulador. Si nos escribes por un problema técnico, incluye tu versión de sistema operativo y, si puedes, una captura de pantalla; nos ayuda a resolverlo más rápido.
+            </p>
+        </div>
+
+        <!-- FAQ -->
+        <h2 class="mt-14 text-2xl font-bold text-brand-ice">Preguntas frecuentes</h2>
+        <div class="mt-6 space-y-3">
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿soy612 es una aplicación oficial del SAT?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    No. soy612 no tiene ninguna afiliación, convenio o autorización oficial con el Servicio de Administración Tributaria (SAT) ni con la Secretaría de Hacienda y Crédito Público (SHCP). Es una herramienta independiente de apoyo y simulación que te ayuda a organizar y proyectar tus cálculos antes de presentarlos tú mismo (o tu contador) en el portal oficial del SAT.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿Cuál es la diferencia entre soy612 Estándar y soy612 Pro?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    soy612 Estándar es gratuito y funciona 100% en tu dispositivo: importas tus XMLs manualmente y todo el cálculo ocurre localmente. soy612 Pro agrega automatización opcional en la nube: un buzón de correo para recibir facturas automáticamente, respaldo cifrado de extremo a extremo para sincronizar entre dispositivos, y monitoreo de proveedores listados en el Artículo 69-B del CFF (EFOS). Consulta el detalle completo en <a href="/#precios" class="text-brand-cyan hover:underline">Planes y precios</a>.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿Cómo cancelo mi suscripción a soy612 Pro?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    Si contrataste desde la app móvil, cancela directamente desde la configuración de suscripciones de tu App Store (iOS) o Google Play (Android) — nosotros no podemos cancelarla por ti desde ahí por política de las tiendas. Si contrataste desde la web (Stripe), escríbenos a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a> y la cancelamos de inmediato. En ambos casos conservas el acceso Pro hasta el final del periodo ya pagado. Más detalles en nuestros <a href="/terminos" class="text-brand-cyan hover:underline">Términos y Condiciones</a>.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿Puedo pedir un reembolso?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    Si tu compra fue a través de una tienda de aplicaciones, el reembolso se solicita directamente con Apple o Google conforme a sus políticas. Si fue vía Stripe en la web, escríbenos dentro de los 14 días naturales posteriores al cobro a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a> y evaluamos tu caso.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿soy612 puede ver mis facturas o mi información fiscal?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    No. En soy612 Estándar tus datos nunca salen de tu dispositivo. En soy612 Pro, los respaldos que se sincronizan a la nube se cifran de extremo a extremo con una llave que solo tú posees (derivada de tu frase de recuperación de 12 palabras) — nunca la recibimos, así que no podemos leer tu información aunque quisiéramos. Más detalle en nuestro <a href="/privacidad" class="text-brand-cyan hover:underline">Aviso de Privacidad</a>.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">Perdí mi frase de recuperación de 12 palabras, ¿qué hago?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    Por diseño Zero-Knowledge, nosotros no tenemos copia de tu llave de cifrado ni de tu frase de recuperación — es la única forma de descifrar tu respaldo en la nube, y no existe un mecanismo de "recuperar contraseña" que la reconstruya. Si la pierdes, tu respaldo en la nube quedará inaccesible, pero tus datos locales en el dispositivo donde los capturaste originalmente permanecen intactos. Te recomendamos guardar esa frase impresa o en un gestor de contraseñas confiable en cuanto la generes.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿soy612 sustituye a mi contador?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    No, y no es su propósito. soy612 es una herramienta de organización, simulación y preparación visual de tus datos fiscales. La presentación legal de tus declaraciones y el cumplimiento de tus obligaciones tributarias siguen siendo tu responsabilidad (o la de tu contador). El "Botón del Contador" de soy612 está pensado precisamente para facilitar esa colaboración, exportando un paquete organizado de tus comprobantes y cálculos para tu contador.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿Necesito darle mi CIEC o e.firma a soy612?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    Nunca. soy612 no solicita, ni almacena, ni transmite tu contraseña CIEC ni tus archivos de e.firma (.key/.cer) en ningún momento. Tú importas tus comprobantes (XMLs) directamente o, si eres Pro, los recibes en tu buzón automatizado — pero el acceso al portal del SAT y el envío final de tus declaraciones siempre lo haces tú, directamente en el sitio oficial del SAT.
+                </p>
+            </details>
+
+            <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="text-sm font-semibold text-brand-ice">¿En qué dispositivos funciona soy612?</span>
+                    <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    soy612 está disponible como aplicación móvil para Android e iOS. La sincronización cifrada de soy612 Pro te permite continuar tu bitácora entre varios dispositivos usando tu frase de recuperación de 12 palabras.
+                </p>
+            </details>
+        </div>
+
+        <!-- Related links -->
+        <div class="mt-14 flex flex-wrap gap-4 text-sm">
+            <a href="/privacidad" class="flex items-center gap-2 rounded-xl border border-white/10 bg-brand-surface px-4 py-2.5 font-semibold text-brand-ice hover:bg-white/5 transition-colors">
+                <i data-lucide="shield-check" class="h-4 w-4 text-brand-cyan"></i> Aviso de Privacidad
+            </a>
+            <a href="/terminos" class="flex items-center gap-2 rounded-xl border border-white/10 bg-brand-surface px-4 py-2.5 font-semibold text-brand-ice hover:bg-white/5 transition-colors">
+                <i data-lucide="file-text" class="h-4 w-4 text-brand-cyan"></i> Términos y Condiciones
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-brand-bg py-16 text-xs text-brand-silver">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-surface border border-brand-electric/20 text-brand-cyan font-mono font-bold shadow-glow-cyan">612</div>
+                        <span class="font-sans text-base font-extrabold tracking-tight text-brand-ice">soy612</span>
+                    </div>
+                    <p class="leading-relaxed">El escudo de tranquilidad fiscal del profesionista independiente bajo el régimen 612. Hecho en México.</p>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Navegación</span>
+                    <ul class="space-y-2">
+                        <li><a href="/#features" class="hover:text-brand-ice transition-colors">Características</a></li>
+                        <li><a href="/#simulador" class="hover:text-brand-ice transition-colors">Simulador</a></li>
+                        <li><a href="/#vencimientos" class="hover:text-brand-ice transition-colors">Vencimientos</a></li>
+                        <li><a href="/#precios" class="hover:text-brand-ice transition-colors">Planes & Costos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Leyes Fiscales</span>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Régimen 612 SAT</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Artículo 151 LISR</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Artículo 69-B CFF</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Guías de llenado CFDI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Contacto & Ley</span>
+                    <ul class="space-y-2">
+                        <li><a href="/privacidad" class="hover:text-brand-ice transition-colors">Aviso de Privacidad (LFPDPPP)</a></li>
+                        <li><a href="/terminos" class="hover:text-brand-ice transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="/soporte" class="hover:text-brand-ice transition-colors">Soporte Técnico</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/5">
+                <div class="rounded-xl bg-brand-surface/40 p-4 border border-white/5 text-brand-silver leading-relaxed text-[11px]">
+                    <span class="font-bold text-brand-ice block mb-1">Declaración de Exención de Responsabilidad Legal (SAT Disclaimer)</span>
+                    Esta aplicación constituye únicamente una bitácora contable de uso privado y un simulador interactivo diseñado para facilitar la preparación visual de los datos fiscales. La herramienta carece de conexión, API o autorización formal por parte del Servicio de Administración Tributaria (SAT) o la Secretaría de Hacienda y Crédito Público. El cálculo de los impuestos simulados se realiza de forma indicativa basada en la interpretación de las guías de llenado del SAT. La presentación legal de las declaraciones y el cumplimiento de las obligaciones tributarias recaen bajo la estricta responsabilidad personal del contribuyente, quien deberá ingresar, validar y transmitir manualmente sus datos directamente en el sitio web oficial del SAT para la obtención del acuse de recibo y la línea de captura válidos.
+                </div>
+                <p class="text-center mt-8 text-brand-silver/30">&copy; <span id="footer-year">2026</span> soy612. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+            document.getElementById('footer-year').innerText = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

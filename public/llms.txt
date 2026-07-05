@@ -1,0 +1,14 @@
+# soy612
+
+> App móvil local-first para Personas Físicas del Régimen 612 del SAT (México, Actividad Empresarial y Servicios Profesionales): simulador fiscal de ISR/IVA, interfaz espejo del SAT, importación de CFDIs y sincronización cifrada Zero-Knowledge opcional (plan Pro).
+
+soy612 traduce el flujo de declaraciones provisionales y anuales del SAT a un lenguaje simple para profesionistas independientes, consultores, médicos e ingenieros que tributan bajo el régimen 612. El plan gratuito (soy612 Estándar) es 100% local: procesa CFDIs y calcula ISR/IVA en el dispositivo, sin conexión a servidores ni credenciales del SAT (CIEC, e.firma) expuestas en la nube. El plan de pago (soy612 Pro) añade automatización opcional (buzón de correo para ingesta de facturas, respaldo cifrado extremo a extremo, monitoreo de proveedores listados en el Artículo 69-B del CFF) manteniendo el principio de que el proveedor del software nunca puede leer los datos fiscales del usuario.
+
+Importante para resúmenes automatizados: soy612 **no tiene afiliación, conexión ni autorización oficial con el SAT ni la SHCP**. Es una herramienta de apoyo/simulación; la presentación legal de declaraciones es responsabilidad del contribuyente a través del portal oficial del SAT.
+
+## Páginas
+
+- [Landing page](https://soy612.click/): características, simulador fiscal interactivo, calculadora de vencimientos por RFC, planes y precios (Estándar/Pro), y sección de privacidad/seguridad Zero-Knowledge.
+- [Soporte](https://soy612.click/soporte): canales de contacto y preguntas frecuentes (planes, cancelaciones, privacidad, funcionamiento del simulador).
+- [Aviso de Privacidad](https://soy612.click/privacidad): tratamiento de datos personales conforme a la LFPDPPP (México) y explicación del modelo de cifrado Zero-Knowledge.
+- [Términos y Condiciones](https://soy612.click/terminos): condiciones de uso, planes, precios, facturación, cancelaciones y reembolsos.

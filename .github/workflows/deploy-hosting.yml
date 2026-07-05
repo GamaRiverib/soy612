@@ -1,0 +1,35 @@
+name: Deploy soy612 landing (Firebase Hosting)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "public/**"
+      - "firebase.json"
+      - ".firebaserc"
+      - "firestore.rules"
+      - ".github/workflows/deploy-hosting.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write # requerido por Workload Identity Federation
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/529209009213/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: gh-deployer@soy612.iam.gserviceaccount.com
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Deploy Firebase Hosting + Firestore rules
+        run: npx firebase-tools deploy --only hosting,firestore:rules --project soy612 --non-interactive

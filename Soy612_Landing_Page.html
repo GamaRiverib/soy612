@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soy612 - Tu escudo de tranquilidad fiscal</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- SEO -->
+    <meta name="description" content="soy612 es la app local-first para Personas Físicas del Régimen 612 del SAT (México). Simulador fiscal ISR/IVA, interfaz espejo del SAT, importación de CFDIs y privacidad Zero-Knowledge. Sin contraseñas del SAT, sin e.firma en la nube.">
+    <meta name="keywords" content="régimen 612, SAT, ISR, IVA, CFDI, personas físicas actividad empresarial, declaración provisional, facturación electrónica México, contabilidad freelance">
+    <meta name="author" content="soy612">
+    <link rel="canonical" href="https://soy612.click/">
+
+    <!-- Open Graph / Facebook, LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soy612.click/">
+    <meta property="og:title" content="soy612 - Tu escudo de tranquilidad fiscal">
+    <meta property="og:description" content="La app local-first para el Régimen 612 del SAT: simulador fiscal, interfaz espejo del SAT y privacidad Zero-Knowledge. Sin contraseñas del SAT en la nube.">
+    <meta property="og:image" content="https://soy612.click/og-image.png">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://soy612.click/">
+    <meta name="twitter:title" content="soy612 - Tu escudo de tranquilidad fiscal">
+    <meta name="twitter:description" content="La app local-first para el Régimen 612 del SAT: simulador fiscal, interfaz espejo del SAT y privacidad Zero-Knowledge.">
+    <meta name="twitter:image" content="https://soy612.click/og-image.png">
+
+    <!-- Datos estructurados para buscadores -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "soy612",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Android, iOS",
+        "description": "App local-first para Personas Físicas del Régimen 612 del SAT en México: simulador fiscal, interfaz espejo del SAT, importación de CFDIs y privacidad Zero-Knowledge.",
+        "offers": [
+            { "@type": "Offer", "name": "soy612 Estándar", "price": "0", "priceCurrency": "MXN" },
+            { "@type": "Offer", "name": "soy612 Pro", "price": "149", "priceCurrency": "MXN" }
+        ]
+    }
+    </script>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Geist/Inter equivalent typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for clean tech illustration -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#080C16',        // Fondo Azul Espacial Profundo
+                            surface: '#0F1626',   // Fondo de tarjetas y paneles oscuros
+                            electric: '#0052FF',  // Azul Cobalto Eléctrico (Principal)
+                            cyan: '#00D2FF',      // Cian Digital (Acento neón)
+                            silver: '#94A3B8',    // Plata Metalizado para textos secundarios
+                            ice: '#F1F5F9',       // Blanco hielo para textos primarios
+                            darkGray: '#1E293B',
+                            red: '#FF3B30',       // Alertas y errores
+                            orange: '#FF9500'     // Advertencias normativas
+                        }
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 25px rgba(0, 82, 255, 0.25)',
+                        'glow-cyan': '0 0 25px rgba(0, 210, 255, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080C16;
+            color: #F1F5F9;
+        }
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #0052FF 0%, #00D2FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-silver {
+            background: linear-gradient(135deg, #F1F5F9 0%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-glowing-blue {
+            border: 1px solid rgba(0, 82, 255, 0.25);
+            box-shadow: 0 0 15px rgba(0, 82, 255, 0.08);
+        }
+        .border-glowing-cyan {
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased selection:bg-brand-electric/30 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 z-50 w-full border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <!-- Brand Logotipo / Isotipo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative flex h-10 w-10 items-center justify-center rounded-xl bg-brand-surface border border-brand-electric/20 overflow-hidden transition-all duration-300 group-hover:border-brand-cyan/40 shadow-glow-blue">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-electric/30 to-transparent"></div>
+                    <!-- Isotipo SVG Geométrico en Digital Electric Blue -->
+                    <svg class="h-6 w-6 z-10 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8"/>
+                        <path d="M9 11h6"/>
+                    </svg>
+                </div>
+                <!-- Logotipo: "soy" en Plata Metalizado, "612" en Azul Eléctrico -->
+                <span class="font-sans text-xl font-extrabold tracking-tight">
+                    <span class="text-brand-silver">soy</span><span class="text-brand-cyan">612</span>
+                </span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-silver">
+                <a href="#features" class="transition-colors hover:text-brand-ice">Características</a>
+                <a href="#simulador" class="transition-colors hover:text-brand-ice">Simulador Fiscal</a>
+                <a href="#vencimientos" class="transition-colors hover:text-brand-ice">Vencimientos</a>
+                <a href="#precios" class="transition-colors hover:text-brand-ice">Suscripción</a>
+                <a href="#privacidad" class="transition-colors hover:text-brand-ice">Privacidad</a>
+            </nav>
+
+            <!-- CTA -->
+            <div class="flex items-center gap-4">
+                <a href="#simulador" class="hidden sm:inline-block text-xs font-semibold text-brand-cyan hover:underline">
+                    Probar Demo
+                </a>
+                <a href="#precios" class="rounded-xl bg-brand-electric px-4 py-2 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-brand-electric/90 shadow-glow-blue">
+                    Descargar App
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 overflow-hidden">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-brand-electric/10 blur-[130px]"></div>
+        <div class="absolute top-1/3 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-brand-cyan/10 blur-[110px]"></div>
+
+        <div class="mx-auto max-w-7xl px-6 text-center">
+            <!-- Eslogan de marca como Tag Primario -->
+            <div class="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-bold text-brand-cyan tracking-wide shadow-glow-cyan">
+                <i data-lucide="shield" class="h-3.5 w-3.5"></i>
+                Tu escudo de tranquilidad fiscal
+            </div>
+
+            <!-- Title -->
+            <h1 class="mx-auto max-w-4xl text-4xl font-extrabold tracking-tight text-brand-ice sm:text-6xl sm:leading-[1.15]">
+                Tus impuestos bajo tu control.<br><span class="text-gradient-cyan">100% privado y local.</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="mx-auto mt-6 max-w-2xl text-base text-brand-silver sm:text-lg">
+                Olvídate de compartir tus contraseñas CIEC o archivos de e.firma. Una bitácora privada y un simulador interactivo <span class="text-brand-cyan font-semibold">Local-First</span> que procesa tus XMLs localmente y te ofrece una interfaz espejo idéntica al SAT.
+            </p>
+
+            <!-- CTAs -->
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#precios" class="flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-electric to-brand-cyan px-6 py-3.5 font-bold text-brand-bg transition-all hover:scale-105 shadow-glow-cyan">
+                    <i data-lucide="download" class="h-4 w-4"></i>
+                    Descargar soy612 Gratis
+                </a>
+                <a href="#simulador" class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 font-semibold text-brand-ice transition-colors hover:bg-white/10">
+                    Probar simulador interactivo
+                    <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+            </div>
+
+            <!-- Standalone App Mockup Preview -->
+            <div class="relative mx-auto mt-16 max-w-5xl rounded-2xl border border-white/10 bg-brand-surface p-3 shadow-2xl">
+                <!-- Mac style browser header -->
+                <div class="mb-3 flex items-center justify-between border-b border-white/5 pb-3">
+                    <div class="flex items-center gap-1.5">
+                        <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+                        <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+                        <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+                    </div>
+                    <div class="flex items-center gap-2 rounded-lg bg-brand-bg px-4 py-1 text-xs font-mono text-brand-silver">
+                        <i data-lucide="lock" class="h-3 w-3 text-brand-cyan"></i>
+                        soy612://localhost/dashboard
+                    </div>
+                    <div class="w-12"></div>
+                </div>
+
+                <!-- App Mockup Content Grid (Digital Electric Blue Theme) -->
+                <div class="grid grid-cols-1 gap-4 rounded-xl bg-brand-bg p-4 text-left md:grid-cols-3">
+                    <!-- Left Sidebar (App style) -->
+                    <div class="space-y-2 rounded-lg bg-brand-surface p-4 border border-white/5">
+                        <div class="flex items-center gap-2 px-2 pb-4 border-b border-white/5">
+                            <span class="font-mono font-bold text-xs tracking-wide text-brand-cyan uppercase">soy612 engine v3.0</span>
+                        </div>
+                        <div class="space-y-1 pt-2">
+                            <a href="#simulador" class="flex items-center gap-2.5 rounded-lg bg-brand-bg px-3 py-2 text-xs font-semibold text-brand-cyan border border-brand-cyan/20">
+                                <i data-lucide="layout-dashboard" class="h-4 w-4"></i> Tablero General
+                            </a>
+                            <div class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-brand-silver hover:bg-white/5 cursor-pointer">
+                                <span class="flex items-center gap-2.5">
+                                    <i data-lucide="file-text" class="h-4 w-4"></i> Facturas (Ingresos)
+                                </span>
+                                <span class="rounded bg-brand-cyan/10 px-1 text-[10px] font-mono text-brand-cyan">PUE</span>
+                            </div>
+                            <div class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-brand-silver hover:bg-white/5 cursor-pointer">
+                                <span class="flex items-center gap-2.5">
+                                    <i data-lucide="shopping-bag" class="h-4 w-4"></i> Gastos (Deducciones)
+                                </span>
+                                <span class="rounded bg-brand-orange/10 px-1 text-[10px] font-mono text-brand-orange">Deducible</span>
+                            </div>
+                            <div class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-brand-silver hover:bg-white/5 cursor-pointer">
+                                <span class="flex items-center gap-2.5">
+                                    <i data-lucide="landmark" class="h-4 w-4"></i> Espejo SAT
+                                </span>
+                                <span class="rounded bg-brand-electric/10 px-1 text-[10px] font-mono text-brand-cyan">Formulario</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center & Right App View combined (Simulating the Dashboard) -->
+                    <div class="col-span-1 space-y-4 md:col-span-2">
+                        <!-- Upper stats -->
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                            <div class="rounded-lg bg-brand-surface p-4 border border-white/5">
+                                <span class="text-xs text-brand-silver/70">Ingresos Cobrados (Flujo Efectivo)</span>
+                                <div class="mt-1 font-mono text-2xl font-bold text-brand-cyan">$54,200.00</div>
+                                <span class="text-[10px] text-brand-silver/40">Basado en 8 CFDIs PUE cobrados</span>
+                            </div>
+                            <div class="rounded-lg bg-brand-surface p-4 border border-white/5">
+                                <span class="text-xs text-brand-silver/70">Gastos Autorizados Deducibles</span>
+                                <div class="mt-1 font-mono text-2xl font-bold text-brand-ice">$18,400.00</div>
+                                <span class="text-[10px] text-brand-cyan/70">100% bancarizados y válidos</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Screen visualization -->
+                        <div class="rounded-lg bg-brand-surface p-4 border border-brand-electric/20 shadow-glow-blue">
+                            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="h-2 w-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-brand-ice">Espejo Mensual Provisionales</span>
+                                </div>
+                                <span class="rounded bg-brand-electric/20 px-2 py-0.5 text-[10px] font-mono font-bold text-brand-cyan">RÉGIMEN 612</span>
+                            </div>
+
+                            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-brand-silver">Utilidad del Periodo</span>
+                                        <span class="font-mono text-brand-ice">$35,800.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-brand-silver">ISR Causado (Tabla Art. 96)</span>
+                                        <span class="font-mono text-brand-orange">$3,840.12</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-brand-silver">Retenciones (PM)</span>
+                                        <span class="font-mono text-brand-cyan">-$1,200.00</span>
+                                    </div>
+                                    <div class="flex justify-between border-t border-white/5 pt-2 text-xs font-bold">
+                                        <span class="text-brand-ice">Pago Provisional Estimado</span>
+                                        <span class="font-mono text-brand-cyan">$2,640.12</span>
+                                    </div>
+                                </div>
+
+                                <div class="rounded-lg bg-brand-bg p-3 border border-white/5 flex flex-col justify-between">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <span class="text-[10px] text-brand-silver/50 block font-semibold">CÁLCULO DE VENCIMIENTO</span>
+                                            <span class="text-xs font-bold text-brand-orange mt-1 block" id="mockup-vencimiento-label">Vence el 20 de este mes</span>
+                                        </div>
+                                        <i data-lucide="calendar-clock" class="h-4 w-4 text-brand-orange"></i>
+                                    </div>
+                                    <p class="text-[10px] text-brand-silver/50 leading-relaxed mt-2">
+                                        Calculado para RFC con 6to dígito <strong class="text-brand-cyan">"5"</strong> (+3 días hábiles adicionales según decreto del SAT).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Philosophy Core Values -->
+    <section id="features" class="border-y border-white/5 bg-brand-surface/30 py-24">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-brand-ice sm:text-4xl">La filosofía detrás de soy612</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-brand-silver">
+                    Diseñada desde cero para profesionistas independientes y empresarios que valoran su privacidad financiera y quieren quitarse el estrés de las declaraciones mensuales.
+                </p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- Value 1 -->
+                <div class="rounded-2xl border border-white/5 bg-brand-surface p-8 relative overflow-hidden group hover:border-brand-electric/40 transition-all duration-300">
+                    <div class="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-brand-electric/5 blur-2xl group-hover:bg-brand-electric/10 transition-colors"></div>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-bg border border-white/10 text-brand-cyan shadow-glow-cyan">
+                        <i data-lucide="lock" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-bold text-brand-ice">Privacidad Absoluta (Local-First)</h3>
+                    <p class="mt-3 text-sm text-brand-silver leading-relaxed">
+                        Tus XMLs, facturas e historial financiero residen encriptados únicamente en tu dispositivo. Jamás te pediremos tus archivos .key, .cer de la e.firma ni claves del SAT en la nube.
+                    </p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="rounded-2xl border border-white/5 bg-brand-surface p-8 relative overflow-hidden group hover:border-brand-cyan/40 transition-all duration-300">
+                    <div class="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-brand-cyan/5 blur-2xl group-hover:bg-brand-cyan/10 transition-colors"></div>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-bg border border-white/10 text-brand-cyan">
+                        <i data-lucide="copy" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-bold text-brand-ice">Interfaz Espejo del SAT</h3>
+                    <p class="mt-3 text-sm text-brand-silver leading-relaxed">
+                        Nuestra pantalla de proyecciones copia exactamente el orden, las etiquetas y los renglones que te solicita el portal oficial del SAT. Copia y pega con un botón flotante y evita errores.
+                    </p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="rounded-2xl border border-white/5 bg-brand-surface p-8 relative overflow-hidden group hover:border-brand-electric/40 transition-all duration-300">
+                    <div class="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-brand-electric/5 blur-2xl group-hover:bg-brand-electric/10 transition-colors"></div>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-bg border border-white/10 text-brand-cyan">
+                        <i data-lucide="mail-check" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-bold text-brand-ice">Captura Automatizada</h3>
+                    <p class="mt-3 text-sm text-brand-silver leading-relaxed">
+                        Arrastra tus archivos XML directamente al aplicativo o, si eres Pro, envíalos a tu buzón automatizado cifrado <strong>tu_rfc@soy612.click</strong> para procesarlos al instante.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Simulator Sandbox -->
+    <section id="simulador" class="py-24">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
+                <!-- Sandbox Copy -->
+                <div class="lg:col-span-5 flex flex-col justify-center">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-1 text-xs font-semibold text-brand-cyan w-fit mb-4 shadow-glow-blue">
+                        <i data-lucide="terminal" class="h-3.5 w-3.5"></i>
+                        Prueba en tiempo real
+                    </div>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-ice sm:text-4xl">Experimenta la reactividad fiscal</h2>
+                    <p class="mt-4 text-brand-silver leading-relaxed">
+                        Entiende cómo funciona la lógica de deducibilidad en soy612. Modifica el ingreso mensual, activa o desactiva la deducibilidad de los gastos representados abajo con los switches y observa cómo se recalcula el impuesto de forma inmediata en el navegador.
+                    </p>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-electric/10 text-brand-cyan">
+                                <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                            </div>
+                            <p class="text-sm text-brand-silver/80">Toda la matemática ocurre a nivel de pixel en tu navegador (sin enviar datos al servidor).</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
+                                <i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i>
+                            </div>
+                            <p class="text-sm text-brand-silver/80">Advertencias de bancarización automáticas en compras mayores a $2,000 en efectivo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Interactive Simulator Widget (Digital Electric Blue Theme) -->
+                <div class="lg:col-span-7 rounded-2xl border border-brand-cyan/20 bg-brand-surface p-6 shadow-2xl relative">
+                    <div class="absolute -top-3 -right-3 rounded-full bg-brand-cyan px-3 py-1 text-[10px] font-bold text-brand-bg uppercase tracking-wider shadow-glow-cyan">
+                        Widget de Demostración
+                    </div>
+
+                    <h3 class="text-base font-bold text-brand-ice mb-6 flex items-center gap-2">
+                        <i data-lucide="cpu" class="h-4 w-4 text-brand-cyan"></i>
+                        Simulador de Flujo Mensual (Régimen 612)
+                    </h3>
+
+                    <!-- Inputs area -->
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-silver mb-1">Ingreso Percibido Mensual (Cobrado PUE):</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-2.5 font-mono text-sm text-brand-silver/40">$</span>
+                                <input type="number" id="input-ingreso" value="65000" class="w-full rounded-xl bg-brand-bg border border-white/10 py-2.5 pl-8 pr-4 font-mono text-sm text-brand-ice focus:outline-none focus:border-brand-cyan transition-colors" oninput="updateSimulation()">
+                            </div>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="simulateXmlImport()" class="w-full flex items-center justify-center gap-2 rounded-xl border border-brand-cyan/30 bg-brand-cyan/5 hover:bg-brand-cyan/10 text-brand-cyan py-2.5 text-xs font-bold transition-all shadow-glow-cyan">
+                                <i data-lucide="file-code" class="h-4 w-4"></i>
+                                Cargar XML CFDI 4.0 (Simulado)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox XML list -->
+                    <div class="space-y-3 mb-6">
+                        <span class="text-xs font-bold text-brand-silver/60 block uppercase">Gastos y Deducciones Registradas</span>
+                        
+                        <!-- Item 1 -->
+                        <div id="item-internet" class="rounded-xl bg-brand-bg border border-white/5 p-3 flex items-center justify-between transition-all duration-300">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-silver">
+                                    <i data-lucide="wifi" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-brand-ice block">Servicio de Internet & Cloud</span>
+                                    <span class="text-[10px] text-brand-silver/50 block">CFDI PUE - Factura #0294</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="font-mono text-xs text-brand-ice" id="val-internet">$1,800.00</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="chk-internet" class="sr-only peer" checked onchange="updateSimulation()">
+                                    <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-brand-silver after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-cyan"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div id="item-lentes" class="rounded-xl bg-brand-bg border border-white/5 p-3 flex items-center justify-between transition-all duration-300">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-silver">
+                                    <i data-lucide="glasses" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-brand-ice block">Lentes Ópticos (Deducción Personal)</span>
+                                    <span class="text-[10px] text-brand-orange block font-semibold">⚠️ Solo aplica para la Declaración Anual</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="font-mono text-xs text-brand-ice" id="val-lentes">$2,400.00</span>
+                                <span class="text-[10px] font-mono text-brand-silver/60 uppercase bg-white/5 px-2 py-1 rounded">Anual</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 (Bancarización Trigger) -->
+                        <div id="item-gasolina" class="rounded-xl bg-brand-bg border border-white/5 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all duration-300">
+                            <div class="flex items-start gap-3">
+                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-silver">
+                                    <i data-lucide="fuel" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-brand-ice block">Combustible para Logística</span>
+                                    <span class="text-[10px] text-brand-silver/50 block" id="lbl-gasolina-type">CFDI PUE - Pago: Transferencia Electrónica</span>
+                                    <!-- Warn label dynamically updated -->
+                                    <span id="warn-bancarizacion" class="hidden text-[10px] text-brand-red font-bold mt-1">⚠️ Gasto mayor a $2,000 en Efectivo: Rechazado por el SAT</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-white/5 pt-2 sm:pt-0">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] text-brand-silver/50">Pago:</span>
+                                    <select id="select-pago" class="bg-brand-surface border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-brand-ice focus:outline-none focus:border-brand-cyan" onchange="updateSimulation()">
+                                        <option value="03">Transferencia</option>
+                                        <option value="01">01 Efectivo</option>
+                                    </select>
+                                </div>
+                                <span class="font-mono text-xs text-brand-ice" id="val-gasolina">$3,200.00</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="chk-gasolina" class="sr-only peer" checked onchange="updateSimulation()">
+                                    <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-brand-silver after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-cyan"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Simulated imported item placeholder -->
+                        <div id="item-imported" class="hidden rounded-xl bg-brand-bg border border-brand-cyan/30 p-3 flex items-center justify-between transition-all duration-300 animate-pulse">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyan shadow-glow-cyan">
+                                    <i data-lucide="file-check" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-brand-cyan block">Papelería de Oficina (XML Parseado)</span>
+                                    <span class="text-[10px] text-brand-silver/50 block">CFDI 4.0 PUE - UUID: e3b0c442...</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="font-mono text-xs text-brand-cyan font-bold">$1,250.00</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="chk-imported" class="sr-only peer" checked onchange="updateSimulation()">
+                                    <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-brand-silver after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-cyan"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox Results -->
+                    <div class="bg-brand-bg rounded-xl p-4 border border-white/10">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-[10px] text-brand-silver/60 block font-semibold uppercase tracking-wider">Base Gravable (Simulada)</span>
+                                <span class="text-lg font-mono font-bold text-brand-ice" id="res-base-gravable">$60,000.00</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] text-brand-silver/60 block font-semibold uppercase tracking-wider">ISR Provisional Estimado</span>
+                                <span class="text-lg font-mono font-bold text-brand-cyan" id="res-isr">$4,231.00</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-white/5 flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[10px] text-brand-silver/60">IVA Definitivo a Cargo:</span>
+                                <span class="font-mono text-[10px] font-bold text-brand-ice" id="res-iva">$8,000.00</span>
+                            </div>
+                            <button onclick="simulateSatCopy()" class="flex items-center gap-1.5 rounded bg-brand-cyan/10 hover:bg-brand-cyan/20 px-2 py-1.5 text-[10px] font-bold text-brand-cyan transition-all border border-brand-cyan/20 shadow-glow-cyan">
+                                <i data-lucide="copy" class="h-3 w-3"></i>
+                                Copiar para Portal SAT (Copy-Paste)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Simulated Loading Overlay for Isolate parser -->
+                    <div id="isolate-loader" class="hidden absolute inset-0 bg-brand-bg/95 rounded-2xl flex flex-col items-center justify-center gap-4 z-10 transition-all">
+                        <div class="relative flex h-16 w-16 items-center justify-center">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan/20 opacity-75"></span>
+                            <div class="h-12 w-12 rounded-full border-4 border-t-brand-cyan border-white/10 animate-spin"></div>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-xs font-mono text-brand-cyan block font-bold">Invocando Isolate de Dart Asíncrono</span>
+                            <span class="text-[10px] text-brand-silver block mt-1">Descomprimiendo y parseando nodos XML de forma segura...</span>
+                        </div>
+                    </div>
+
+                    <!-- Simulated Copy Notification Toast -->
+                    <div id="copy-toast" class="hidden absolute bottom-4 left-4 right-4 bg-brand-cyan text-brand-bg px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-glow-cyan animate-bounce z-20">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="h-4 w-4"></i>
+                            Valores copiados al portapapeles listos para transcribir en el SAT.
+                        </span>
+                        <button onclick="hideCopyToast()" class="text-brand-bg/60 hover:text-brand-bg">✕</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive RFC Deadline Calculator -->
+    <section id="vencimientos" class="border-y border-white/5 bg-brand-surface/30 py-24 relative overflow-hidden">
+        <div class="absolute -left-1/4 bottom-0 -z-10 h-[500px] w-[500px] rounded-full bg-brand-electric/5 blur-[120px]"></div>
+
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mx-auto max-w-3xl text-center">
+                <div class="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange w-fit mb-4">
+                    <i data-lucide="calendar" class="h-3.5 w-3.5"></i>
+                    Vencimientos Inteligentes
+                </div>
+                <h2 class="text-3xl font-bold tracking-tight text-brand-ice sm:text-4xl">¿Cuándo te toca declarar ante el SAT?</h2>
+                <p class="mt-4 text-brand-silver">
+                    La fecha estándar es el día 17 de cada mes. Sin embargo, el SAT otorga entre <strong>1 y 5 días adicionales hábiles</strong> según el sexto dígito de tu RFC. ¡Haz el cálculo inteligente aquí mismo!
+                </p>
+
+                <!-- RFC Interactive widget (Digital Electric Blue Theme) -->
+                <div class="mx-auto mt-12 max-w-xl rounded-2xl border border-white/5 bg-brand-surface p-6 text-left shadow-xl">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-silver mb-1.5">Introduce tu RFC o simula uno (13 caracteres):</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 font-mono text-sm text-brand-silver/40">RFC:</span>
+                                <input type="text" id="rfc-calculator-input" placeholder="MELM8305281H0" value="MELM8305281H0" maxlength="13" class="w-full rounded-xl bg-brand-bg border border-white/10 py-3 pl-14 pr-4 font-mono text-sm text-brand-ice focus:outline-none focus:border-brand-cyan transition-colors uppercase" oninput="calculateRfcDeadline()">
+                            </div>
+                        </div>
+
+                        <!-- Calculated deadline alert representation -->
+                        <div class="rounded-xl bg-brand-bg border border-brand-cyan/20 p-4 relative overflow-hidden shadow-glow-blue">
+                            <div class="absolute right-4 top-4 text-brand-cyan/10">
+                                <i data-lucide="calendar" class="h-16 w-16"></i>
+                            </div>
+                            
+                            <span class="text-[10px] text-brand-silver/60 block uppercase tracking-wider font-semibold" id="rfc-section-label">Plazo Límite de Declaración</span>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="text-2xl font-mono font-bold text-brand-cyan" id="rfc-output-date">Calculando…</span>
+                            </div>
+                            <p class="text-xs text-brand-silver/80 mt-3 leading-relaxed" id="rfc-explanation">
+                                El sexto dígito de tu RFC es <strong class="text-brand-ice">"5"</strong>. Esto te otorga <strong class="text-brand-cyan">3 días hábiles adicionales</strong> de prórroga para presentar tus provisionales sin recargos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="py-24">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-brand-ice sm:text-4xl">Suscripción transparente y justa.</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-brand-silver">
+                    Comienza gratis y simplifica tu contabilidad local-first. Cuando estés listo para automatizar por completo tu captura sin perder privacidad, actualízate a Pro.
+                </p>
+            </div>
+
+            <!-- Toggle Yearly/Monthly (Placeholder design style) -->
+            <div class="mt-10 flex justify-center">
+                <div class="inline-flex rounded-full bg-brand-surface p-1 border border-white/5">
+                    <button class="rounded-full bg-brand-electric px-4 py-1.5 text-xs font-bold text-white transition-all">Suscripción Mensual</button>
+                    <button class="rounded-full px-4 py-1.5 text-xs font-semibold text-brand-silver transition-all hover:text-brand-ice">Anual (Ahorra 20%)</button>
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+                <!-- Free Plan -->
+                <div class="rounded-2xl border border-white/5 bg-brand-surface p-8 flex flex-col justify-between relative">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-silver/40 block">PLAN GRATUITO</span>
+                        <h3 class="text-2xl font-bold text-brand-ice mt-1">soy612 Estándar</h3>
+                        <p class="text-xs text-brand-silver/60 mt-2">La bitácora fiscal Local-First para llevar el control manual de tus CFDIs.</p>
+                        
+                        <div class="mt-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-mono font-extrabold text-brand-ice">$0</span>
+                            <span class="text-xs text-brand-silver/40 font-semibold uppercase font-mono">MXN / mes</span>
+                        </div>
+
+                        <!-- Feature list -->
+                        <ul class="mt-8 space-y-4 text-xs">
+                            <li class="flex items-center gap-3 text-brand-silver/80">
+                                <i data-lucide="check" class="h-4 w-4 text-brand-cyan"></i>
+                                Base de datos Isar Local cifrada en el dispositivo
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-silver/80">
+                                <i data-lucide="check" class="h-4 w-4 text-brand-cyan"></i>
+                                Importación manual de XMLs de forma local
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-silver/80">
+                                <i data-lucide="check" class="h-4 w-4 text-brand-cyan"></i>
+                                Interfaz Espejo SAT para llenado rápido
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-silver/80">
+                                <i data-lucide="check" class="h-4 w-4 text-brand-cyan"></i>
+                                Simulación de pagos acumulados provisionales
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" onclick="focusWaitlist('estandar')" class="w-full mt-8 rounded-xl bg-white/5 hover:bg-white/10 text-brand-ice border border-white/10 py-3 text-sm font-bold transition-all">
+                        Comenzar Gratis
+                    </button>
+                </div>
+
+                <!-- Pro Plan (glowing electric/cyan design) -->
+                <div class="rounded-2xl border border-brand-cyan/40 bg-brand-surface p-8 flex flex-col justify-between relative shadow-glow-blue">
+                    <div class="absolute -top-3.5 right-6 rounded-full bg-brand-cyan px-3 py-1 text-[10px] font-bold text-brand-bg uppercase tracking-wider shadow-glow-cyan">
+                        Más Elegido
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan block">MICRO-SAAS HÍBRIDO</span>
+                        <h3 class="text-2xl font-bold text-brand-ice mt-1">soy612 Pro</h3>
+                        <p class="text-xs text-brand-silver/60 mt-2">Automatización de flujos de correo, resguardo Zero-Knowledge y anti-EFOS.</p>
+                        
+                        <div class="mt-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-mono font-extrabold text-brand-cyan">$149</span>
+                            <span class="text-xs text-brand-cyan font-semibold uppercase font-mono">MXN / mes</span>
+                        </div>
+
+                        <!-- Feature list -->
+                        <ul class="mt-8 space-y-4 text-xs">
+                            <li class="flex items-center gap-3 text-brand-ice">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-brand-cyan shadow-glow-cyan"></i>
+                                <strong>Todo lo del plan Estándar</strong>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-ice">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-brand-cyan shadow-glow-cyan"></i>
+                                <strong>Sincronización Cloud Encriptada (E2EE)</strong>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-ice">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-brand-cyan shadow-glow-cyan"></i>
+                                <strong>Buzón Inteligente (Email-to-App)</strong>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-ice">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-brand-cyan shadow-glow-cyan"></i>
+                                <strong>Monitoreo Anti-EFOS en App (Art. 69-B)</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" onclick="focusWaitlist('pro')" class="w-full mt-8 rounded-xl bg-gradient-to-r from-brand-electric to-brand-cyan text-white py-3 text-sm font-bold transition-all hover:opacity-90 shadow-glow-cyan">
+                        Subir a soy612 Pro
+                    </button>
+                </div>
+            </div>
+
+            <!-- Waitlist / Lead capture -->
+            <div id="waitlist" class="mx-auto mt-16 max-w-xl rounded-2xl border border-brand-cyan/20 bg-brand-surface p-8 text-center shadow-xl scroll-mt-24">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 shadow-glow-cyan">
+                    <i data-lucide="bell" class="h-6 w-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-ice">Sé de los primeros en usar soy612</h3>
+                <p class="mt-2 text-sm text-brand-silver">
+                    soy612 Pro (buzón automatizado, sincronización cifrada y monitoreo anti-EFOS) está en construcción. Déjanos tu correo y te avisamos en cuanto esté disponible para tu plan.
+                </p>
+
+                <form id="waitlist-form" onsubmit="submitWaitlist(event)" class="mt-6 space-y-3 text-left">
+                    <!-- Honeypot anti-spam: campo oculto que un humano nunca llena -->
+                    <div class="absolute -left-[9999px]" aria-hidden="true">
+                        <label for="waitlist-empresa">Empresa</label>
+                        <input type="text" id="waitlist-empresa" name="empresa" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="flex justify-center gap-2" role="radiogroup" aria-label="Plan de interés">
+                        <button type="button" id="waitlist-plan-estandar" onclick="setWaitlistPlan('estandar')" class="rounded-full border border-white/10 px-4 py-1.5 text-xs font-semibold text-brand-silver transition-all hover:text-brand-ice">
+                            soy612 Estándar
+                        </button>
+                        <button type="button" id="waitlist-plan-pro" onclick="setWaitlistPlan('pro')" class="rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-4 py-1.5 text-xs font-bold text-brand-cyan transition-all">
+                            soy612 Pro
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col gap-3 sm:flex-row">
+                        <input type="email" id="waitlist-email" required placeholder="tu@correo.com" class="w-full rounded-xl bg-brand-bg border border-white/10 py-3 px-4 text-sm text-brand-ice focus:outline-none focus:border-brand-cyan transition-colors" oninput="clearWaitlistMessage()">
+                        <button type="submit" id="waitlist-submit" class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-electric to-brand-cyan px-6 py-3 text-sm font-bold text-brand-bg transition-all hover:scale-105 shadow-glow-cyan whitespace-nowrap">
+                            <i data-lucide="send" class="h-4 w-4"></i>
+                            Avísame
+                        </button>
+                    </div>
+
+                    <p id="waitlist-message" class="text-xs text-center min-h-[1rem]"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy / Security Section -->
+    <section id="privacidad" class="border-t border-white/5 bg-brand-surface/20 py-24">
+        <div class="mx-auto max-w-5xl px-6">
+            <div class="rounded-2xl border border-brand-electric/10 bg-brand-surface p-8 sm:p-12 shadow-glow-blue">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 shadow-glow-cyan">
+                        <i data-lucide="shield-check" class="h-8 w-8"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-brand-ice">Seguridad de la información bajo modelo Zero-Knowledge</h3>
+                        <p class="mt-3 text-sm text-brand-silver leading-relaxed">
+                            En soy612 Pro, tus copias de seguridad se encriptan de extremo a extremo (AES-GCM-256) antes de subir al servidor. La llave criptográfica BIP39 se deriva localmente en tu smartphone o tablet y nunca es transmitida a nuestro servidor. Esto garantiza que ni nosotros, ni nadie más, puede visualizar tus registros contables si sufriéramos una intrusión. Tu información te pertenece exclusivamente a ti.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-brand-bg py-16 text-xs text-brand-silver">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-surface border border-brand-electric/20 text-brand-cyan font-mono font-bold shadow-glow-cyan">
+                            612
+                        </div>
+                        <span class="font-sans text-base font-extrabold tracking-tight text-brand-ice">soy612</span>
+                    </div>
+                    <p class="leading-relaxed">
+                        El escudo de tranquilidad fiscal del profesionista independiente bajo el régimen 612. Hecho en México.
+                    </p>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Navegación</span>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-brand-ice transition-colors">Características</a></li>
+                        <li><a href="#simulador" class="hover:text-brand-ice transition-colors">Simulador</a></li>
+                        <li><a href="#vencimientos" class="hover:text-brand-ice transition-colors">Vencimientos</a></li>
+                        <li><a href="#precios" class="hover:text-brand-ice transition-colors">Planes & Costos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Leyes Fiscales</span>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Régimen 612 SAT</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Artículo 151 LISR</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Artículo 69-B CFF</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Guías de llenado CFDI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Contacto & Ley</span>
+                    <ul class="space-y-2">
+                        <li><a href="/privacidad" class="hover:text-brand-ice transition-colors">Aviso de Privacidad (LFPDPPP)</a></li>
+                        <li><a href="/terminos" class="hover:text-brand-ice transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="/soporte" class="hover:text-brand-ice transition-colors">Soporte Técnico</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Exención de Responsabilidad Legal obligatoria -->
+            <div class="mt-16 pt-8 border-t border-white/5">
+                <div class="rounded-xl bg-brand-surface/40 p-4 border border-white/5 text-brand-silver leading-relaxed text-[11px]">
+                    <span class="font-bold text-brand-ice block mb-1">Declaración de Exención de Responsabilidad Legal (SAT Disclaimer)</span>
+                    Esta aplicación constituye únicamente una bitácora contable de uso privado y un simulador interactivo diseñado para facilitar la preparación visual de los datos fiscales. La herramienta carece de conexión, API o autorización formal por parte del Servicio de Administración Tributaria (SAT) o la Secretaría de Hacienda y Crédito Público. El cálculo de los impuestos simulados se realiza de forma indicativa basada en la interpretación de las guías de llenado del SAT. La presentación legal de las declaraciones y el cumplimiento de las obligaciones tributarias recaen bajo la estricta responsabilidad personal del contribuyente, quien deberá ingresar, validar y transmitir manualmente sus datos directamente en el sitio web oficial del SAT para la obtención del acuse de recibo y la línea de captura válidos.
+                </div>
+                <p class="text-center mt-8 text-brand-silver/30">
+                    &copy; <span id="footer-year">2026</span> soy612. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS logic -->
+    <script>
+        // Start Lucide Icons on DOM ready
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+            updateSimulation();
+            calculateRfcDeadline();
+            document.getElementById('footer-year').innerText = new Date().getFullYear();
+        });
+
+        // Interactive states
+        let xmlImported = false;
+
+        const MONTH_NAMES_ES = [
+            'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+            'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
+        ];
+
+        // El periodo declarable es siempre el mes anterior al actual (se declara
+        // en la primera quincena/17 del mes siguiente al que se generó el ingreso).
+        function periodoDeclarableLabel() {
+            const hoy = new Date();
+            const mesPeriodo = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 1);
+            const nombre = MONTH_NAMES_ES[mesPeriodo.getMonth()];
+            return `${nombre.charAt(0).toUpperCase()}${nombre.slice(1)} ${mesPeriodo.getFullYear()}`;
+        }
+
+        // El vencimiento de pago cae en el mes actual (mes siguiente al periodo
+        // declarado), así que se usa el mes/año de hoy para el texto del widget.
+        function mesVencimientoLabel() {
+            const hoy = new Date();
+            return `${MONTH_NAMES_ES[hoy.getMonth()]} de ${hoy.getFullYear()}`;
+        }
+
+        // Realistic simplified Mexican bracket calculation for provisional monthly ISR
+        function calculateMonthlyIsr(baseGravable) {
+            const brackets = [
+                { limit: 746.04, base: 0.01, pct: 1.92 },
+                { limit: 6332.05, base: 14.32, pct: 6.40 },
+                { limit: 11128.01, base: 371.83, pct: 10.88 },
+                { limit: 12935.82, base: 894.00, pct: 16.00 },
+                { limit: 15487.71, base: 1183.20, pct: 17.92 },
+                { limit: 31236.49, base: 1640.79, pct: 21.36 },
+                { limit: 49243.00, base: 5003.04, pct: 23.52 },
+                { limit: 94043.20, base: 9238.11, pct: 30.00 },
+                { limit: 125390.93, base: 22678.17, pct: 32.00 },
+                { limit: 376172.81, base: 32709.43, pct: 34.00 }
+            ];
+
+            let bracket = brackets[0];
+            for (let i = 0; i < brackets.length; i++) {
+                if (baseGravable <= brackets[i].limit) {
+                    bracket = brackets[i];
+                    break;
+                }
+                bracket = brackets[i];
+            }
+
+            const excedente = Math.max(0, baseGravable - (bracket.limit / 1.5));
+            const marginal = (excedente * (bracket.pct / 100));
+            const totalIsr = bracket.base + marginal;
+            return Math.max(0, totalIsr);
+        }
+
+        // Calculation pipeline
+        function updateSimulation() {
+            const inputIngreso = parseFloat(document.getElementById('input-ingreso').value) || 0;
+            const selectPago = document.getElementById('select-pago').value;
+            const chkInternet = document.getElementById('chk-internet').checked;
+            const chkGasolina = document.getElementById('chk-gasolina').checked;
+            const chkImported = document.getElementById('chk-imported').checked;
+
+            let totalDeducibleExpenses = 0;
+            
+            // Gasolina bancarización logic
+            const gasTotal = 3200.00;
+            const gasInputLabel = document.getElementById('lbl-gasolina-type');
+            const gasWarn = document.getElementById('warn-bancarizacion');
+            const gasolinaItem = document.getElementById('item-gasolina');
+
+            if (selectPago === '01') {
+                gasInputLabel.innerText = "CFDI PUE - Pago: Efectivo";
+                gasWarn.classList.remove('hidden');
+                gasolinaItem.className = "rounded-xl bg-brand-bg border border-brand-red p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all duration-300";
+            } else {
+                gasInputLabel.innerText = "CFDI PUE - Pago: Transferencia Electrónica";
+                gasWarn.classList.add('hidden');
+                gasolinaItem.className = "rounded-xl bg-brand-bg border border-white/5 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all duration-300";
+                
+                if (chkGasolina) {
+                    totalDeducibleExpenses += gasTotal;
+                }
+            }
+
+            // Internet switch
+            if (chkInternet) {
+                totalDeducibleExpenses += 1800.00;
+                document.getElementById('item-internet').classList.remove('opacity-55');
+            } else {
+                document.getElementById('item-internet').classList.add('opacity-55');
+            }
+
+            // Gasolina switch style mapping
+            if (!chkGasolina) {
+                document.getElementById('item-gasolina').classList.add('opacity-55');
+            } else {
+                document.getElementById('item-gasolina').classList.remove('opacity-55');
+            }
+
+            // Imported switch logic
+            if (xmlImported) {
+                if (chkImported) {
+                    totalDeducibleExpenses += 1250.00;
+                    document.getElementById('item-imported').classList.remove('opacity-55');
+                } else {
+                    document.getElementById('item-imported').classList.add('opacity-55');
+                }
+            }
+
+            // Calculation outputs
+            const baseGravable = Math.max(0, inputIngreso - totalDeducibleExpenses);
+            const isrResult = calculateMonthlyIsr(baseGravable);
+            const ivaResult = Math.max(0, (inputIngreso * 0.16) - (totalDeducibleExpenses * 0.16));
+
+            // Format monetary strings
+            document.getElementById('res-base-gravable').innerText = formatter.format(baseGravable);
+            document.getElementById('res-isr').innerText = formatter.format(isrResult);
+            document.getElementById('res-iva').innerText = formatter.format(ivaResult);
+        }
+
+        // Simulated isolate background parse
+        function simulateXmlImport() {
+            const loader = document.getElementById('isolate-loader');
+            const importedItem = document.getElementById('item-imported');
+
+            loader.classList.remove('hidden');
+
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                importedItem.classList.remove('hidden');
+                xmlImported = true;
+                updateSimulation();
+            }, 1800);
+        }
+
+        // SAT Copy paste mechanism emulating clipboard support
+        function simulateSatCopy() {
+            const isrVal = document.getElementById('res-isr').innerText;
+            const ivaVal = document.getElementById('res-iva').innerText;
+            const textToCopy = `Determinación de Impuestos soy612\nISR Provisional: ${isrVal}\nIVA Definitivo: ${ivaVal}`;
+            
+            const tempInput = document.createElement("textarea");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showCopyToast();
+        }
+
+        function showCopyToast() {
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        function hideCopyToast() {
+            document.getElementById('copy-toast').classList.add('hidden');
+        }
+
+        // ---- Waitlist (lead capture) ----
+        let waitlistPlan = 'pro';
+
+        const WAITLIST_PLAN_ACTIVE = 'rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-4 py-1.5 text-xs font-bold text-brand-cyan transition-all';
+        const WAITLIST_PLAN_INACTIVE = 'rounded-full border border-white/10 px-4 py-1.5 text-xs font-semibold text-brand-silver transition-all hover:text-brand-ice';
+
+        function setWaitlistPlan(plan) {
+            waitlistPlan = plan;
+            document.getElementById('waitlist-plan-estandar').className = plan === 'estandar' ? WAITLIST_PLAN_ACTIVE : WAITLIST_PLAN_INACTIVE;
+            document.getElementById('waitlist-plan-pro').className = plan === 'pro' ? WAITLIST_PLAN_ACTIVE : WAITLIST_PLAN_INACTIVE;
+        }
+
+        function focusWaitlist(plan) {
+            setWaitlistPlan(plan);
+            const section = document.getElementById('waitlist');
+            section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            document.getElementById('waitlist-email').focus();
+        }
+
+        function clearWaitlistMessage() {
+            const message = document.getElementById('waitlist-message');
+            message.innerText = '';
+            message.className = 'text-xs text-center min-h-[1rem]';
+        }
+
+        async function submitWaitlist(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('waitlist-email').value.trim();
+            const honeypot = document.getElementById('waitlist-empresa').value;
+            const message = document.getElementById('waitlist-message');
+            const submitBtn = document.getElementById('waitlist-submit');
+
+            // Los bots suelen rellenar todos los campos, incluido el honeypot oculto.
+            if (honeypot) {
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                message.innerText = 'Ingresa un correo válido.';
+                message.className = 'text-xs text-center min-h-[1rem] text-brand-red';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-60');
+            message.innerText = 'Enviando…';
+            message.className = 'text-xs text-center min-h-[1rem] text-brand-silver';
+
+            try {
+                const response = await fetch('/api/waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, plan: waitlistPlan }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`status ${response.status}`);
+                }
+
+                message.innerText = '¡Listo! Te avisaremos en cuanto esté disponible.';
+                message.className = 'text-xs text-center min-h-[1rem] text-brand-cyan font-semibold';
+                document.getElementById('waitlist-form').reset();
+                setWaitlistPlan(waitlistPlan);
+            } catch (err) {
+                message.innerText = 'No se pudo registrar tu correo. Intenta de nuevo en unos minutos.';
+                message.className = 'text-xs text-center min-h-[1rem] text-brand-red';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-60');
+            }
+        }
+
+        // Mexican bank holidays & weekend bypass validator for RFC customized schedules
+        function calculateRfcDeadline() {
+            const rfcInput = document.getElementById('rfc-calculator-input').value.trim().toUpperCase();
+            if (rfcInput.length < 13) {
+                return;
+            }
+
+            const sixthChar = rfcInput.substring(5, 6);
+            const sixthDigit = parseInt(sixthChar);
+
+            if (isNaN(sixthDigit)) {
+                document.getElementById('rfc-output-date').innerText = `Vence el 17 de ${mesVencimientoLabel()}`;
+                document.getElementById('rfc-explanation').innerHTML = "No se detectó un dígito numérico en la posición del RFC. Se aplica el plazo límite general de Ley (Día 17).";
+                document.getElementById('rfc-section-label').innerText = `Plazo Límite de Declaración (${periodoDeclarableLabel()})`;
+                return;
+            }
+
+            let extraDays = 0;
+            if (sixthDigit === 1 || sixthDigit === 2) extraDays = 1;
+            else if (sixthDigit === 3 || sixthDigit === 4) extraDays = 2;
+            else if (sixthDigit === 5 || sixthDigit === 6) extraDays = 3;
+            else if (sixthDigit === 7 || sixthDigit === 8) extraDays = 4;
+            else if (sixthDigit === 9 || sixthDigit === 0) extraDays = 5;
+
+            let deadlineDay = 17;
+            let explanation = "";
+
+            if (extraDays === 0) {
+                deadlineDay = 17;
+                explanation = `El sexto dígito de tu RFC es <strong class="text-brand-ice">"${sixthChar}"</strong>. Corresponde a la fecha general estándar de Ley sin prórrogas adicionales.`;
+            } else if (extraDays === 1) {
+                deadlineDay = 20;
+                explanation = `El sexto dígito de tu RFC es <strong class="text-brand-ice">"${sixthDigit}"</strong>. Esto te otorga <strong class="text-brand-cyan">1 día hábil adicional</strong>. Vence el lunes 20 tras omitir el fin de semana.`;
+            } else {
+                deadlineDay = 17 + extraDays;
+                if (extraDays >= 1) {
+                    deadlineDay = 17 + extraDays + 2;
+                }
+                explanation = `El sexto dígito de tu RFC es <strong class="text-brand-ice">"${sixthDigit}"</strong>. Esto te otorga <strong class="text-brand-cyan">${extraDays} días hábiles adicionales</strong> de prórroga calculados automáticamente por el algoritmo local de soy612.`;
+            }
+
+            document.getElementById('rfc-output-date').innerText = `Vence el ${deadlineDay} de ${mesVencimientoLabel()}`;
+            document.getElementById('rfc-explanation').innerHTML = explanation;
+            document.getElementById('rfc-section-label').innerText = `Plazo Límite de Declaración (${periodoDeclarableLabel()})`;
+            document.getElementById('mockup-vencimiento-label').innerText = `Vence el ${deadlineDay} de ${mesVencimientoLabel()}`;
+        }
+
+        const formatter = new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+            minimumFractionDigits: 2
+        });
+    </script>
+</body>
+</html>

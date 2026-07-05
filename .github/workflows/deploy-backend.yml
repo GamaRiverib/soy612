@@ -1,0 +1,60 @@
+name: Deploy soy612_cloud backend
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "soy612_cloud/**"
+      - ".github/workflows/deploy-backend.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write # requerido por Workload Identity Federation
+
+env:
+  PROJECT_ID: soy612
+  REGION: us-central1
+  SERVICE: soy612-cloud
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: soy612_cloud
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: soy612_cloud/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run test:e2e
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/529209009213/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: gh-deployer@soy612.iam.gserviceaccount.com
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy "$SERVICE" \
+            --source ./soy612_cloud \
+            --project "$PROJECT_ID" \
+            --region "$REGION" \
+            --allow-unauthenticated \
+            --env-vars-file ./soy612_cloud/env-vars.cloudrun.yaml \
+            --quiet

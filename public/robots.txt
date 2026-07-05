@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soy612.click/sitemap.xml

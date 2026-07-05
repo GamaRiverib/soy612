@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - soy612</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Términos y Condiciones de uso de soy612: planes, precios, facturación, cancelaciones, reembolsos y responsabilidades del servicio.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://soy612.click/terminos">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soy612.click/terminos">
+    <meta property="og:title" content="Términos y Condiciones - soy612">
+    <meta property="og:description" content="Términos y Condiciones de uso de soy612: planes, precios, facturación, cancelaciones, reembolsos y responsabilidades del servicio.">
+    <meta property="og:image" content="https://soy612.click/og-image.png">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#080C16', surface: '#0F1626', electric: '#0052FF', cyan: '#00D2FF',
+                            silver: '#94A3B8', ice: '#F1F5F9', darkGray: '#1E293B', red: '#FF3B30', orange: '#FF9500'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 25px rgba(0, 82, 255, 0.25)',
+                        'glow-cyan': '0 0 25px rgba(0, 210, 255, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #080C16; color: #F1F5F9; }
+        .text-gradient-cyan { background: linear-gradient(135deg, #0052FF 0%, #00D2FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased selection:bg-brand-electric/30 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 z-50 w-full border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="relative flex h-10 w-10 items-center justify-center rounded-xl bg-brand-surface border border-brand-electric/20 overflow-hidden transition-all duration-300 group-hover:border-brand-cyan/40 shadow-glow-blue">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-electric/30 to-transparent"></div>
+                    <svg class="h-6 w-6 z-10 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8"/>
+                        <path d="M9 11h6"/>
+                    </svg>
+                </div>
+                <span class="font-sans text-xl font-extrabold tracking-tight">
+                    <span class="text-brand-silver">soy</span><span class="text-brand-cyan">612</span>
+                </span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-silver">
+                <a href="/#features" class="transition-colors hover:text-brand-ice">Características</a>
+                <a href="/#precios" class="transition-colors hover:text-brand-ice">Suscripción</a>
+                <a href="/privacidad" class="transition-colors hover:text-brand-ice">Privacidad</a>
+                <a href="/soporte" class="transition-colors hover:text-brand-ice">Soporte</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="/#precios" class="rounded-xl bg-brand-electric px-4 py-2 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-brand-electric/90 shadow-glow-blue">
+                    Descargar App
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="mx-auto max-w-3xl px-6 pt-36 pb-24">
+        <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-1 text-xs font-semibold text-brand-cyan">
+            <i data-lucide="file-text" class="h-3.5 w-3.5"></i>
+            Documento legal
+        </div>
+        <h1 class="text-3xl font-extrabold tracking-tight text-brand-ice sm:text-4xl">Términos y Condiciones de Uso</h1>
+        <p class="mt-3 text-sm text-brand-silver">Última actualización: <span id="last-updated"></span> · Aplica a soy612 Estándar y soy612 Pro (web y apps móviles)</p>
+
+        <p class="mt-8 text-sm leading-relaxed text-brand-silver">
+            Bienvenido a <strong class="text-brand-ice">soy612</strong>. Estos Términos y Condiciones ("Términos") regulan el acceso y uso de la aplicación móvil, el sitio web <a href="https://soy612.click" class="text-brand-cyan hover:underline">soy612.click</a> y los servicios asociados (en conjunto, el "Servicio"), operados para contribuyentes del Régimen de Personas Físicas con Actividad Empresarial y Servicios Profesionales (Régimen 612) del Servicio de Administración Tributaria (SAT) en México. Al descargar, instalar, acceder a la lista de espera o utilizar el Servicio, aceptas estos Términos en su totalidad. Si no estás de acuerdo, no debes utilizar el Servicio.
+        </p>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">1. Descripción del Servicio</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                soy612 es una aplicación de apoyo contable y fiscal que ofrece dos niveles de servicio:
+            </p>
+            <ul class="mt-3 space-y-2 text-sm leading-relaxed text-brand-silver list-disc pl-5">
+                <li><strong class="text-brand-ice">soy612 Estándar (gratuito):</strong> procesamiento 100% local en el dispositivo del usuario. Incluye captura e importación manual de comprobantes fiscales digitales (CFDI), un simulador de ISR/IVA, una interfaz "espejo" del portal del SAT para facilitar el llenado de declaraciones, y cálculo de fechas límite de pago.</li>
+                <li><strong class="text-brand-ice">soy612 Pro (suscripción de pago):</strong> añade funciones opcionales de automatización asistidas por la nube: sincronización de respaldo cifrada de extremo a extremo (Zero-Knowledge), un buzón de correo para la ingesta automatizada de comprobantes, y un módulo de monitoreo de proveedores listados en el Artículo 69-B del Código Fiscal de la Federación (CFF).</li>
+            </ul>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">2. Naturaleza del Servicio y Exención de Responsabilidad</h2>
+            <div class="mt-3 rounded-xl bg-brand-surface/60 border border-white/10 p-4">
+                <p class="text-sm leading-relaxed text-brand-silver">
+                    <strong class="text-brand-ice">soy612 no es el Servicio de Administración Tributaria (SAT), ni la Secretaría de Hacienda y Crédito Público (SHCP), ni tiene vínculo, autorización, convenio o representación oficial con dichas entidades.</strong> soy612 constituye única y exclusivamente una bitácora contable de uso privado y un simulador interactivo diseñado para facilitar la preparación visual y organización de los datos fiscales del contribuyente. La herramienta carece de conexión, API o autorización formal por parte del SAT o la SHCP. El cálculo de los impuestos se realiza de forma indicativa, con base en la interpretación de las guías de llenado públicas del SAT vigentes al momento de su implementación.
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                    La presentación legal de las declaraciones, el cálculo definitivo de las contribuciones y el cumplimiento de las obligaciones tributarias del usuario recaen bajo su estricta responsabilidad personal (o la de su contador). El usuario debe ingresar, validar y transmitir manualmente sus datos directamente en el portal oficial del SAT para obtener acuses de recibo y líneas de captura válidas. soy612 no asume responsabilidad solidaria por discrepancias, recargos, multas u omisiones derivadas del uso del Servicio.
+                </p>
+            </div>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">3. Elegibilidad y Cuenta</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                El Servicio está dirigido a personas físicas mayores de edad, residentes fiscales en México, inscritas o en proceso de inscripción ante el SAT bajo el Régimen 612. soy612 Estándar no requiere creación de cuenta ni credenciales: los datos se almacenan localmente en el dispositivo. soy612 Pro requiere un identificador de dispositivo anónimo y, en su caso, una cuenta de la tienda de aplicaciones (Apple App Store / Google Play) o un correo electrónico para la gestión de la suscripción vía Stripe. El usuario es responsable de la veracidad de la información que captura y de resguardar el acceso a su dispositivo.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">4. Planes, Precios y Facturación</h2>
+            <ul class="mt-3 space-y-2 text-sm leading-relaxed text-brand-silver list-disc pl-5">
+                <li><strong class="text-brand-ice">soy612 Estándar</strong> es gratuito de forma indefinida y no requiere método de pago.</li>
+                <li><strong class="text-brand-ice">soy612 Pro</strong> se ofrece mediante suscripción recurrente (mensual o anual), con el precio vigente mostrado en el momento de la contratación en <a href="/#precios" class="text-brand-cyan hover:underline">soy612.click/#precios</a> o en la ficha de la tienda de aplicaciones correspondiente. Los precios están expresados en pesos mexicanos (MXN) e incluyen los impuestos aplicables salvo que se indique lo contrario.</li>
+                <li>El cobro de soy612 Pro se procesa, según el canal de contratación: (a) a través de <strong class="text-brand-ice">Stripe</strong>, si la suscripción se contrató desde el sitio web; o (b) a través de <strong class="text-brand-ice">Apple In-App Purchase</strong> o <strong class="text-brand-ice">Google Play Billing</strong>, si se contrató desde la aplicación móvil. La renovación es automática al final de cada periodo salvo cancelación previa.</li>
+                <li>Los precios pueden ajustarse con aviso previo de al menos 30 días naturales para suscripciones activas; el nuevo precio aplica a partir del siguiente ciclo de renovación.</li>
+            </ul>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">5. Cancelación y Reembolsos</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                Puedes cancelar tu suscripción a soy612 Pro en cualquier momento: desde la sección de suscripción de la app (si contrataste vía tienda de aplicaciones, gestionando la suscripción directamente en Apple/Google), o contactando a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a> (si contrataste vía Stripe en la web). La cancelación detiene renovaciones futuras; el acceso a las funciones Pro continúa hasta el final del periodo ya pagado. Al perder el acceso Pro, los datos ya sincronizados permanecen cifrados en el dispositivo y en el respaldo en la nube conforme a la política de retención descrita en el <a href="/privacidad" class="text-brand-cyan hover:underline">Aviso de Privacidad</a>.
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                No se realizan reembolsos por periodos parcialmente utilizados, salvo que la legislación aplicable en tu jurisdicción disponga lo contrario o cuando la solicitud se procese directamente a través de las políticas de reembolso de Apple App Store o Google Play (compras realizadas vía tiendas de aplicaciones). Para compras vía Stripe, cualquier solicitud de reembolso se evalúa caso por caso escribiendo a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a> dentro de los 14 días naturales posteriores al cobro.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">6. Propiedad Intelectual</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                El Servicio, su código, diseño, marca "soy612", logotipos y contenidos son propiedad de sus titulares y están protegidos por la legislación mexicana e internacional de derechos de autor y propiedad industrial. Se te concede una licencia limitada, no exclusiva, intransferible y revocable para usar el Servicio de acuerdo con estos Términos. Queda prohibida la ingeniería inversa, redistribución o explotación comercial no autorizada del Servicio.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">7. Uso Aceptable</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">Al utilizar soy612, te comprometes a no:</p>
+            <ul class="mt-3 space-y-2 text-sm leading-relaxed text-brand-silver list-disc pl-5">
+                <li>Utilizar el Servicio con fines fraudulentos, de evasión fiscal o para falsificar comprobantes fiscales.</li>
+                <li>Intentar vulnerar, descifrar o acceder sin autorización a los mecanismos de cifrado Zero-Knowledge del Servicio.</li>
+                <li>Compartir tu frase de recuperación (12 palabras) o credenciales de acceso con terceros no autorizados.</li>
+                <li>Realizar ingeniería inversa del buzón de ingesta de correo o del motor de cálculo con fines de explotación comercial no autorizada.</li>
+            </ul>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">8. Privacidad</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                El tratamiento de tus datos personales se describe en nuestro <a href="/privacidad" class="text-brand-cyan hover:underline">Aviso de Privacidad</a>, el cual forma parte integral de estos Términos. En resumen: bajo soy612 Estándar tus datos fiscales nunca salen de tu dispositivo; bajo soy612 Pro, los respaldos que subes a la nube se cifran de extremo a extremo con una llave que solo tú posees, por lo que soy612 no puede leer su contenido.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">9. Garantías y Limitación de Responsabilidad</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                El Servicio se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas, incluyendo garantías de exactitud absoluta de los cálculos fiscales, disponibilidad ininterrumpida o ausencia de errores. En la máxima medida permitida por la ley aplicable, soy612 y sus operadores no serán responsables por daños indirectos, incidentales, especiales o consecuentes (incluyendo, sin limitación, multas, recargos, actualizaciones o pérdida de información fiscal) derivados del uso o la imposibilidad de uso del Servicio. La responsabilidad total de soy612 frente al usuario, en cualquier caso, no excederá el monto pagado por el usuario durante los últimos 12 meses de suscripción.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">10. Modificaciones al Servicio y a estos Términos</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                Podemos modificar, suspender o descontinuar funciones del Servicio, así como actualizar estos Términos, en cualquier momento. Los cambios materiales se notificarán mediante aviso dentro de la aplicación, en este sitio web o por correo electrónico con al menos 15 días de anticipación cuando sea razonablemente posible. El uso continuado del Servicio después de una actualización constituye tu aceptación de los Términos modificados.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">11. Terminación</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                Puedes dejar de usar el Servicio y eliminar la aplicación en cualquier momento. Podemos suspender o terminar tu acceso al Servicio si incumples estos Términos, incluyendo el uso fraudulento o abusivo del Servicio. En caso de terminación, las disposiciones relativas a propiedad intelectual, limitación de responsabilidad y jurisdicción sobrevivirán.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">12. Legislación Aplicable y Jurisdicción</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para cualquier controversia derivada de estos Términos, las partes se someten a los tribunales competentes de México, renunciando a cualquier otro fuero que pudiera corresponderles por razón de su domicilio presente o futuro.
+            </p>
+        </section>
+
+        <section class="mt-10">
+            <h2 class="text-xl font-bold text-brand-ice">13. Contacto</h2>
+            <p class="mt-3 text-sm leading-relaxed text-brand-silver">
+                Si tienes preguntas sobre estos Términos, escríbenos a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a>. Consulta también nuestra <a href="/privacidad" class="text-brand-cyan hover:underline">página de Privacidad</a> y nuestro <a href="/soporte" class="text-brand-cyan hover:underline">Centro de Soporte</a>.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-brand-bg py-16 text-xs text-brand-silver">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-surface border border-brand-electric/20 text-brand-cyan font-mono font-bold shadow-glow-cyan">612</div>
+                        <span class="font-sans text-base font-extrabold tracking-tight text-brand-ice">soy612</span>
+                    </div>
+                    <p class="leading-relaxed">El escudo de tranquilidad fiscal del profesionista independiente bajo el régimen 612. Hecho en México.</p>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Navegación</span>
+                    <ul class="space-y-2">
+                        <li><a href="/#features" class="hover:text-brand-ice transition-colors">Características</a></li>
+                        <li><a href="/#simulador" class="hover:text-brand-ice transition-colors">Simulador</a></li>
+                        <li><a href="/#vencimientos" class="hover:text-brand-ice transition-colors">Vencimientos</a></li>
+                        <li><a href="/#precios" class="hover:text-brand-ice transition-colors">Planes & Costos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Leyes Fiscales</span>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Régimen 612 SAT</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Artículo 151 LISR</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Artículo 69-B CFF</a></li>
+                        <li><a href="#" class="hover:text-brand-ice transition-colors">Guías de llenado CFDI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-brand-ice uppercase tracking-wider block mb-4">Contacto & Ley</span>
+                    <ul class="space-y-2">
+                        <li><a href="/privacidad" class="hover:text-brand-ice transition-colors">Aviso de Privacidad (LFPDPPP)</a></li>
+                        <li><a href="/terminos" class="hover:text-brand-ice transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="/soporte" class="hover:text-brand-ice transition-colors">Soporte Técnico</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/5">
+                <div class="rounded-xl bg-brand-surface/40 p-4 border border-white/5 text-brand-silver leading-relaxed text-[11px]">
+                    <span class="font-bold text-brand-ice block mb-1">Declaración de Exención de Responsabilidad Legal (SAT Disclaimer)</span>
+                    Esta aplicación constituye únicamente una bitácora contable de uso privado y un simulador interactivo diseñado para facilitar la preparación visual de los datos fiscales. La herramienta carece de conexión, API o autorización formal por parte del Servicio de Administración Tributaria (SAT) o la Secretaría de Hacienda y Crédito Público. El cálculo de los impuestos simulados se realiza de forma indicativa basada en la interpretación de las guías de llenado del SAT. La presentación legal de las declaraciones y el cumplimiento de las obligaciones tributarias recaen bajo la estricta responsabilidad personal del contribuyente, quien deberá ingresar, validar y transmitir manualmente sus datos directamente en el sitio web oficial del SAT para la obtención del acuse de recibo y la línea de captura válidos.
+                </div>
+                <p class="text-center mt-8 text-brand-silver/30">&copy; <span id="footer-year">2026</span> soy612. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+            document.getElementById('footer-year').innerText = new Date().getFullYear();
+            document.getElementById('last-updated').innerText = new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+        });
+    </script>
+</body>
+</html>
