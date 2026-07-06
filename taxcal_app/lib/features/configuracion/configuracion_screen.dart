@@ -304,7 +304,7 @@ class _ConfiguracionBodyState extends ConsumerState<_ConfiguracionBody> {
         ),
         const SizedBox(height: 18),
         Text(
-          'Acerca de TaxCal',
+          'Acerca de Soy612',
           style: AppTypography.sans(
             fontSize: 13,
             fontWeight: FontWeight.w600,

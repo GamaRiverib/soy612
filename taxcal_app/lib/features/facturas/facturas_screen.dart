@@ -13,6 +13,7 @@ import '../../theme/app_typography.dart';
 import '../shared/conciliacion_ppd_sheet.dart';
 import '../shared/month_bell_header.dart';
 import '../shared/periodo_activo_controller.dart';
+import 'factura_detalle_sheet.dart';
 import 'facturas_providers.dart';
 import 'xml_import_sheet.dart';
 
@@ -299,81 +300,85 @@ class _FacturaCard extends ConsumerWidget {
           formaPago: factura.formaPago,
         );
 
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(AppRadii.card),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 8,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.contraparteRazonSocial,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTypography.bodyStrong,
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      '${item.contraparteRfc} · Folio ${factura.folioInterno ?? factura.uuid.substring(0, 8)}',
-                      style: AppTypography.monoSmall.copyWith(color: AppColors.textSecondaryMin),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(formatMoney(factura.total), style: AppTypography.amountMedium),
-                  const SizedBox(height: 1),
-                  Text(
-                    DateFormat('yyyy-MM-dd').format(factura.fechaEmision),
-                    style: AppTypography.helper.copyWith(color: AppColors.textSecondaryMin),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _Badge(label: badgeLabel, background: badgeBg, color: badgeColor, onTap: onBadgeTap),
-              if (!esIngreso)
-                Row(
-                  children: [
-                    Text(
-                      'Deducible',
-                      style: AppTypography.sans(
-                        fontSize: 12.5,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textSecondaryMax,
+    return InkWell(
+      borderRadius: BorderRadius.circular(AppRadii.card),
+      onTap: () => showFacturaDetalleModal(context: context, ref: ref, item: item),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        decoration: BoxDecoration(
+          color: AppColors.surface,
+          borderRadius: BorderRadius.circular(AppRadii.card),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 8,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item.contraparteRazonSocial,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTypography.bodyStrong,
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    // Switch's built-in thumb animation already runs at Flutter's
-                    // default 200ms, matching the Manual de Branding rule.
-                    Switch(
-                      value: factura.esDeducible,
-                      onChanged: (valor) => ref
-                          .read(appDatabaseProvider)
-                          .actualizarDeducible(uuid: factura.uuid, esDeducible: valor),
+                      const SizedBox(height: 2),
+                      Text(
+                        '${item.contraparteRfc} · Folio ${factura.folioInterno ?? factura.uuid.substring(0, 8)}',
+                        style: AppTypography.monoSmall.copyWith(color: AppColors.textSecondaryMin),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(formatMoney(factura.total), style: AppTypography.amountMedium),
+                    const SizedBox(height: 1),
+                    Text(
+                      DateFormat('yyyy-MM-dd').format(factura.fechaEmision),
+                      style: AppTypography.helper.copyWith(color: AppColors.textSecondaryMin),
                     ),
                   ],
                 ),
-            ],
-          ),
-          if (violaBancarizacion) const _AlertaBancarizacion(),
-        ],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _Badge(label: badgeLabel, background: badgeBg, color: badgeColor, onTap: onBadgeTap),
+                if (!esIngreso)
+                  Row(
+                    children: [
+                      Text(
+                        'Deducible',
+                        style: AppTypography.sans(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.textSecondaryMax,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      // Switch's built-in thumb animation already runs at Flutter's
+                      // default 200ms, matching the Manual de Branding rule.
+                      Switch(
+                        value: factura.esDeducible,
+                        onChanged: (valor) => ref
+                            .read(appDatabaseProvider)
+                            .actualizarDeducible(uuid: factura.uuid, esDeducible: valor),
+                      ),
+                    ],
+                  ),
+              ],
+            ),
+            if (violaBancarizacion) const _AlertaBancarizacion(),
+          ],
+        ),
       ),
     );
   }

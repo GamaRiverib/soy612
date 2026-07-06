@@ -49,7 +49,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         ),
         const SizedBox(height: 20),
         Text(
-          'TaxCal',
+          'Soy612',
           style: AppTypography.sans(
             fontSize: 26,
             fontWeight: FontWeight.w700,
@@ -181,7 +181,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    'He leído y entiendo que TaxCal es un simulador privado, sin '
+                    'He leído y entiendo que Soy612 es un simulador privado, sin '
                     'relación oficial con el SAT.',
                     style: AppTypography.sans(
                       fontSize: 13,

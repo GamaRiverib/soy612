@@ -7,14 +7,14 @@ import 'routing/app_router.dart';
 import 'theme/app_theme.dart';
 
 void main() {
-  runApp(const ProviderScope(child: TaxCalApp()));
+  runApp(const ProviderScope(child: Soy612App()));
 }
 
 /// Decide de forma reactiva entre el gate de Onboarding y la app principal
 /// (go_router). Solo uno de los dos `MaterialApp` existe en el árbol en un
 /// momento dado — el cambio ocurre una sola vez, al aceptar el aviso legal.
-class TaxCalApp extends ConsumerWidget {
-  const TaxCalApp({super.key});
+class Soy612App extends ConsumerWidget {
+  const Soy612App({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,7 +36,7 @@ class _MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'TaxCal',
+      title: 'Soy612',
       debugShowCheckedModeBanner: false,
       theme: theme,
       routerConfig: appRouter,
@@ -52,7 +52,7 @@ class _OnboardingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TaxCal',
+      title: 'Soy612',
       debugShowCheckedModeBanner: false,
       theme: theme,
       home: const OnboardingScreen(),
@@ -87,7 +87,7 @@ class _ErrorApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme,
       home: Scaffold(
-        body: Center(child: Text('Ocurrió un error al iniciar TaxCal: $error')),
+        body: Center(child: Text('Ocurrió un error al iniciar Soy612: $error')),
       ),
     );
   }

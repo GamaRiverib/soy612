@@ -41,7 +41,7 @@ class AppShell extends StatelessWidget {
           NavigationDestination(
             icon: Icon(Icons.settings_outlined),
             selectedIcon: Icon(Icons.settings),
-            label: 'Configuración',
+            label: 'Config',
           ),
         ],
       ),

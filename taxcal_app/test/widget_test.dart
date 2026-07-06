@@ -13,10 +13,10 @@ void main() {
   });
 
   testWidgets('shows onboarding when the legal notice has not been accepted', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: TaxCalApp()));
+    await tester.pumpWidget(const ProviderScope(child: Soy612App()));
     await tester.pumpAndSettle();
 
-    expect(find.text('TaxCal'), findsOneWidget);
+    expect(find.text('Soy612'), findsOneWidget);
     expect(find.text('Siguiente'), findsOneWidget);
   });
 
@@ -29,7 +29,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [appDatabaseProvider.overrideWithValue(db)],
-        child: const TaxCalApp(),
+        child: const Soy612App(),
       ),
     );
     await tester.pumpAndSettle();

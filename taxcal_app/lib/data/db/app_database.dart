@@ -231,6 +231,15 @@ class AppDatabase extends _$AppDatabase {
       (update(facturas)..where((f) => f.uuid.equals(uuid)))
           .write(FacturasCompanion(esDeducible: Value(esDeducible)));
 
+  /// Elimina una factura y, si existe, la inversión asociada (README, sección
+  /// "3. Facturas": opción "Eliminar" en el detalle).
+  Future<void> eliminarFactura(String uuid) async {
+    await transaction(() async {
+      await (delete(inversiones)..where((i) => i.uuidFactura.equals(uuid))).go();
+      await (delete(facturas)..where((f) => f.uuid.equals(uuid))).go();
+    });
+  }
+
   /// Conciliación PPD (sección 2.2 de la especificación funcional): asigna la
   /// fecha de pago efectivo y el estatus resultante según el tipo de CFDI.
   Future<void> conciliarPagoPpd({

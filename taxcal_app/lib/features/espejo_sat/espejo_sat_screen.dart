@@ -15,7 +15,7 @@ import 'espejo_providers.dart';
 
 /// Formulario que replica el orden exacto de campos del portal oficial del
 /// SAT (README, sección "4. Espejo SAT"): stepper de 3 pasos dentro de la
-/// estética oscura de TaxCal.
+/// estética oscura de Soy612.
 class EspejoSatScreen extends ConsumerWidget {
   const EspejoSatScreen({super.key});
 

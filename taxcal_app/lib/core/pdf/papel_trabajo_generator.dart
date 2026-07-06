@@ -52,7 +52,7 @@ class PapelTrabajoGenerator {
         ),
         build: (context) => [
           pw.Text(
-            'TaxCal - Papel de trabajo',
+            'Soy612 - Papel de trabajo',
             style: pw.TextStyle(fontSize: 20, fontWeight: pw.FontWeight.bold),
           ),
           pw.SizedBox(height: 4),
