@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ^3.12.2
@@ -42,7 +42,6 @@ dependencies:
   xml: ^7.0.1
   file_picker: ^11.0.2
   shared_preferences: ^2.5.5
-  google_fonts: ^8.1.0
   pdf: ^3.13.0
   printing: ^5.15.0
   fl_chart: ^1.2.0
@@ -77,6 +76,28 @@ flutter:
   assets:
     - assets/branding/icon.png
     - assets/fiscal_data/
+
+  fonts:
+    - family: Geist
+      fonts:
+        - asset: assets/fonts/Geist-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Geist-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Geist-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Geist-Bold.ttf
+          weight: 700
+    - family: Geist Mono
+      fonts:
+        - asset: assets/fonts/GeistMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/GeistMono-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/GeistMono-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/GeistMono-Bold.ttf
+          weight: 700
 
 flutter_launcher_icons:
   android: true

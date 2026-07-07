@@ -1,4 +1,4 @@
-package com.taxcal.taxcal_app
+package click.soy612
 
 import io.flutter.embedding.android.FlutterActivity
 

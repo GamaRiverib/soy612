@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
 /// Prosa/navegación (Geist Sans) vs. cifras/folios/RFC (Geist Mono).
 /// Ver sección 3 del Manual de Branding.
+///
+/// Las fuentes se empaquetan como assets locales (`assets/fonts/`) en vez de
+/// usar `google_fonts`, que las descarga en tiempo de ejecución: el build de
+/// release no declara el permiso INTERNET, así que la descarga siempre
+/// fallaba y la app caía silenciosamente a la fuente del sistema.
 abstract final class AppTypography {
   static TextStyle sans({
     double fontSize = 15,
@@ -12,7 +16,8 @@ abstract final class AppTypography {
     Color color = AppColors.textPrimary,
     double? letterSpacing,
     double? height,
-  }) => GoogleFonts.geist(
+  }) => TextStyle(
+    fontFamily: 'Geist',
     fontSize: fontSize,
     fontWeight: fontWeight,
     color: color,
@@ -26,7 +31,8 @@ abstract final class AppTypography {
     Color color = AppColors.textPrimary,
     double? letterSpacing,
     double? height,
-  }) => GoogleFonts.geistMono(
+  }) => TextStyle(
+    fontFamily: 'Geist Mono',
     fontSize: fontSize,
     fontWeight: fontWeight,
     color: color,

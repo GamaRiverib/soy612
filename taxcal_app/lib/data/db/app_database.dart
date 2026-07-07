@@ -14,7 +14,7 @@ part 'app_database.g.dart';
   tables: [Contribuyentes, Facturas, Inversiones, CapturasEspejo, DeduccionesPersonales],
 )
 class AppDatabase extends _$AppDatabase {
-  AppDatabase() : super(driftDatabase(name: 'taxcal'));
+  AppDatabase() : super(driftDatabase(name: 'soy612'));
 
   /// Usado en tests para inyectar un [QueryExecutor] en memoria.
   AppDatabase.forExecutor(super.executor);
