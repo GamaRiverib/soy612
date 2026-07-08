@@ -10,8 +10,8 @@ import '../../theme/app_typography.dart';
 import 'xml_import_controller.dart';
 
 /// Bottom sheet de importación XML (README, sección "Flujo de importación
-/// XML"): 2 opciones (archivos reales o 3 facturas de ejemplo), estados de
-/// progreso por archivo y pantalla de resumen.
+/// XML"): selección de archivos .xml reales, estados de progreso por archivo
+/// y pantalla de resumen.
 void showXmlImportSheet(BuildContext context, WidgetRef ref) {
   ref.read(xmlImportControllerProvider.notifier).reiniciar();
   showModalBottomSheet(
@@ -185,24 +185,6 @@ class _IdleView extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-            ),
-          ),
-        ),
-        Consumer(
-          builder: (context, ref, _) => OutlinedButton(
-            onPressed: () => ref.read(xmlImportControllerProvider.notifier).importarFacturasDeEjemplo(),
-            style: OutlinedButton.styleFrom(
-              side: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
-              padding: const EdgeInsets.all(12),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            ),
-            child: Text(
-              'Usar 3 facturas de ejemplo',
-              style: AppTypography.sans(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: Colors.white.withValues(alpha: 0.6),
               ),
             ),
           ),

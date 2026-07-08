@@ -1,4 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Declara la app como solo-teléfono: sin esto, Android/Play Console
+         asumen soporte de pantallas grandes por default (independientemente
+         de las exclusiones de dispositivo en Play Console), y la ficha de
+         la tienda sigue exigiendo capturas de tablet. -->
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="false"
+        android:xlargeScreens="false"
+        android:anyDensity="true" />
     <application
         android:label="Soy612"
         android:name="${applicationName}"
