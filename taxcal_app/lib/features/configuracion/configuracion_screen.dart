@@ -11,6 +11,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_tokens.dart';
 import '../../theme/app_typography.dart';
 import '../shared/periodo_activo_controller.dart';
+import '../shared/sat_link.dart';
 
 /// Perfil fiscal y mantenimiento de la base de datos local (README, sección
 /// "6. Configuración").
@@ -331,12 +332,22 @@ class _ConfiguracionBodyState extends ConsumerState<_ConfiguracionBody> {
         if (_avisoAbierto)
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 4, right: 4),
-            child: Text(
-              'Esta aplicación constituye únicamente una bitácora contable de uso '
-              'privado y un simulador interactivo. Carece de conexión o autorización '
-              'del SAT o la SHCP. La presentación legal de tus declaraciones es tu '
-              'responsabilidad: siempre valida y transmite tus datos en el sitio '
-              'oficial del SAT.',
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  const TextSpan(
+                    text: 'Esta aplicación constituye únicamente una bitácora contable de uso '
+                        'privado y un simulador interactivo. Carece de conexión o autorización '
+                        'del SAT o la SHCP. La presentación legal de tus declaraciones es tu '
+                        'responsabilidad: siempre valida y transmite tus datos en el ',
+                  ),
+                  satLinkSpan(
+                    'sitio oficial del SAT (sat.gob.mx)',
+                    style: AppTypography.sans(fontSize: 12, height: 1.55),
+                  ),
+                  const TextSpan(text: '.'),
+                ],
+              ),
               style: AppTypography.sans(
                 fontSize: 12,
                 color: AppColors.textSecondaryMin,

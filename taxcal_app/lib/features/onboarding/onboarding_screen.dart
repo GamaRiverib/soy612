@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
+import '../shared/sat_link.dart';
 import 'onboarding_controller.dart';
 
 /// Bloquea el uso de la app hasta aceptar el aviso legal (README, sección
@@ -129,17 +130,24 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           'Tributaria (SAT) o la Secretaría de Hacienda y Crédito '
                           'Público (SHCP).\n\n',
                     ),
-                    const TextSpan(
+                    TextSpan(
                       text: 'El cálculo de los impuestos simulados se realiza de '
                           'forma indicativa, basada en la interpretación de las '
                           'guías de llenado del SAT. La presentación legal de tus '
                           'declaraciones y el cumplimiento de tus obligaciones '
                           'tributarias recaen bajo tu estricta responsabilidad '
                           'personal: deberás ingresar, validar y transmitir '
-                          'manualmente tus datos directamente en el sitio web '
-                          'oficial del SAT para obtener tu acuse de recibo y línea '
-                          'de captura válidos.',
+                          'manualmente tus datos directamente en el ',
                     ),
+                    satLinkSpan(
+                      'sitio web oficial del SAT (sat.gob.mx)',
+                      style: AppTypography.sans(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                        height: 1.6,
+                      ),
+                    ),
+                    const TextSpan(text: ' para obtener tu acuse de recibo y línea de captura válidos.'),
                   ],
                 ),
                 style: AppTypography.sans(

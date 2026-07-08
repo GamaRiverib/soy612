@@ -13,9 +13,10 @@ import 'espejo_determinacion_step.dart';
 import 'espejo_pago_step.dart';
 import 'espejo_providers.dart';
 
-/// Formulario que replica el orden exacto de campos del portal oficial del
-/// SAT (README, sección "4. Espejo SAT"): stepper de 3 pasos dentro de la
-/// estética oscura de Soy612.
+/// Formulario que organiza tus datos en el mismo orden que el portal del SAT
+/// (README, sección "4. Espejo SAT" / pantalla "Borrador"): stepper de 3
+/// pasos dentro de la estética oscura de Soy612. No es el portal oficial —
+/// ver aviso siempre visible bajo el título y el aviso legal del paso 3.
 class EspejoSatScreen extends ConsumerWidget {
   const EspejoSatScreen({super.key});
 
@@ -58,7 +59,12 @@ class EspejoSatScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  Text('Espejo SAT', style: AppTypography.screenTitle),
+                  Text('Borrador', style: AppTypography.screenTitle),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Simulador no oficial. No es el portal del SAT.',
+                    style: AppTypography.helper.copyWith(color: AppColors.textSecondaryMin),
+                  ),
                 ],
               ),
             ),

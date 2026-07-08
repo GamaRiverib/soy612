@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-/// Bottom nav persistente de 5 íconos (Tablero, Facturas, Espejo SAT, Anual,
+/// Bottom nav persistente de 5 íconos (Tablero, Facturas, Borrador, Anual,
 /// Configuración) — sin stack de navegación tradicional, arquitectura SPA
 /// (sección 1.1 de la especificación funcional).
 class AppShell extends StatelessWidget {
@@ -29,9 +29,9 @@ class AppShell extends StatelessWidget {
             label: 'Facturas',
           ),
           NavigationDestination(
-            icon: Icon(Icons.account_balance_outlined),
-            selectedIcon: Icon(Icons.account_balance),
-            label: 'Espejo SAT',
+            icon: Icon(Icons.edit_document),
+            selectedIcon: Icon(Icons.edit_document),
+            label: 'Borrador',
           ),
           NavigationDestination(
             icon: Icon(Icons.bar_chart_outlined),

@@ -23,9 +23,11 @@ plugins {
     // plugins that apply the legacy Kotlin Gradle Plugin themselves). file_picker's
     // transitive dependency flutter_plugin_android_lifecycle still applies the
     // legacy kotlin-android plugin unconditionally, so AGP 9 + built-in Kotlin
-    // breaks that module. AGP 8.7 keeps everyone on the same legacy-KGP model.
-    id("com.android.application") version "8.7.3" apply false
-    id("org.jetbrains.kotlin.android") version "2.1.0" apply false
+    // breaks that module. Staying in the 8.x line keeps everyone on the same
+    // legacy-KGP model. Bumped to 8.11.1 (from 8.7.3) because url_launcher_android
+    // pulls in androidx.core 1.17.0, which requires AGP >= 8.9.1.
+    id("com.android.application") version "8.11.1" apply false
+    id("org.jetbrains.kotlin.android") version "2.2.20" apply false
 }
 
 include(":app")

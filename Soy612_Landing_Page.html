@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     <!-- SEO -->
-    <meta name="description" content="soy612 es la app local-first para Personas Físicas del Régimen 612 del SAT (México). Simulador fiscal ISR/IVA, interfaz espejo del SAT, importación de CFDIs y privacidad Zero-Knowledge. Sin contraseñas del SAT, sin e.firma en la nube.">
+    <meta name="description" content="soy612 es la app local-first para Personas Físicas del Régimen 612 del SAT (México). Calcula tu ISR e IVA, organiza tu Borrador en el mismo orden que el SAT e importa tus CFDIs — todo en tu teléfono, sin contraseñas del SAT ni e.firma en la nube.">
     <meta name="keywords" content="régimen 612, SAT, ISR, IVA, CFDI, personas físicas actividad empresarial, declaración provisional, facturación electrónica México, contabilidad freelance">
     <meta name="author" content="soy612">
     <link rel="canonical" href="https://soy612.click/">
@@ -20,7 +20,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://soy612.click/">
     <meta property="og:title" content="soy612 - Tu escudo de tranquilidad fiscal">
-    <meta property="og:description" content="La app local-first para el Régimen 612 del SAT: simulador fiscal, interfaz espejo del SAT y privacidad Zero-Knowledge. Sin contraseñas del SAT en la nube.">
+    <meta property="og:description" content="La app local-first para el Régimen 612 del SAT: calcula tu ISR/IVA y organiza tu Borrador al orden del SAT. Sin contraseñas del SAT en la nube.">
     <meta property="og:image" content="https://soy612.click/og-image.png">
     <meta property="og:locale" content="es_MX">
 
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://soy612.click/">
     <meta name="twitter:title" content="soy612 - Tu escudo de tranquilidad fiscal">
-    <meta name="twitter:description" content="La app local-first para el Régimen 612 del SAT: simulador fiscal, interfaz espejo del SAT y privacidad Zero-Knowledge.">
+    <meta name="twitter:description" content="La app local-first para el Régimen 612 del SAT: calcula tu ISR/IVA y organiza tu Borrador al orden del SAT.">
     <meta name="twitter:image" content="https://soy612.click/og-image.png">
 
     <!-- Datos estructurados para buscadores -->
@@ -39,10 +39,10 @@
         "name": "soy612",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Android, iOS",
-        "description": "App local-first para Personas Físicas del Régimen 612 del SAT en México: simulador fiscal, interfaz espejo del SAT, importación de CFDIs y privacidad Zero-Knowledge.",
+        "description": "App local-first para Personas Físicas del Régimen 612 del SAT en México: calculadora de ISR/IVA, Borrador al orden del SAT e importación de CFDIs.",
         "offers": [
-            { "@type": "Offer", "name": "soy612 Estándar", "price": "0", "priceCurrency": "MXN" },
-            { "@type": "Offer", "name": "soy612 Pro", "price": "149", "priceCurrency": "MXN" }
+            { "@type": "Offer", "name": "soy612 Estándar", "price": "0", "priceCurrency": "MXN", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "soy612 Pro", "price": "149", "priceCurrency": "MXN", "availability": "https://schema.org/PreOrder" }
         ]
     }
     </script>
@@ -174,7 +174,7 @@
 
             <!-- Subtitle -->
             <p class="mx-auto mt-6 max-w-2xl text-base text-brand-silver sm:text-lg">
-                Olvídate de compartir tus contraseñas CIEC o archivos de e.firma. Una bitácora privada y un simulador interactivo <span class="text-brand-cyan font-semibold">Local-First</span> que procesa tus XMLs localmente y te ofrece una interfaz espejo idéntica al SAT.
+                Olvídate de compartir tus contraseñas CIEC o archivos de e.firma. Una bitácora privada y un simulador interactivo <span class="text-brand-cyan font-semibold">Local-First</span> que procesa tus XMLs localmente y organiza tu Borrador en el mismo orden que el SAT.
             </p>
 
             <!-- CTAs -->
@@ -189,116 +189,94 @@
                 </a>
             </div>
 
-            <!-- Standalone App Mockup Preview -->
-            <div class="relative mx-auto mt-16 max-w-5xl rounded-2xl border border-white/10 bg-brand-surface p-3 shadow-2xl">
-                <!-- Mac style browser header -->
-                <div class="mb-3 flex items-center justify-between border-b border-white/5 pb-3">
-                    <div class="flex items-center gap-1.5">
-                        <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
-                        <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
-                        <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
-                    </div>
-                    <div class="flex items-center gap-2 rounded-lg bg-brand-bg px-4 py-1 text-xs font-mono text-brand-silver">
-                        <i data-lucide="lock" class="h-3 w-3 text-brand-cyan"></i>
-                        soy612://localhost/dashboard
-                    </div>
-                    <div class="w-12"></div>
-                </div>
-
-                <!-- App Mockup Content Grid (Digital Electric Blue Theme) -->
-                <div class="grid grid-cols-1 gap-4 rounded-xl bg-brand-bg p-4 text-left md:grid-cols-3">
-                    <!-- Left Sidebar (App style) -->
-                    <div class="space-y-2 rounded-lg bg-brand-surface p-4 border border-white/5">
-                        <div class="flex items-center gap-2 px-2 pb-4 border-b border-white/5">
-                            <span class="font-mono font-bold text-xs tracking-wide text-brand-cyan uppercase">soy612 engine v3.0</span>
+            <!-- Standalone App Mockup Preview (phone frame — mismo layout/nav que la app real) -->
+            <div class="relative mx-auto mt-16 w-[270px] sm:w-[290px]">
+                <div class="rounded-[2.75rem] border-[10px] border-brand-darkGray bg-black shadow-2xl overflow-hidden">
+                    <div class="relative bg-brand-bg flex flex-col min-h-[580px]">
+                        <div class="absolute left-1/2 top-0 h-6 w-32 -translate-x-1/2 rounded-b-2xl bg-black z-10"></div>
+                        <div class="flex items-center justify-between px-6 pt-3 pb-1 text-[10px] font-mono text-brand-silver/50">
+                            <span>9:41</span>
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="wifi" class="h-3 w-3"></i>
+                                <i data-lucide="battery-full" class="h-3 w-3"></i>
+                            </span>
                         </div>
-                        <div class="space-y-1 pt-2">
-                            <a href="#simulador" class="flex items-center gap-2.5 rounded-lg bg-brand-bg px-3 py-2 text-xs font-semibold text-brand-cyan border border-brand-cyan/20">
-                                <i data-lucide="layout-dashboard" class="h-4 w-4"></i> Tablero General
-                            </a>
-                            <div class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-brand-silver hover:bg-white/5 cursor-pointer">
-                                <span class="flex items-center gap-2.5">
-                                    <i data-lucide="file-text" class="h-4 w-4"></i> Facturas (Ingresos)
-                                </span>
-                                <span class="rounded bg-brand-cyan/10 px-1 text-[10px] font-mono text-brand-cyan">PUE</span>
-                            </div>
-                            <div class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-brand-silver hover:bg-white/5 cursor-pointer">
-                                <span class="flex items-center gap-2.5">
-                                    <i data-lucide="shopping-bag" class="h-4 w-4"></i> Gastos (Deducciones)
-                                </span>
-                                <span class="rounded bg-brand-orange/10 px-1 text-[10px] font-mono text-brand-orange">Deducible</span>
-                            </div>
-                            <div class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-brand-silver hover:bg-white/5 cursor-pointer">
-                                <span class="flex items-center gap-2.5">
-                                    <i data-lucide="landmark" class="h-4 w-4"></i> Espejo SAT
-                                </span>
-                                <span class="rounded bg-brand-electric/10 px-1 text-[10px] font-mono text-brand-cyan">Formulario</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Center & Right App View combined (Simulating the Dashboard) -->
-                    <div class="col-span-1 space-y-4 md:col-span-2">
-                        <!-- Upper stats -->
-                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                            <div class="rounded-lg bg-brand-surface p-4 border border-white/5">
-                                <span class="text-xs text-brand-silver/70">Ingresos Cobrados (Flujo Efectivo)</span>
-                                <div class="mt-1 font-mono text-2xl font-bold text-brand-cyan">$54,200.00</div>
-                                <span class="text-[10px] text-brand-silver/40">Basado en 8 CFDIs PUE cobrados</span>
+                        <!-- Screen content (Tablero) -->
+                        <div class="px-4 pb-3 pt-2 text-left flex-1">
+                            <div class="flex items-center gap-1 text-[11px] font-semibold text-brand-silver/70">
+                                julio 2026 <i data-lucide="chevron-down" class="h-3 w-3"></i>
                             </div>
-                            <div class="rounded-lg bg-brand-surface p-4 border border-white/5">
-                                <span class="text-xs text-brand-silver/70">Gastos Autorizados Deducibles</span>
-                                <div class="mt-1 font-mono text-2xl font-bold text-brand-ice">$18,400.00</div>
-                                <span class="text-[10px] text-brand-cyan/70">100% bancarizados y válidos</span>
+                            <h3 class="mt-1 text-xl font-extrabold text-brand-ice">Tablero</h3>
+
+                            <div class="mt-4 grid grid-cols-2 gap-2">
+                                <div class="rounded-xl bg-brand-surface p-3 border border-white/5">
+                                    <span class="text-[9px] leading-tight text-brand-silver/70 block">Ingresos cobrados</span>
+                                    <div class="mt-1 font-mono text-base font-bold text-brand-cyan">$54,200</div>
+                                    <span class="text-[8px] text-brand-silver/40">8 facturas</span>
+                                </div>
+                                <div class="rounded-xl bg-brand-surface p-3 border border-white/5">
+                                    <span class="text-[9px] leading-tight text-brand-silver/70 block">Gastos deducibles</span>
+                                    <div class="mt-1 font-mono text-base font-bold text-brand-ice">$18,400</div>
+                                    <span class="text-[8px] text-brand-cyan/70">100% bancarizados</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-2 rounded-xl bg-brand-surface p-3 border border-white/5 flex items-center justify-between">
+                                <span class="text-[11px] text-brand-silver">Utilidad del mes</span>
+                                <span class="font-mono text-sm font-bold text-brand-ice">$35,800</span>
+                            </div>
+
+                            <div class="mt-2 rounded-xl bg-brand-surface p-3 border border-brand-electric/20 shadow-glow-blue">
+                                <span class="text-[9px] font-bold uppercase tracking-wider text-brand-ice/80">Impuestos proyectados</span>
+                                <div class="mt-2 flex justify-between text-[11px]">
+                                    <span class="text-brand-silver">ISR provisional</span>
+                                    <span class="font-mono text-brand-orange">$3,840.12</span>
+                                </div>
+                                <div class="mt-1 flex justify-between text-[11px]">
+                                    <span class="text-brand-silver">IVA definitivo</span>
+                                    <span class="font-mono text-brand-cyan">$2,640.12</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-2 rounded-xl bg-brand-bg p-3 border border-white/5 flex items-start justify-between">
+                                <div>
+                                    <span class="text-[8px] font-semibold uppercase text-brand-silver/50 block">Fecha límite</span>
+                                    <span class="text-xs font-bold text-brand-orange mt-0.5 block" id="mockup-vencimiento-label">Vence el 20 de este mes</span>
+                                </div>
+                                <i data-lucide="calendar-clock" class="h-4 w-4 text-brand-orange"></i>
                             </div>
                         </div>
 
-                        <!-- Main Screen visualization -->
-                        <div class="rounded-lg bg-brand-surface p-4 border border-brand-electric/20 shadow-glow-blue">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-3">
-                                <div class="flex items-center gap-2">
-                                    <span class="h-2 w-2 rounded-full bg-brand-cyan animate-pulse"></span>
-                                    <span class="text-xs font-bold uppercase tracking-wider text-brand-ice">Espejo Mensual Provisionales</span>
-                                </div>
-                                <span class="rounded bg-brand-electric/20 px-2 py-0.5 text-[10px] font-mono font-bold text-brand-cyan">RÉGIMEN 612</span>
+                        <!-- Bottom nav (idéntico a la app real) -->
+                        <div class="flex items-center justify-around border-t border-white/5 bg-brand-surface/60 py-2.5">
+                            <div class="flex flex-col items-center gap-0.5 text-brand-cyan">
+                                <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
+                                <span class="text-[8px] font-semibold">Tablero</span>
                             </div>
-
-                            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                <div class="space-y-2">
-                                    <div class="flex justify-between text-xs">
-                                        <span class="text-brand-silver">Utilidad del Periodo</span>
-                                        <span class="font-mono text-brand-ice">$35,800.00</span>
-                                    </div>
-                                    <div class="flex justify-between text-xs">
-                                        <span class="text-brand-silver">ISR Causado (Tabla Art. 96)</span>
-                                        <span class="font-mono text-brand-orange">$3,840.12</span>
-                                    </div>
-                                    <div class="flex justify-between text-xs">
-                                        <span class="text-brand-silver">Retenciones (PM)</span>
-                                        <span class="font-mono text-brand-cyan">-$1,200.00</span>
-                                    </div>
-                                    <div class="flex justify-between border-t border-white/5 pt-2 text-xs font-bold">
-                                        <span class="text-brand-ice">Pago Provisional Estimado</span>
-                                        <span class="font-mono text-brand-cyan">$2,640.12</span>
-                                    </div>
-                                </div>
-
-                                <div class="rounded-lg bg-brand-bg p-3 border border-white/5 flex flex-col justify-between">
-                                    <div class="flex items-start justify-between">
-                                        <div>
-                                            <span class="text-[10px] text-brand-silver/50 block font-semibold">CÁLCULO DE VENCIMIENTO</span>
-                                            <span class="text-xs font-bold text-brand-orange mt-1 block" id="mockup-vencimiento-label">Vence el 20 de este mes</span>
-                                        </div>
-                                        <i data-lucide="calendar-clock" class="h-4 w-4 text-brand-orange"></i>
-                                    </div>
-                                    <p class="text-[10px] text-brand-silver/50 leading-relaxed mt-2">
-                                        Calculado para RFC con 6to dígito <strong class="text-brand-cyan">"5"</strong> (+3 días hábiles adicionales según decreto del SAT).
-                                    </p>
-                                </div>
+                            <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                                <i data-lucide="receipt" class="h-4 w-4"></i>
+                                <span class="text-[8px]">Facturas</span>
                             </div>
+                            <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                                <i data-lucide="edit-3" class="h-4 w-4"></i>
+                                <span class="text-[8px]">Borrador</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                                <i data-lucide="bar-chart-3" class="h-4 w-4"></i>
+                                <span class="text-[8px]">Anual</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                                <i data-lucide="settings" class="h-4 w-4"></i>
+                                <span class="text-[8px]">Config</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-center py-1.5">
+                            <div class="h-1 w-24 rounded-full bg-white/20"></div>
                         </div>
                     </div>
                 </div>
+                <p class="mt-4 text-center text-[11px] text-brand-silver/40">Datos ficticios de ejemplo — así se ve la app real.</p>
             </div>
         </div>
     </section>
@@ -332,9 +310,9 @@
                     <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-bg border border-white/10 text-brand-cyan">
                         <i data-lucide="copy" class="h-6 w-6"></i>
                     </div>
-                    <h3 class="mt-6 text-xl font-bold text-brand-ice">Interfaz Espejo del SAT</h3>
+                    <h3 class="mt-6 text-xl font-bold text-brand-ice">Borrador con el Orden del SAT</h3>
                     <p class="mt-3 text-sm text-brand-silver leading-relaxed">
-                        Nuestra pantalla de proyecciones copia exactamente el orden, las etiquetas y los renglones que te solicita el portal oficial del SAT. Copia y pega con un botón flotante y evita errores.
+                        Nuestra pantalla de Borrador sigue el mismo orden de campos y etiquetas que usa el portal del SAT. Copia y pega con un botón flotante y evita errores.
                     </p>
                 </div>
 
@@ -363,9 +341,9 @@
                         <i data-lucide="terminal" class="h-3.5 w-3.5"></i>
                         Prueba en tiempo real
                     </div>
-                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-ice sm:text-4xl">Experimenta la reactividad fiscal</h2>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-brand-ice sm:text-4xl">Así se ve tu Borrador</h2>
                     <p class="mt-4 text-brand-silver leading-relaxed">
-                        Entiende cómo funciona la lógica de deducibilidad en soy612. Modifica el ingreso mensual, activa o desactiva la deducibilidad de los gastos representados abajo con los switches y observa cómo se recalcula el impuesto de forma inmediata en el navegador.
+                        soy612 ya sumó tus ingresos y deducciones del periodo por ti. Solo captura lo que el SAT te pide a mano —como tu PTU pagada o pérdidas fiscales de años anteriores— y observa cómo se recalcula tu ISR propio al instante, en el mismo orden de campos que usa el portal del SAT.
                     </p>
                     <div class="mt-8 space-y-4">
                         <div class="flex items-start gap-3">
@@ -378,174 +356,129 @@
                             <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
                                 <i data-lucide="alert-triangle" class="h-3.5 w-3.5"></i>
                             </div>
-                            <p class="text-sm text-brand-silver/80">Advertencias de bancarización automáticas en compras mayores a $2,000 en efectivo.</p>
+                            <p class="text-sm text-brand-silver/80">Es un simulador no oficial de apoyo — tú sigues capturando y transmitiendo directo en sat.gob.mx.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Live Interactive Simulator Widget (Digital Electric Blue Theme) -->
-                <div class="lg:col-span-7 rounded-2xl border border-brand-cyan/20 bg-brand-surface p-6 shadow-2xl relative">
-                    <div class="absolute -top-3 -right-3 rounded-full bg-brand-cyan px-3 py-1 text-[10px] font-bold text-brand-bg uppercase tracking-wider shadow-glow-cyan">
+                <!-- Live Interactive Simulator Widget (phone frame — misma estructura que la pantalla Borrador real) -->
+                <div class="lg:col-span-7 flex justify-center">
+                <div class="relative mx-auto w-[270px] sm:w-[290px]">
+                    <div class="absolute -top-3 -right-3 z-20 rounded-full bg-brand-cyan px-3 py-1 text-[10px] font-bold text-brand-bg uppercase tracking-wider shadow-glow-cyan">
                         Widget de Demostración
                     </div>
+                    <div class="rounded-[2.75rem] border-[10px] border-brand-darkGray bg-black shadow-2xl overflow-hidden relative">
+                    <div class="relative bg-brand-bg flex flex-col min-h-[580px]">
+                        <div class="absolute left-1/2 top-0 h-6 w-32 -translate-x-1/2 rounded-b-2xl bg-black z-10"></div>
+                        <div class="flex items-center justify-between px-6 pt-3 pb-1 text-[10px] font-mono text-brand-silver/50">
+                            <span>9:41</span>
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="wifi" class="h-3 w-3"></i>
+                                <i data-lucide="battery-full" class="h-3 w-3"></i>
+                            </span>
+                        </div>
 
-                    <h3 class="text-base font-bold text-brand-ice mb-6 flex items-center gap-2">
-                        <i data-lucide="cpu" class="h-4 w-4 text-brand-cyan"></i>
-                        Simulador de Flujo Mensual (Régimen 612)
-                    </h3>
+                    <div class="px-4 pb-3 pt-1 flex-1 text-left">
+                        <div class="flex items-center gap-1 text-[11px] font-semibold text-brand-silver/70">
+                            febrero 2026 <i data-lucide="chevron-down" class="h-3 w-3"></i>
+                        </div>
+                        <h3 class="mt-1 text-xl font-extrabold text-brand-ice">Borrador</h3>
+                        <p class="text-[9px] text-brand-silver/50 mt-0.5">Simulador no oficial. No es el portal del SAT.</p>
 
-                    <!-- Inputs area -->
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6">
-                        <div>
-                            <label class="block text-xs font-medium text-brand-silver mb-1">Ingreso Percibido Mensual (Cobrado PUE):</label>
-                            <div class="relative">
-                                <span class="absolute left-3 top-2.5 font-mono text-sm text-brand-silver/40">$</span>
-                                <input type="number" id="input-ingreso" value="65000" class="w-full rounded-xl bg-brand-bg border border-white/10 py-2.5 pl-8 pr-4 font-mono text-sm text-brand-ice focus:outline-none focus:border-brand-cyan transition-colors" oninput="updateSimulation()">
+                        <!-- Stepper 1/2/3 (visual, coincide con la app) -->
+                        <div class="mt-3 grid grid-cols-3 gap-1 rounded-lg bg-brand-surface p-1">
+                            <span class="rounded-md py-1 text-center text-[9px] font-semibold text-brand-silver/50">1 Config</span>
+                            <span class="rounded-md bg-white/10 py-1 text-center text-[9px] font-bold text-brand-ice">2 Determinación</span>
+                            <span class="rounded-md py-1 text-center text-[9px] font-semibold text-brand-silver/50">3 Pago</span>
+                        </div>
+
+                        <!-- Sub-tabs ISR / IVA (visual) -->
+                        <div class="mt-2 grid grid-cols-2 gap-1 rounded-lg bg-brand-surface p-1">
+                            <span class="rounded-md bg-white/10 py-1 text-center text-[9px] font-bold text-brand-ice">ISR Propio</span>
+                            <span class="rounded-md py-1 text-center text-[9px] font-semibold text-brand-silver/50">IVA Definitivo</span>
+                        </div>
+
+                        <!-- Campo auto-calculado 1 -->
+                        <div class="mt-3 rounded-xl bg-brand-surface p-2.5 border border-white/5">
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="min-w-0">
+                                    <span class="text-[11px] font-semibold text-brand-ice block">Ingresos acumulados</span>
+                                    <span class="text-[8px] text-brand-silver/50 block leading-tight">Suma de facturas cobradas del periodo.</span>
+                                </div>
+                                <span class="shrink-0 rounded bg-white/10 px-1.5 py-0.5 text-[8px] font-semibold text-brand-silver/70">Detalle</span>
+                            </div>
+                            <div class="mt-1.5 rounded-lg bg-brand-bg px-2 py-1.5 font-mono text-xs text-brand-silver/80" id="borrador-ingresos">$32,622.50</div>
+                        </div>
+
+                        <!-- Campo auto-calculado 2 -->
+                        <div class="mt-2 rounded-xl bg-brand-surface p-2.5 border border-white/5">
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="min-w-0">
+                                    <span class="text-[11px] font-semibold text-brand-ice block">Deducciones acumuladas</span>
+                                    <span class="text-[8px] text-brand-silver/50 block leading-tight">Suma de gastos deducibles pagados.</span>
+                                </div>
+                                <span class="shrink-0 rounded bg-white/10 px-1.5 py-0.5 text-[8px] font-semibold text-brand-silver/70">Detalle</span>
+                            </div>
+                            <div class="mt-1.5 rounded-lg bg-brand-bg px-2 py-1.5 font-mono text-xs text-brand-silver/80" id="borrador-deducciones">$13,365.80</div>
+                        </div>
+
+                        <!-- Campo manual 1 (captura obligatoria, borde rojo) -->
+                        <div class="mt-2 rounded-xl bg-brand-surface p-2.5 border border-white/5">
+                            <span class="text-[11px] font-semibold text-brand-ice block">PTU pagada en el ejercicio</span>
+                            <span class="text-[8px] text-brand-silver/50 block leading-tight">Requiere tu captura — no viene en tus CFDIs.</span>
+                            <div class="mt-1.5 flex items-center rounded-lg bg-brand-bg border-[1.5px] border-brand-red px-2 py-1.5">
+                                <span class="font-mono text-xs text-brand-silver/40">$</span>
+                                <input type="number" id="input-ptu" value="0" class="w-full bg-transparent pl-1 font-mono text-xs text-brand-ice focus:outline-none" oninput="updateBorradorSimulation()">
                             </div>
                         </div>
-                        <div class="flex items-end">
-                            <button onclick="simulateXmlImport()" class="w-full flex items-center justify-center gap-2 rounded-xl border border-brand-cyan/30 bg-brand-cyan/5 hover:bg-brand-cyan/10 text-brand-cyan py-2.5 text-xs font-bold transition-all shadow-glow-cyan">
-                                <i data-lucide="file-code" class="h-4 w-4"></i>
-                                Cargar XML CFDI 4.0 (Simulado)
-                            </button>
+
+                        <!-- Campo manual 2 (captura obligatoria, borde rojo) -->
+                        <div class="mt-2 rounded-xl bg-brand-surface p-2.5 border border-white/5">
+                            <span class="text-[11px] font-semibold text-brand-ice block">Pérdidas fiscales anteriores</span>
+                            <span class="text-[8px] text-brand-silver/50 block leading-tight">Requiere tu captura.</span>
+                            <div class="mt-1.5 flex items-center rounded-lg bg-brand-bg border-[1.5px] border-brand-red px-2 py-1.5">
+                                <span class="font-mono text-xs text-brand-silver/40">$</span>
+                                <input type="number" id="input-perdidas" value="0" class="w-full bg-transparent pl-1 font-mono text-xs text-brand-ice focus:outline-none" oninput="updateBorradorSimulation()">
+                            </div>
+                        </div>
+
+                        <!-- Resultado (reacciona a PTU/pérdidas en vivo) -->
+                        <div class="mt-3 rounded-xl bg-brand-bg p-2.5 border border-brand-electric/20 shadow-glow-blue flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-ice/80">ISR propio del periodo</span>
+                            <span class="font-mono text-sm font-bold text-brand-cyan" id="res-isr-borrador">$3,840.12</span>
                         </div>
                     </div>
 
-                    <!-- Sandbox XML list -->
-                    <div class="space-y-3 mb-6">
-                        <span class="text-xs font-bold text-brand-silver/60 block uppercase">Gastos y Deducciones Registradas</span>
-                        
-                        <!-- Item 1 -->
-                        <div id="item-internet" class="rounded-xl bg-brand-bg border border-white/5 p-3 flex items-center justify-between transition-all duration-300">
-                            <div class="flex items-center gap-3">
-                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-silver">
-                                    <i data-lucide="wifi" class="h-4 w-4"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-semibold text-brand-ice block">Servicio de Internet & Cloud</span>
-                                    <span class="text-[10px] text-brand-silver/50 block">CFDI PUE - Factura #0294</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-mono text-xs text-brand-ice" id="val-internet">$1,800.00</span>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" id="chk-internet" class="sr-only peer" checked onchange="updateSimulation()">
-                                    <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-brand-silver after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-cyan"></div>
-                                </label>
-                            </div>
+                    <!-- Bottom nav (idéntico a la app real) -->
+                    <div class="flex items-center justify-around border-t border-white/5 bg-brand-surface/60 py-2.5">
+                        <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                            <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
+                            <span class="text-[8px]">Tablero</span>
                         </div>
-
-                        <!-- Item 2 -->
-                        <div id="item-lentes" class="rounded-xl bg-brand-bg border border-white/5 p-3 flex items-center justify-between transition-all duration-300">
-                            <div class="flex items-center gap-3">
-                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-silver">
-                                    <i data-lucide="glasses" class="h-4 w-4"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-semibold text-brand-ice block">Lentes Ópticos (Deducción Personal)</span>
-                                    <span class="text-[10px] text-brand-orange block font-semibold">⚠️ Solo aplica para la Declaración Anual</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-mono text-xs text-brand-ice" id="val-lentes">$2,400.00</span>
-                                <span class="text-[10px] font-mono text-brand-silver/60 uppercase bg-white/5 px-2 py-1 rounded">Anual</span>
-                            </div>
+                        <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                            <i data-lucide="receipt" class="h-4 w-4"></i>
+                            <span class="text-[8px]">Facturas</span>
                         </div>
-
-                        <!-- Item 3 (Bancarización Trigger) -->
-                        <div id="item-gasolina" class="rounded-xl bg-brand-bg border border-white/5 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all duration-300">
-                            <div class="flex items-start gap-3">
-                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-silver">
-                                    <i data-lucide="fuel" class="h-4 w-4"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-semibold text-brand-ice block">Combustible para Logística</span>
-                                    <span class="text-[10px] text-brand-silver/50 block" id="lbl-gasolina-type">CFDI PUE - Pago: Transferencia Electrónica</span>
-                                    <!-- Warn label dynamically updated -->
-                                    <span id="warn-bancarizacion" class="hidden text-[10px] text-brand-red font-bold mt-1">⚠️ Gasto mayor a $2,000 en Efectivo: Rechazado por el SAT</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-white/5 pt-2 sm:pt-0">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-[10px] text-brand-silver/50">Pago:</span>
-                                    <select id="select-pago" class="bg-brand-surface border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-brand-ice focus:outline-none focus:border-brand-cyan" onchange="updateSimulation()">
-                                        <option value="03">Transferencia</option>
-                                        <option value="01">01 Efectivo</option>
-                                    </select>
-                                </div>
-                                <span class="font-mono text-xs text-brand-ice" id="val-gasolina">$3,200.00</span>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" id="chk-gasolina" class="sr-only peer" checked onchange="updateSimulation()">
-                                    <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-brand-silver after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-cyan"></div>
-                                </label>
-                            </div>
+                        <div class="flex flex-col items-center gap-0.5 text-brand-cyan">
+                            <i data-lucide="edit-3" class="h-4 w-4"></i>
+                            <span class="text-[8px] font-semibold">Borrador</span>
                         </div>
-
-                        <!-- Simulated imported item placeholder -->
-                        <div id="item-imported" class="hidden rounded-xl bg-brand-bg border border-brand-cyan/30 p-3 flex items-center justify-between transition-all duration-300 animate-pulse">
-                            <div class="flex items-center gap-3">
-                                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyan shadow-glow-cyan">
-                                    <i data-lucide="file-check" class="h-4 w-4"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-semibold text-brand-cyan block">Papelería de Oficina (XML Parseado)</span>
-                                    <span class="text-[10px] text-brand-silver/50 block">CFDI 4.0 PUE - UUID: e3b0c442...</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-mono text-xs text-brand-cyan font-bold">$1,250.00</span>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" id="chk-imported" class="sr-only peer" checked onchange="updateSimulation()">
-                                    <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-brand-silver after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-cyan"></div>
-                                </label>
-                            </div>
+                        <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                            <i data-lucide="bar-chart-3" class="h-4 w-4"></i>
+                            <span class="text-[8px]">Anual</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-0.5 text-brand-silver/50">
+                            <i data-lucide="settings" class="h-4 w-4"></i>
+                            <span class="text-[8px]">Config</span>
                         </div>
                     </div>
-
-                    <!-- Sandbox Results -->
-                    <div class="bg-brand-bg rounded-xl p-4 border border-white/10">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <span class="text-[10px] text-brand-silver/60 block font-semibold uppercase tracking-wider">Base Gravable (Simulada)</span>
-                                <span class="text-lg font-mono font-bold text-brand-ice" id="res-base-gravable">$60,000.00</span>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-[10px] text-brand-silver/60 block font-semibold uppercase tracking-wider">ISR Provisional Estimado</span>
-                                <span class="text-lg font-mono font-bold text-brand-cyan" id="res-isr">$4,231.00</span>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-3 border-t border-white/5 flex items-center justify-between">
-                            <div class="flex items-center gap-1">
-                                <span class="text-[10px] text-brand-silver/60">IVA Definitivo a Cargo:</span>
-                                <span class="font-mono text-[10px] font-bold text-brand-ice" id="res-iva">$8,000.00</span>
-                            </div>
-                            <button onclick="simulateSatCopy()" class="flex items-center gap-1.5 rounded bg-brand-cyan/10 hover:bg-brand-cyan/20 px-2 py-1.5 text-[10px] font-bold text-brand-cyan transition-all border border-brand-cyan/20 shadow-glow-cyan">
-                                <i data-lucide="copy" class="h-3 w-3"></i>
-                                Copiar para Portal SAT (Copy-Paste)
-                            </button>
-                        </div>
+                    <div class="flex justify-center py-1.5 bg-brand-surface/60">
+                        <div class="h-1 w-24 rounded-full bg-white/20"></div>
                     </div>
-
-                    <!-- Simulated Loading Overlay for Isolate parser -->
-                    <div id="isolate-loader" class="hidden absolute inset-0 bg-brand-bg/95 rounded-2xl flex flex-col items-center justify-center gap-4 z-10 transition-all">
-                        <div class="relative flex h-16 w-16 items-center justify-center">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan/20 opacity-75"></span>
-                            <div class="h-12 w-12 rounded-full border-4 border-t-brand-cyan border-white/10 animate-spin"></div>
-                        </div>
-                        <div class="text-center">
-                            <span class="text-xs font-mono text-brand-cyan block font-bold">Invocando Isolate de Dart Asíncrono</span>
-                            <span class="text-[10px] text-brand-silver block mt-1">Descomprimiendo y parseando nodos XML de forma segura...</span>
-                        </div>
                     </div>
-
-                    <!-- Simulated Copy Notification Toast -->
-                    <div id="copy-toast" class="hidden absolute bottom-4 left-4 right-4 bg-brand-cyan text-brand-bg px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-glow-cyan animate-bounce z-20">
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="check-circle" class="h-4 w-4"></i>
-                            Valores copiados al portapapeles listos para transcribir en el SAT.
-                        </span>
-                        <button onclick="hideCopyToast()" class="text-brand-bg/60 hover:text-brand-bg">✕</button>
                     </div>
+                    <p class="mt-4 text-center text-[11px] text-brand-silver/40">Datos ficticios de ejemplo — captura un monto de PTU o pérdidas y observa cómo cambia el ISR.</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -655,9 +588,9 @@
 
                 <!-- Pro Plan (glowing electric/cyan design) -->
                 <div class="rounded-2xl border border-brand-cyan/40 bg-brand-surface p-8 flex flex-col justify-between relative shadow-glow-blue">
-                    <div class="absolute -top-3.5 right-6 rounded-full bg-brand-cyan px-3 py-1 text-[10px] font-bold text-brand-bg uppercase tracking-wider shadow-glow-cyan">
-                        Más Elegido
-                    </div>
+                    <button type="button" onclick="focusWaitlist('pro')" class="absolute -top-3.5 right-6 rounded-full bg-brand-cyan px-3 py-1 text-[10px] font-bold text-brand-bg uppercase tracking-wider shadow-glow-cyan hover:opacity-90 transition-opacity">
+                        Próximamente · Avisarme
+                    </button>
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan block">MICRO-SAAS HÍBRIDO</span>
                         <h3 class="text-2xl font-bold text-brand-ice mt-1">soy612 Pro</h3>
@@ -689,7 +622,7 @@
                         </ul>
                     </div>
                     <button type="button" onclick="focusWaitlist('pro')" class="w-full mt-8 rounded-xl bg-gradient-to-r from-brand-electric to-brand-cyan text-white py-3 text-sm font-bold transition-all hover:opacity-90 shadow-glow-cyan">
-                        Subir a soy612 Pro
+                        Avisarme cuando esté disponible
                     </button>
                 </div>
             </div>
@@ -743,9 +676,12 @@
                         <i data-lucide="shield-check" class="h-8 w-8"></i>
                     </div>
                     <div>
+                        <button type="button" onclick="focusWaitlist('pro')" class="inline-flex items-center gap-1.5 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-cyan mb-2 hover:bg-brand-cyan/20 transition-colors">
+                            Próximamente en soy612 Pro
+                        </button>
                         <h3 class="text-2xl font-bold text-brand-ice">Seguridad de la información bajo modelo Zero-Knowledge</h3>
                         <p class="mt-3 text-sm text-brand-silver leading-relaxed">
-                            En soy612 Pro, tus copias de seguridad se encriptan de extremo a extremo (AES-GCM-256) antes de subir al servidor. La llave criptográfica BIP39 se deriva localmente en tu smartphone o tablet y nunca es transmitida a nuestro servidor. Esto garantiza que ni nosotros, ni nadie más, puede visualizar tus registros contables si sufriéramos una intrusión. Tu información te pertenece exclusivamente a ti.
+                            Cuando lancemos soy612 Pro, tus copias de seguridad se encriptarán de extremo a extremo (AES-GCM-256) antes de subir al servidor. La llave criptográfica BIP39 se derivará localmente en tu smartphone o tablet y nunca será transmitida a nuestro servidor. Esto garantizará que ni nosotros, ni nadie más, pueda visualizar tus registros contables si sufriéramos una intrusión. Tu información te pertenecerá exclusivamente a ti.
                         </p>
                     </div>
                 </div>
@@ -814,13 +750,10 @@
         // Start Lucide Icons on DOM ready
         window.addEventListener('load', () => {
             lucide.createIcons();
-            updateSimulation();
+            updateBorradorSimulation();
             calculateRfcDeadline();
             document.getElementById('footer-year').innerText = new Date().getFullYear();
         });
-
-        // Interactive states
-        let xmlImported = false;
 
         const MONTH_NAMES_ES = [
             'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
@@ -858,128 +791,33 @@
                 { limit: 376172.81, base: 32709.43, pct: 34.00 }
             ];
 
-            let bracket = brackets[0];
-            for (let i = 0; i < brackets.length; i++) {
-                if (baseGravable <= brackets[i].limit) {
-                    bracket = brackets[i];
-                    break;
-                }
-                bracket = brackets[i];
-            }
+            let bracketIndex = brackets.findIndex((b) => baseGravable <= b.limit);
+            if (bracketIndex === -1) bracketIndex = brackets.length - 1;
+            const bracket = brackets[bracketIndex];
+            // Límite inferior del tramo = límite superior del tramo anterior + $0.01
+            // (fórmula estándar de tarifa progresiva; antes se usaba limit/1.5, lo
+            // cual podía hacer que MÁS deducción resultara en MÁS ISR cerca de un
+            // límite de tramo).
+            const limiteInferior = bracketIndex === 0 ? 0.01 : brackets[bracketIndex - 1].limit + 0.01;
 
-            const excedente = Math.max(0, baseGravable - (bracket.limit / 1.5));
+            const excedente = Math.max(0, baseGravable - limiteInferior);
             const marginal = (excedente * (bracket.pct / 100));
             const totalIsr = bracket.base + marginal;
             return Math.max(0, totalIsr);
         }
 
-        // Calculation pipeline
-        function updateSimulation() {
-            const inputIngreso = parseFloat(document.getElementById('input-ingreso').value) || 0;
-            const selectPago = document.getElementById('select-pago').value;
-            const chkInternet = document.getElementById('chk-internet').checked;
-            const chkGasolina = document.getElementById('chk-gasolina').checked;
-            const chkImported = document.getElementById('chk-imported').checked;
+        // Calculation pipeline (Borrador: ingresos/deducciones ya acumulados,
+        // PTU y pérdidas fiscales son captura manual — igual que la app real)
+        function updateBorradorSimulation() {
+            const ingresosAcumulados = 32622.50;
+            const deduccionesAcumuladas = 13365.80;
+            const ptu = parseFloat(document.getElementById('input-ptu').value) || 0;
+            const perdidas = parseFloat(document.getElementById('input-perdidas').value) || 0;
 
-            let totalDeducibleExpenses = 0;
-            
-            // Gasolina bancarización logic
-            const gasTotal = 3200.00;
-            const gasInputLabel = document.getElementById('lbl-gasolina-type');
-            const gasWarn = document.getElementById('warn-bancarizacion');
-            const gasolinaItem = document.getElementById('item-gasolina');
-
-            if (selectPago === '01') {
-                gasInputLabel.innerText = "CFDI PUE - Pago: Efectivo";
-                gasWarn.classList.remove('hidden');
-                gasolinaItem.className = "rounded-xl bg-brand-bg border border-brand-red p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all duration-300";
-            } else {
-                gasInputLabel.innerText = "CFDI PUE - Pago: Transferencia Electrónica";
-                gasWarn.classList.add('hidden');
-                gasolinaItem.className = "rounded-xl bg-brand-bg border border-white/5 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition-all duration-300";
-                
-                if (chkGasolina) {
-                    totalDeducibleExpenses += gasTotal;
-                }
-            }
-
-            // Internet switch
-            if (chkInternet) {
-                totalDeducibleExpenses += 1800.00;
-                document.getElementById('item-internet').classList.remove('opacity-55');
-            } else {
-                document.getElementById('item-internet').classList.add('opacity-55');
-            }
-
-            // Gasolina switch style mapping
-            if (!chkGasolina) {
-                document.getElementById('item-gasolina').classList.add('opacity-55');
-            } else {
-                document.getElementById('item-gasolina').classList.remove('opacity-55');
-            }
-
-            // Imported switch logic
-            if (xmlImported) {
-                if (chkImported) {
-                    totalDeducibleExpenses += 1250.00;
-                    document.getElementById('item-imported').classList.remove('opacity-55');
-                } else {
-                    document.getElementById('item-imported').classList.add('opacity-55');
-                }
-            }
-
-            // Calculation outputs
-            const baseGravable = Math.max(0, inputIngreso - totalDeducibleExpenses);
+            const baseGravable = Math.max(0, ingresosAcumulados - deduccionesAcumuladas - ptu - perdidas);
             const isrResult = calculateMonthlyIsr(baseGravable);
-            const ivaResult = Math.max(0, (inputIngreso * 0.16) - (totalDeducibleExpenses * 0.16));
 
-            // Format monetary strings
-            document.getElementById('res-base-gravable').innerText = formatter.format(baseGravable);
-            document.getElementById('res-isr').innerText = formatter.format(isrResult);
-            document.getElementById('res-iva').innerText = formatter.format(ivaResult);
-        }
-
-        // Simulated isolate background parse
-        function simulateXmlImport() {
-            const loader = document.getElementById('isolate-loader');
-            const importedItem = document.getElementById('item-imported');
-
-            loader.classList.remove('hidden');
-
-            setTimeout(() => {
-                loader.classList.add('hidden');
-                importedItem.classList.remove('hidden');
-                xmlImported = true;
-                updateSimulation();
-            }, 1800);
-        }
-
-        // SAT Copy paste mechanism emulating clipboard support
-        function simulateSatCopy() {
-            const isrVal = document.getElementById('res-isr').innerText;
-            const ivaVal = document.getElementById('res-iva').innerText;
-            const textToCopy = `Determinación de Impuestos soy612\nISR Provisional: ${isrVal}\nIVA Definitivo: ${ivaVal}`;
-            
-            const tempInput = document.createElement("textarea");
-            tempInput.value = textToCopy;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
-            showCopyToast();
-        }
-
-        function showCopyToast() {
-            const toast = document.getElementById('copy-toast');
-            toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 4000);
-        }
-
-        function hideCopyToast() {
-            document.getElementById('copy-toast').classList.add('hidden');
+            document.getElementById('res-isr-borrador').innerText = formatter.format(isrResult);
         }
 
         // ---- Waitlist (lead capture) ----

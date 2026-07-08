@@ -13,6 +13,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_tokens.dart';
 import '../../theme/app_typography.dart';
 import '../shared/periodo_activo_controller.dart';
+import '../shared/sat_link.dart';
 import 'espejo_providers.dart';
 
 /// Paso 3 — Pago (README, sección "4. Espejo SAT"): resumen de ISR + IVA,
@@ -205,11 +206,22 @@ class _EspejoPagoStepState extends ConsumerState<EspejoPagoStep> {
         if (_avisoAbierto)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: Text(
-              'Esta app es tu bitácora privada y un simulador interactivo para '
-              'que veas tus números antes de ir al SAT. No tenemos nexos '
-              'oficiales con el gobierno; tú debes capturar y transmitir tus '
-              'datos directamente en el portal oficial.',
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  const TextSpan(
+                    text: 'Esta app es tu bitácora privada y un simulador interactivo para '
+                        'que veas tus números antes de ir al SAT. No tenemos nexos '
+                        'oficiales con el gobierno; tú debes capturar y transmitir tus '
+                        'datos directamente en el ',
+                  ),
+                  satLinkSpan(
+                    'portal oficial (sat.gob.mx)',
+                    style: AppTypography.sans(fontSize: 12, height: 1.55),
+                  ),
+                  const TextSpan(text: '.'),
+                ],
+              ),
               style: AppTypography.sans(
                 fontSize: 12,
                 color: AppColors.textSecondaryMin,
