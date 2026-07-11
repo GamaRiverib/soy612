@@ -20,7 +20,10 @@ describe('WaitlistService', () => {
     firebaseService = { firestore: jest.fn().mockReturnValue(fakeFirestore) };
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [WaitlistService, { provide: FirebaseService, useValue: firebaseService }],
+      providers: [
+        WaitlistService,
+        { provide: FirebaseService, useValue: firebaseService },
+      ],
     }).compile();
 
     service = module.get(WaitlistService);
@@ -29,22 +32,47 @@ describe('WaitlistService', () => {
   it('writes a new entry with createdAt when the email has not signed up before', async () => {
     await setup(false);
 
-    const result = await service.subscribe({ email: 'Nueva@Correo.com', plan: 'pro' }, 'iphash');
+    const result = await service.subscribe(
+      {
+        email: 'Nueva@Correo.com',
+        perfil: 'profesionista_independiente',
+        planInteres: 'pro',
+      },
+      'iphash',
+    );
 
     expect(result).toEqual({ accepted: true });
     expect(fakeFirestore.collection).toHaveBeenCalledWith('waitlist');
     expect(fakeFirestore.set).toHaveBeenCalledWith(
-      expect.objectContaining({ email: 'nueva@correo.com', plan: 'pro', ipHash: 'iphash', createdAt: expect.anything() }),
+      expect.objectContaining({
+        email: 'nueva@correo.com',
+        perfil: 'profesionista_independiente',
+        planInteres: 'pro',
+        ipHash: 'iphash',
+        createdAt: expect.anything(),
+      }),
     );
   });
 
   it('merges (no duplicate) when the email already exists', async () => {
     await setup(true);
 
-    await service.subscribe({ email: 'ya@existe.com', plan: 'estandar' }, 'iphash2');
+    await service.subscribe(
+      {
+        email: 'ya@existe.com',
+        perfil: 'actividad_empresarial',
+        planInteres: 'estandar',
+      },
+      'iphash2',
+    );
 
     expect(fakeFirestore.set).toHaveBeenCalledWith(
-      { plan: 'estandar', ipHash: 'iphash2', updatedAt: expect.anything() },
+      {
+        perfil: 'actividad_empresarial',
+        planInteres: 'estandar',
+        ipHash: 'iphash2',
+        updatedAt: expect.anything(),
+      },
       { merge: true },
     );
   });
@@ -53,7 +81,12 @@ describe('WaitlistService', () => {
     await setup(false);
 
     const result = await service.subscribe(
-      { email: 'bot@spam.com', plan: 'pro', empresa: 'Acme Bots Inc' },
+      {
+        email: 'bot@spam.com',
+        perfil: 'contador',
+        planInteres: 'pro',
+        empresa: 'Acme Bots Inc',
+      },
       'iphash3',
     );
 

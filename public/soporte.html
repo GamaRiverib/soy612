@@ -151,17 +151,17 @@
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    soy612 Estándar es gratuito y funciona 100% en tu dispositivo: importas tus XMLs manualmente y todo el cálculo ocurre localmente. soy612 Pro agrega automatización opcional en la nube: un buzón de correo para recibir facturas automáticamente, respaldo cifrado de extremo a extremo para sincronizar entre dispositivos, y monitoreo de proveedores listados en el Artículo 69-B del CFF (EFOS). Consulta el detalle completo en <a href="/#precios" class="text-brand-cyan hover:underline">Planes y precios</a>.
+                    soy612 Estándar está en beta para Android: importas tus XMLs manualmente y los CFDI se procesan en tu dispositivo. soy612 Pro está en validación como roadmap posible; podría incluir respaldo cifrado, sincronización o automatización futura de recepción de CFDI, pero aún no está disponible comercialmente ni tiene precio final.
                 </p>
             </details>
 
             <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
                 <summary class="flex items-center justify-between gap-4">
-                    <span class="text-sm font-semibold text-brand-ice">¿Cómo cancelo mi suscripción a soy612 Pro?</span>
+                    <span class="text-sm font-semibold text-brand-ice">¿Cómo cancelo soy612 Pro?</span>
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    Si contrataste desde la app móvil, cancela directamente desde la configuración de suscripciones de tu App Store (iOS) o Google Play (Android) — nosotros no podemos cancelarla por ti desde ahí por política de las tiendas. Si contrataste desde la web (Stripe), escríbenos a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a> y la cancelamos de inmediato. En ambos casos conservas el acceso Pro hasta el final del periodo ya pagado. Más detalles en nuestros <a href="/terminos" class="text-brand-cyan hover:underline">Términos y Condiciones</a>.
+                    Pro todavía no está disponible comercialmente, así que no hay suscripciones activas que cancelar desde soy612. Si esto cambia, publicaremos las condiciones antes de abrir contratación.
                 </p>
             </details>
 
@@ -171,7 +171,7 @@
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    Si tu compra fue a través de una tienda de aplicaciones, el reembolso se solicita directamente con Apple o Google conforme a sus políticas. Si fue vía Stripe en la web, escríbenos dentro de los 14 días naturales posteriores al cobro a <a href="mailto:soporte@soy612.click" class="text-brand-cyan hover:underline">soporte@soy612.click</a> y evaluamos tu caso.
+                    La beta actual no procesa cobros de soy612 Pro. Si en el futuro abrimos compras o suscripciones, publicaremos la política de reembolsos antes de cobrar.
                 </p>
             </details>
 
@@ -181,7 +181,7 @@
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    No. En soy612 Estándar tus datos nunca salen de tu dispositivo. En soy612 Pro, los respaldos que se sincronizan a la nube se cifran de extremo a extremo con una llave que solo tú posees (derivada de tu frase de recuperación de 12 palabras) — nunca la recibimos, así que no podemos leer tu información aunque quisiéramos. Más detalle en nuestro <a href="/privacidad" class="text-brand-cyan hover:underline">Aviso de Privacidad</a>.
+                    En soy612 Estándar, los CFDI se procesan en tu dispositivo. La lista beta del sitio solo recibe el correo, perfil y plan de interés que envías voluntariamente. Más detalle en nuestro <a href="/privacidad" class="text-brand-cyan hover:underline">Aviso de Privacidad</a>.
                 </p>
             </details>
 
@@ -191,7 +191,7 @@
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    Por diseño Zero-Knowledge, nosotros no tenemos copia de tu llave de cifrado ni de tu frase de recuperación — es la única forma de descifrar tu respaldo en la nube, y no existe un mecanismo de "recuperar contraseña" que la reconstruya. Si la pierdes, tu respaldo en la nube quedará inaccesible, pero tus datos locales en el dispositivo donde los capturaste originalmente permanecen intactos. Te recomendamos guardar esa frase impresa o en un gestor de contraseñas confiable en cuanto la generes.
+                    La beta Estándar no incluye respaldo automático. Si borras la app o pierdes el teléfono sin respaldo propio, puedes perder la base local. El respaldo cifrado es una función futura en evaluación para Pro.
                 </p>
             </details>
 
@@ -207,11 +207,11 @@
 
             <details class="group rounded-xl border border-white/10 bg-brand-surface p-5">
                 <summary class="flex items-center justify-between gap-4">
-                    <span class="text-sm font-semibold text-brand-ice">¿Necesito darle mi CIEC o e.firma a soy612?</span>
+                    <span class="text-sm font-semibold text-brand-ice">¿Necesito darle mi Contraseña del SAT o e.firma a soy612?</span>
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    Nunca. soy612 no solicita, ni almacena, ni transmite tu contraseña CIEC ni tus archivos de e.firma (.key/.cer) en ningún momento. Tú importas tus comprobantes (XMLs) directamente o, si eres Pro, los recibes en tu buzón automatizado — pero el acceso al portal del SAT y el envío final de tus declaraciones siempre lo haces tú, directamente en el sitio oficial del SAT.
+                    No. soy612 no solicita, almacena ni transmite tu Contraseña del SAT -antes CIEC- ni tus archivos de e.firma (.key/.cer). Tú importas tus comprobantes XML directamente y el envío final de tus declaraciones siempre lo haces tú, o tu contador, en el sitio oficial del SAT.
                 </p>
             </details>
 
@@ -221,7 +221,7 @@
                     <i data-lucide="chevron-down" class="chevron h-4 w-4 text-brand-cyan transition-transform flex-shrink-0"></i>
                 </summary>
                 <p class="mt-3 text-sm leading-relaxed text-brand-silver">
-                    soy612 está disponible como aplicación móvil para Android e iOS. La sincronización cifrada de soy612 Pro te permite continuar tu bitácora entre varios dispositivos usando tu frase de recuperación de 12 palabras.
+                    La beta actual está enfocada en Android. iOS y sincronización entre dispositivos quedan como posibilidades futuras, sujetas a validación de demanda.
                 </p>
             </details>
         </div>

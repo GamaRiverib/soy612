@@ -17,7 +17,10 @@ export class WaitlistService {
    * para que reintentos del mismo correo actualicen el registro en vez de
    * duplicarlo.
    */
-  async subscribe(dto: CreateWaitlistEntryDto, ipHash: string): Promise<{ accepted: true }> {
+  async subscribe(
+    dto: CreateWaitlistEntryDto,
+    ipHash: string,
+  ): Promise<{ accepted: true }> {
     if (dto.empresa) {
       this.logger.warn('Honeypot triggered on /waitlist, ignoring silently');
       return { accepted: true };
@@ -28,15 +31,20 @@ export class WaitlistService {
     const ref = this.firebase.firestore().collection('waitlist').doc(docId);
     const snapshot = await ref.get();
 
+    const leadData = {
+      perfil: dto.perfil,
+      planInteres: dto.planInteres,
+      ipHash,
+      updatedAt: FieldValue.serverTimestamp(),
+    };
+
     if (snapshot.exists) {
-      await ref.set({ plan: dto.plan, ipHash, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+      await ref.set(leadData, { merge: true });
     } else {
       await ref.set({
         email,
-        plan: dto.plan,
-        ipHash,
+        ...leadData,
         createdAt: FieldValue.serverTimestamp(),
-        updatedAt: FieldValue.serverTimestamp(),
       });
     }
 

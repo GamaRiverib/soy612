@@ -2,10 +2,10 @@
 
 Backend de **soy612 Cloud Gateway** (NestJS + TypeScript), desplegado en **Cloud Run** sobre el proyecto GCP/Firebase `soy612`. Ver el plan completo en `../docs/Especificación Técnica - soy612 Pro.md` y el plan de expansión vigente.
 
-Este servicio nunca ve datos fiscales en claro ni llaves de cifrado del usuario (principio Zero-Knowledge). Todas las rutas viven bajo el prefijo global `/api` porque Firebase Hosting reenvía `/api/**` a este servicio conservando la ruta completa (ver `../firebase.json`). Por ahora (Fase 0) solo expone:
+Este servicio solo captura leads de beta y no recibe datos fiscales del usuario. Todas las rutas viven bajo el prefijo global `/api` porque Firebase Hosting reenvía `/api/**` a este servicio conservando la ruta completa (ver `../firebase.json`). Por ahora (Fase 0) solo expone:
 
 - `GET /api/health` — chequeo de salud.
-- `POST /api/waitlist` — captura de leads del landing page (`{ email, plan: 'estandar' | 'pro' }`). Incluye honeypot anti-spam (`empresa`, debe venir vacío) y rate limiting (5 req/min por IP en esta ruta, 20 req/min global).
+- `POST /api/waitlist` — captura de leads del landing page (`{ email, perfil, planInteres }`). Incluye honeypot anti-spam (`empresa`, debe venir vacío) y rate limiting (5 req/min por IP en esta ruta, 20 req/min global).
 
 ## Desarrollo local
 
