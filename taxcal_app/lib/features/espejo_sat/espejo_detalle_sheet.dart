@@ -123,7 +123,7 @@ void showEspejoDetalleSheet(
                                       ),
                                     ),
                                     const SizedBox(width: 10),
-                                    Text(formatMoney(factura.total), style: AppTypography.amountMedium),
+                                    Text(formatMoney(factura.subtotal), style: AppTypography.amountMedium),
                                   ],
                                 ),
                               );

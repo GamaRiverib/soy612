@@ -88,6 +88,21 @@ class CapturasEspejo extends Table {
   Set<Column> get primaryKey => {anio, mes};
 }
 
+/// Capturas manuales granulares del formulario SAT actual. Permite guardar
+/// campos nuevos sin cambiar el esquema cada vez que el portal modifica el
+/// formulario.
+class CapturasSatCampos extends Table {
+  IntColumn get anio => integer()();
+  IntColumn get mes => integer()();
+  TextColumn get campoId => text()();
+  RealColumn get valor => real().nullable()();
+  TextColumn get opcion => text().nullable()();
+  DateTimeColumn get actualizadoEn => dateTime().withDefault(currentDateAndTime)();
+
+  @override
+  Set<Column> get primaryKey => {anio, mes, campoId};
+}
+
 /// Bolsa de deducciones personales del ejercicio (README, sección "5.
 /// Anual"; especificación funcional, sección 5.3, Art. 151 LISR): gastos
 /// médicos, dentales, seguros y colegiaturas capturados manualmente.

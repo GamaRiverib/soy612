@@ -11,7 +11,14 @@ export 'factura_pendiente_ppd.dart';
 part 'app_database.g.dart';
 
 @DriftDatabase(
-  tables: [Contribuyentes, Facturas, Inversiones, CapturasEspejo, DeduccionesPersonales],
+  tables: [
+    Contribuyentes,
+    Facturas,
+    Inversiones,
+    CapturasEspejo,
+    CapturasSatCampos,
+    DeduccionesPersonales,
+  ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(driftDatabase(name: 'soy612'));
@@ -20,7 +27,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forExecutor(super.executor);
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -31,6 +38,9 @@ class AppDatabase extends _$AppDatabase {
       }
       if (from < 3) {
         await m.createTable(deduccionesPersonales);
+      }
+      if (from < 4) {
+        await m.createTable(capturasSatCampos);
       }
     },
   );
@@ -265,6 +275,14 @@ class AppDatabase extends _$AppDatabase {
         finExclusivo: DateTime(anio, mes + 1, 1),
       );
 
+  Stream<double> watchIngresosCobradosAntesDelMes({required int anio, required int mes}) =>
+      _watchSuma(
+        columna: facturas.subtotal,
+        tipo: TipoCfdi.ingreso,
+        inicio: DateTime(anio, 1, 1),
+        finExclusivo: DateTime(anio, mes, 1),
+      );
+
   /// Suma de subtotales de gastos deducibles y pagados del mes (KPI del Tablero).
   Stream<double> watchGastosDeduciblesDelMes({required int anio, required int mes}) =>
       _watchSuma(
@@ -272,6 +290,15 @@ class AppDatabase extends _$AppDatabase {
         tipo: TipoCfdi.egreso,
         inicio: DateTime(anio, mes, 1),
         finExclusivo: DateTime(anio, mes + 1, 1),
+        soloDeducibles: true,
+      );
+
+  Stream<double> watchGastosDeduciblesAntesDelMes({required int anio, required int mes}) =>
+      _watchSuma(
+        columna: facturas.subtotal,
+        tipo: TipoCfdi.egreso,
+        inicio: DateTime(anio, 1, 1),
+        finExclusivo: DateTime(anio, mes, 1),
         soloDeducibles: true,
       );
 
@@ -324,6 +351,14 @@ class AppDatabase extends _$AppDatabase {
         finExclusivo: DateTime(anio, hastaMes + 1, 1),
       );
 
+  Stream<double> watchIsrRetenidoAntesDelMes({required int anio, required int mes}) =>
+      _watchSuma(
+        columna: facturas.isrRetenido,
+        tipo: TipoCfdi.ingreso,
+        inicio: DateTime(anio, 1, 1),
+        finExclusivo: DateTime(anio, mes, 1),
+      );
+
   /// IVA cobrado del mes (tasa 16%, definitivo y no acumulativo — sección 5.2).
   Stream<double> watchIvaCobradoDelMes({required int anio, required int mes}) => _watchSuma(
     columna: facturas.ivaTrasladado,
@@ -331,6 +366,31 @@ class AppDatabase extends _$AppDatabase {
     inicio: DateTime(anio, mes, 1),
     finExclusivo: DateTime(anio, mes + 1, 1),
     tasaIva: 16.0,
+  );
+
+  Stream<double> watchBaseIngresosPorTasaDelMes({
+    required int anio,
+    required int mes,
+    required double tasaIva,
+  }) => _watchSuma(
+    columna: facturas.subtotal,
+    tipo: TipoCfdi.ingreso,
+    inicio: DateTime(anio, mes, 1),
+    finExclusivo: DateTime(anio, mes + 1, 1),
+    tasaIva: tasaIva,
+  );
+
+  Stream<double> watchBaseGastosPorTasaDelMes({
+    required int anio,
+    required int mes,
+    required double tasaIva,
+  }) => _watchSuma(
+    columna: facturas.subtotal,
+    tipo: TipoCfdi.egreso,
+    inicio: DateTime(anio, mes, 1),
+    finExclusivo: DateTime(anio, mes + 1, 1),
+    soloDeducibles: true,
+    tasaIva: tasaIva,
   );
 
   /// IVA acreditable del mes (egresos deducibles y pagados, tasa 16%).
@@ -422,6 +482,7 @@ class AppDatabase extends _$AppDatabase {
       await delete(facturas).go();
       await delete(contribuyentes).go();
       await delete(capturasEspejo).go();
+      await delete(capturasSatCampos).go();
       await delete(deduccionesPersonales).go();
     });
   }
@@ -468,6 +529,80 @@ class AppDatabase extends _$AppDatabase {
         copropiedad: copropiedad == null ? const Value.absent() : Value(copropiedad),
       ),
     );
+  }
+
+  Stream<List<CapturasSatCampo>> watchCapturasSatCampos({
+    required int anio,
+    required int mes,
+  }) {
+    return (select(capturasSatCampos)
+          ..where((c) => c.anio.equals(anio) & c.mes.equals(mes)))
+        .watch();
+  }
+
+  Future<void> guardarCapturaSatCampo({
+    required int anio,
+    required int mes,
+    required String campoId,
+    double? valor,
+    String? opcion,
+  }) {
+    return into(capturasSatCampos).insertOnConflictUpdate(
+      CapturasSatCamposCompanion(
+        anio: Value(anio),
+        mes: Value(mes),
+        campoId: Value(campoId),
+        valor: Value(valor),
+        opcion: Value(opcion),
+        actualizadoEn: Value(DateTime.now()),
+      ),
+    );
+  }
+
+  Future<double> sumarCapturasSatCampoAntesDeMes({
+    required int anio,
+    required int mes,
+    required String campoId,
+  }) async {
+    final suma = capturasSatCampos.valor.sum();
+    final query = selectOnly(capturasSatCampos)
+      ..addColumns([suma])
+      ..where(capturasSatCampos.anio.equals(anio))
+      ..where(capturasSatCampos.mes.isSmallerThanValue(mes))
+      ..where(capturasSatCampos.campoId.equals(campoId));
+
+    final row = await query.getSingle();
+    return row.read(suma) ?? 0.0;
+  }
+
+  Future<double> maxCapturasSatCampoAntesDeMes({
+    required int anio,
+    required int mes,
+    required String campoId,
+  }) async {
+    final maximo = capturasSatCampos.valor.max();
+    final query = selectOnly(capturasSatCampos)
+      ..addColumns([maximo])
+      ..where(capturasSatCampos.anio.equals(anio))
+      ..where(capturasSatCampos.mes.isSmallerThanValue(mes))
+      ..where(capturasSatCampos.campoId.equals(campoId));
+
+    final row = await query.getSingle();
+    return row.read(maximo) ?? 0.0;
+  }
+
+  Future<double> maxPagosProvisionalesLegacyAntesDeMes({
+    required int anio,
+    required int mes,
+  }) async {
+    final maximo = capturasEspejo.pagosProvisionalesAnteriores.max();
+    final query = selectOnly(capturasEspejo)
+      ..addColumns([maximo])
+      ..where(capturasEspejo.anio.equals(anio))
+      ..where(capturasEspejo.mes.isSmallerThanValue(mes));
+
+    final row = await query.getSingle();
+    return row.read(maximo) ?? 0.0;
   }
 
   // ---------------------------------------------------------------------

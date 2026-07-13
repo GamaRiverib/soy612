@@ -418,6 +418,62 @@ void main() {
       await db.borrarTodosLosDatos();
       expect(await db.watchCapturaEspejo(anio: 2026, mes: 6).first, isNull);
     });
+
+    test('guardarCapturaSatCampo persists flexible SAT field values', () async {
+      await db.guardarCapturaSatCampo(
+        anio: 2026,
+        mes: 6,
+        campoId: 'iva_otras_cantidades_cargo',
+        valor: 123,
+      );
+      await db.guardarCapturaSatCampo(
+        anio: 2026,
+        mes: 6,
+        campoId: 'iva_proporcion_opcion',
+        opcion: 'Art. 5 de la LIVA',
+      );
+
+      final capturas = await db.watchCapturasSatCampos(anio: 2026, mes: 6).first;
+
+      expect(capturas.map((c) => c.campoId), contains('iva_otras_cantidades_cargo'));
+      expect(
+        capturas.singleWhere((c) => c.campoId == 'iva_otras_cantidades_cargo').valor,
+        123,
+      );
+      expect(
+        capturas.singleWhere((c) => c.campoId == 'iva_proporcion_opcion').opcion,
+        'Art. 5 de la LIVA',
+      );
+    });
+
+    test('sumarCapturasSatCampoAntesDeMes accumulates only previous months', () async {
+      await db.guardarCapturaSatCampo(
+        anio: 2026,
+        mes: 4,
+        campoId: 'isr_pago_realizado',
+        valor: 1000,
+      );
+      await db.guardarCapturaSatCampo(
+        anio: 2026,
+        mes: 5,
+        campoId: 'isr_pago_realizado',
+        valor: 2708,
+      );
+      await db.guardarCapturaSatCampo(
+        anio: 2026,
+        mes: 6,
+        campoId: 'isr_pago_realizado',
+        valor: 500,
+      );
+
+      final acumuladoJunio = await db.sumarCapturasSatCampoAntesDeMes(
+        anio: 2026,
+        mes: 6,
+        campoId: 'isr_pago_realizado',
+      );
+
+      expect(acumuladoJunio, 3708);
+    });
   });
 
   group('watchFacturasParaDetalle', () {

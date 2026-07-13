@@ -131,4 +131,110 @@ void main() {
     expect(datos.impuestoNeto, 110); // 160 - 0 - 50
     expect(datos.esACargo, isTrue);
   });
+
+  test('espejoSatGuiadoProvider builds SAT sections with monthly and prior values', () async {
+    await db.insertarFacturaSiNoExiste(
+      FacturasCompanion.insert(
+        uuid: 'ing-previous',
+        fechaEmision: DateTime(2026, 5, 10),
+        fechaPagoEfectivo: Value(DateTime(2026, 5, 10)),
+        rfcEmisor: 'EMIS010101AAA',
+        rfcReceptor: 'RECE010101AAA',
+        tipoCfdi: TipoCfdi.ingreso,
+        subtotal: 900,
+        total: 1044,
+        tasaIva: const Value(16.0),
+        ivaTrasladado: const Value(144.0),
+        metodoPago: MetodoPagoCfdi.pue,
+        formaPago: '03',
+        estatusPago: EstatusPago.cobrado,
+      ),
+    );
+    await db.insertarFacturaSiNoExiste(
+      FacturasCompanion.insert(
+        uuid: 'ing-current',
+        fechaEmision: DateTime(2026, 6, 10),
+        fechaPagoEfectivo: Value(DateTime(2026, 6, 10)),
+        rfcEmisor: 'EMIS010101AAA',
+        rfcReceptor: 'RECE010101AAA',
+        tipoCfdi: TipoCfdi.ingreso,
+        subtotal: 1000,
+        total: 1160,
+        tasaIva: const Value(16.0),
+        ivaTrasladado: const Value(160.0),
+        metodoPago: MetodoPagoCfdi.pue,
+        formaPago: '03',
+        estatusPago: EstatusPago.cobrado,
+      ),
+    );
+    await db.guardarCapturaSatCampo(
+      anio: 2026,
+      mes: 6,
+      campoId: 'isr_ingresos_adicionales',
+      valor: 25,
+    );
+
+    final datos = await _readKeptAlive(container, espejoSatGuiadoProvider);
+    final ingresos = datos.secciones.singleWhere((s) => s.id == 'isr_ingresos');
+    final adicional = ingresos.campos.singleWhere((c) => c.id == 'isr_ingresos_adicionales');
+    final anteriores = ingresos.campos.singleWhere((c) => c.id == 'isr_ingresos_anteriores');
+    final total = ingresos.campos.singleWhere((c) => c.id == 'isr_total_ingresos_periodo');
+
+    expect(datos.secciones.map((s) => s.id), containsAll(['isr_ingresos', 'iva_acreditable']));
+    expect(adicional.tipo, CampoSatTipo.ceroSugerido);
+    expect(adicional.valor, 25);
+    expect(anteriores.valor, 900);
+    expect(total.valor, 1925);
+  });
+
+  test('espejoSatGuiadoProvider preloads previous provisional payments from prior months', () async {
+    await db.guardarCapturaSatCampo(
+      anio: 2026,
+      mes: 4,
+      campoId: 'isr_pago_realizado',
+      valor: 1000,
+    );
+    await db.guardarCapturaSatCampo(
+      anio: 2026,
+      mes: 5,
+      campoId: 'isr_pago_realizado',
+      valor: 2708,
+    );
+    await db.guardarCapturaSatCampo(
+      anio: 2026,
+      mes: 6,
+      campoId: 'isr_pago_realizado',
+      valor: 500,
+    );
+
+    final datos = await _readKeptAlive(container, espejoSatGuiadoProvider);
+    final determinacion = datos.secciones.singleWhere((s) => s.id == 'isr_determinacion');
+    final pagos = determinacion.campos.singleWhere(
+      (c) => c.id == 'isr_pagos_provisionales_anteriores',
+    );
+    final pagoPeriodo = datos.secciones
+        .singleWhere((s) => s.id == 'isr_pago')
+        .campos
+        .singleWhere((c) => c.id == 'isr_pago_realizado');
+
+    expect(pagos.valor, 3708);
+    expect(pagoPeriodo.valor, 500);
+  });
+
+  test('espejoSatGuiadoProvider reuses previous SAT provisional payment captures', () async {
+    await db.guardarCapturaSatCampo(
+      anio: 2026,
+      mes: 5,
+      campoId: 'isr_pagos_provisionales_anteriores',
+      valor: 3708,
+    );
+
+    final datos = await _readKeptAlive(container, espejoSatGuiadoProvider);
+    final determinacion = datos.secciones.singleWhere((s) => s.id == 'isr_determinacion');
+    final pagos = determinacion.campos.singleWhere(
+      (c) => c.id == 'isr_pagos_provisionales_anteriores',
+    );
+
+    expect(pagos.valor, 3708);
+  });
 }

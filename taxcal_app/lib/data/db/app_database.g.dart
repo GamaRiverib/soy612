@@ -2338,6 +2338,420 @@ class CapturasEspejoCompanion extends UpdateCompanion<CapturasEspejoData> {
   }
 }
 
+class $CapturasSatCamposTable extends CapturasSatCampos
+    with TableInfo<$CapturasSatCamposTable, CapturasSatCampo> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CapturasSatCamposTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _anioMeta = const VerificationMeta('anio');
+  @override
+  late final GeneratedColumn<int> anio = GeneratedColumn<int>(
+    'anio',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mesMeta = const VerificationMeta('mes');
+  @override
+  late final GeneratedColumn<int> mes = GeneratedColumn<int>(
+    'mes',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _campoIdMeta = const VerificationMeta(
+    'campoId',
+  );
+  @override
+  late final GeneratedColumn<String> campoId = GeneratedColumn<String>(
+    'campo_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _valorMeta = const VerificationMeta('valor');
+  @override
+  late final GeneratedColumn<double> valor = GeneratedColumn<double>(
+    'valor',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _opcionMeta = const VerificationMeta('opcion');
+  @override
+  late final GeneratedColumn<String> opcion = GeneratedColumn<String>(
+    'opcion',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actualizadoEnMeta = const VerificationMeta(
+    'actualizadoEn',
+  );
+  @override
+  late final GeneratedColumn<DateTime> actualizadoEn =
+      GeneratedColumn<DateTime>(
+        'actualizado_en',
+        aliasedName,
+        false,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+        defaultValue: currentDateAndTime,
+      );
+  @override
+  List<GeneratedColumn> get $columns => [
+    anio,
+    mes,
+    campoId,
+    valor,
+    opcion,
+    actualizadoEn,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'capturas_sat_campos';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CapturasSatCampo> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('anio')) {
+      context.handle(
+        _anioMeta,
+        anio.isAcceptableOrUnknown(data['anio']!, _anioMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_anioMeta);
+    }
+    if (data.containsKey('mes')) {
+      context.handle(
+        _mesMeta,
+        mes.isAcceptableOrUnknown(data['mes']!, _mesMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_mesMeta);
+    }
+    if (data.containsKey('campo_id')) {
+      context.handle(
+        _campoIdMeta,
+        campoId.isAcceptableOrUnknown(data['campo_id']!, _campoIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_campoIdMeta);
+    }
+    if (data.containsKey('valor')) {
+      context.handle(
+        _valorMeta,
+        valor.isAcceptableOrUnknown(data['valor']!, _valorMeta),
+      );
+    }
+    if (data.containsKey('opcion')) {
+      context.handle(
+        _opcionMeta,
+        opcion.isAcceptableOrUnknown(data['opcion']!, _opcionMeta),
+      );
+    }
+    if (data.containsKey('actualizado_en')) {
+      context.handle(
+        _actualizadoEnMeta,
+        actualizadoEn.isAcceptableOrUnknown(
+          data['actualizado_en']!,
+          _actualizadoEnMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {anio, mes, campoId};
+  @override
+  CapturasSatCampo map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CapturasSatCampo(
+      anio: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}anio'],
+      )!,
+      mes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}mes'],
+      )!,
+      campoId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}campo_id'],
+      )!,
+      valor: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}valor'],
+      ),
+      opcion: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}opcion'],
+      ),
+      actualizadoEn: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}actualizado_en'],
+      )!,
+    );
+  }
+
+  @override
+  $CapturasSatCamposTable createAlias(String alias) {
+    return $CapturasSatCamposTable(attachedDatabase, alias);
+  }
+}
+
+class CapturasSatCampo extends DataClass
+    implements Insertable<CapturasSatCampo> {
+  final int anio;
+  final int mes;
+  final String campoId;
+  final double? valor;
+  final String? opcion;
+  final DateTime actualizadoEn;
+  const CapturasSatCampo({
+    required this.anio,
+    required this.mes,
+    required this.campoId,
+    this.valor,
+    this.opcion,
+    required this.actualizadoEn,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['anio'] = Variable<int>(anio);
+    map['mes'] = Variable<int>(mes);
+    map['campo_id'] = Variable<String>(campoId);
+    if (!nullToAbsent || valor != null) {
+      map['valor'] = Variable<double>(valor);
+    }
+    if (!nullToAbsent || opcion != null) {
+      map['opcion'] = Variable<String>(opcion);
+    }
+    map['actualizado_en'] = Variable<DateTime>(actualizadoEn);
+    return map;
+  }
+
+  CapturasSatCamposCompanion toCompanion(bool nullToAbsent) {
+    return CapturasSatCamposCompanion(
+      anio: Value(anio),
+      mes: Value(mes),
+      campoId: Value(campoId),
+      valor: valor == null && nullToAbsent
+          ? const Value.absent()
+          : Value(valor),
+      opcion: opcion == null && nullToAbsent
+          ? const Value.absent()
+          : Value(opcion),
+      actualizadoEn: Value(actualizadoEn),
+    );
+  }
+
+  factory CapturasSatCampo.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CapturasSatCampo(
+      anio: serializer.fromJson<int>(json['anio']),
+      mes: serializer.fromJson<int>(json['mes']),
+      campoId: serializer.fromJson<String>(json['campoId']),
+      valor: serializer.fromJson<double?>(json['valor']),
+      opcion: serializer.fromJson<String?>(json['opcion']),
+      actualizadoEn: serializer.fromJson<DateTime>(json['actualizadoEn']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'anio': serializer.toJson<int>(anio),
+      'mes': serializer.toJson<int>(mes),
+      'campoId': serializer.toJson<String>(campoId),
+      'valor': serializer.toJson<double?>(valor),
+      'opcion': serializer.toJson<String?>(opcion),
+      'actualizadoEn': serializer.toJson<DateTime>(actualizadoEn),
+    };
+  }
+
+  CapturasSatCampo copyWith({
+    int? anio,
+    int? mes,
+    String? campoId,
+    Value<double?> valor = const Value.absent(),
+    Value<String?> opcion = const Value.absent(),
+    DateTime? actualizadoEn,
+  }) => CapturasSatCampo(
+    anio: anio ?? this.anio,
+    mes: mes ?? this.mes,
+    campoId: campoId ?? this.campoId,
+    valor: valor.present ? valor.value : this.valor,
+    opcion: opcion.present ? opcion.value : this.opcion,
+    actualizadoEn: actualizadoEn ?? this.actualizadoEn,
+  );
+  CapturasSatCampo copyWithCompanion(CapturasSatCamposCompanion data) {
+    return CapturasSatCampo(
+      anio: data.anio.present ? data.anio.value : this.anio,
+      mes: data.mes.present ? data.mes.value : this.mes,
+      campoId: data.campoId.present ? data.campoId.value : this.campoId,
+      valor: data.valor.present ? data.valor.value : this.valor,
+      opcion: data.opcion.present ? data.opcion.value : this.opcion,
+      actualizadoEn: data.actualizadoEn.present
+          ? data.actualizadoEn.value
+          : this.actualizadoEn,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CapturasSatCampo(')
+          ..write('anio: $anio, ')
+          ..write('mes: $mes, ')
+          ..write('campoId: $campoId, ')
+          ..write('valor: $valor, ')
+          ..write('opcion: $opcion, ')
+          ..write('actualizadoEn: $actualizadoEn')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(anio, mes, campoId, valor, opcion, actualizadoEn);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CapturasSatCampo &&
+          other.anio == this.anio &&
+          other.mes == this.mes &&
+          other.campoId == this.campoId &&
+          other.valor == this.valor &&
+          other.opcion == this.opcion &&
+          other.actualizadoEn == this.actualizadoEn);
+}
+
+class CapturasSatCamposCompanion extends UpdateCompanion<CapturasSatCampo> {
+  final Value<int> anio;
+  final Value<int> mes;
+  final Value<String> campoId;
+  final Value<double?> valor;
+  final Value<String?> opcion;
+  final Value<DateTime> actualizadoEn;
+  final Value<int> rowid;
+  const CapturasSatCamposCompanion({
+    this.anio = const Value.absent(),
+    this.mes = const Value.absent(),
+    this.campoId = const Value.absent(),
+    this.valor = const Value.absent(),
+    this.opcion = const Value.absent(),
+    this.actualizadoEn = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CapturasSatCamposCompanion.insert({
+    required int anio,
+    required int mes,
+    required String campoId,
+    this.valor = const Value.absent(),
+    this.opcion = const Value.absent(),
+    this.actualizadoEn = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : anio = Value(anio),
+       mes = Value(mes),
+       campoId = Value(campoId);
+  static Insertable<CapturasSatCampo> custom({
+    Expression<int>? anio,
+    Expression<int>? mes,
+    Expression<String>? campoId,
+    Expression<double>? valor,
+    Expression<String>? opcion,
+    Expression<DateTime>? actualizadoEn,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (anio != null) 'anio': anio,
+      if (mes != null) 'mes': mes,
+      if (campoId != null) 'campo_id': campoId,
+      if (valor != null) 'valor': valor,
+      if (opcion != null) 'opcion': opcion,
+      if (actualizadoEn != null) 'actualizado_en': actualizadoEn,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CapturasSatCamposCompanion copyWith({
+    Value<int>? anio,
+    Value<int>? mes,
+    Value<String>? campoId,
+    Value<double?>? valor,
+    Value<String?>? opcion,
+    Value<DateTime>? actualizadoEn,
+    Value<int>? rowid,
+  }) {
+    return CapturasSatCamposCompanion(
+      anio: anio ?? this.anio,
+      mes: mes ?? this.mes,
+      campoId: campoId ?? this.campoId,
+      valor: valor ?? this.valor,
+      opcion: opcion ?? this.opcion,
+      actualizadoEn: actualizadoEn ?? this.actualizadoEn,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (anio.present) {
+      map['anio'] = Variable<int>(anio.value);
+    }
+    if (mes.present) {
+      map['mes'] = Variable<int>(mes.value);
+    }
+    if (campoId.present) {
+      map['campo_id'] = Variable<String>(campoId.value);
+    }
+    if (valor.present) {
+      map['valor'] = Variable<double>(valor.value);
+    }
+    if (opcion.present) {
+      map['opcion'] = Variable<String>(opcion.value);
+    }
+    if (actualizadoEn.present) {
+      map['actualizado_en'] = Variable<DateTime>(actualizadoEn.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CapturasSatCamposCompanion(')
+          ..write('anio: $anio, ')
+          ..write('mes: $mes, ')
+          ..write('campoId: $campoId, ')
+          ..write('valor: $valor, ')
+          ..write('opcion: $opcion, ')
+          ..write('actualizadoEn: $actualizadoEn, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $DeduccionesPersonalesTable extends DeduccionesPersonales
     with TableInfo<$DeduccionesPersonalesTable, DeduccionPersonal> {
   @override
@@ -2819,6 +3233,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $FacturasTable facturas = $FacturasTable(this);
   late final $InversionesTable inversiones = $InversionesTable(this);
   late final $CapturasEspejoTable capturasEspejo = $CapturasEspejoTable(this);
+  late final $CapturasSatCamposTable capturasSatCampos =
+      $CapturasSatCamposTable(this);
   late final $DeduccionesPersonalesTable deduccionesPersonales =
       $DeduccionesPersonalesTable(this);
   @override
@@ -2830,6 +3246,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     facturas,
     inversiones,
     capturasEspejo,
+    capturasSatCampos,
     deduccionesPersonales,
   ];
 }
@@ -4403,6 +4820,240 @@ typedef $$CapturasEspejoTableProcessedTableManager =
       CapturasEspejoData,
       PrefetchHooks Function()
     >;
+typedef $$CapturasSatCamposTableCreateCompanionBuilder =
+    CapturasSatCamposCompanion Function({
+      required int anio,
+      required int mes,
+      required String campoId,
+      Value<double?> valor,
+      Value<String?> opcion,
+      Value<DateTime> actualizadoEn,
+      Value<int> rowid,
+    });
+typedef $$CapturasSatCamposTableUpdateCompanionBuilder =
+    CapturasSatCamposCompanion Function({
+      Value<int> anio,
+      Value<int> mes,
+      Value<String> campoId,
+      Value<double?> valor,
+      Value<String?> opcion,
+      Value<DateTime> actualizadoEn,
+      Value<int> rowid,
+    });
+
+class $$CapturasSatCamposTableFilterComposer
+    extends Composer<_$AppDatabase, $CapturasSatCamposTable> {
+  $$CapturasSatCamposTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get anio => $composableBuilder(
+    column: $table.anio,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mes => $composableBuilder(
+    column: $table.mes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get campoId => $composableBuilder(
+    column: $table.campoId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get valor => $composableBuilder(
+    column: $table.valor,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get opcion => $composableBuilder(
+    column: $table.opcion,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get actualizadoEn => $composableBuilder(
+    column: $table.actualizadoEn,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$CapturasSatCamposTableOrderingComposer
+    extends Composer<_$AppDatabase, $CapturasSatCamposTable> {
+  $$CapturasSatCamposTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get anio => $composableBuilder(
+    column: $table.anio,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mes => $composableBuilder(
+    column: $table.mes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get campoId => $composableBuilder(
+    column: $table.campoId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get valor => $composableBuilder(
+    column: $table.valor,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get opcion => $composableBuilder(
+    column: $table.opcion,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get actualizadoEn => $composableBuilder(
+    column: $table.actualizadoEn,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CapturasSatCamposTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CapturasSatCamposTable> {
+  $$CapturasSatCamposTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get anio =>
+      $composableBuilder(column: $table.anio, builder: (column) => column);
+
+  GeneratedColumn<int> get mes =>
+      $composableBuilder(column: $table.mes, builder: (column) => column);
+
+  GeneratedColumn<String> get campoId =>
+      $composableBuilder(column: $table.campoId, builder: (column) => column);
+
+  GeneratedColumn<double> get valor =>
+      $composableBuilder(column: $table.valor, builder: (column) => column);
+
+  GeneratedColumn<String> get opcion =>
+      $composableBuilder(column: $table.opcion, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get actualizadoEn => $composableBuilder(
+    column: $table.actualizadoEn,
+    builder: (column) => column,
+  );
+}
+
+class $$CapturasSatCamposTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CapturasSatCamposTable,
+          CapturasSatCampo,
+          $$CapturasSatCamposTableFilterComposer,
+          $$CapturasSatCamposTableOrderingComposer,
+          $$CapturasSatCamposTableAnnotationComposer,
+          $$CapturasSatCamposTableCreateCompanionBuilder,
+          $$CapturasSatCamposTableUpdateCompanionBuilder,
+          (
+            CapturasSatCampo,
+            BaseReferences<
+              _$AppDatabase,
+              $CapturasSatCamposTable,
+              CapturasSatCampo
+            >,
+          ),
+          CapturasSatCampo,
+          PrefetchHooks Function()
+        > {
+  $$CapturasSatCamposTableTableManager(
+    _$AppDatabase db,
+    $CapturasSatCamposTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CapturasSatCamposTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CapturasSatCamposTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CapturasSatCamposTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> anio = const Value.absent(),
+                Value<int> mes = const Value.absent(),
+                Value<String> campoId = const Value.absent(),
+                Value<double?> valor = const Value.absent(),
+                Value<String?> opcion = const Value.absent(),
+                Value<DateTime> actualizadoEn = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CapturasSatCamposCompanion(
+                anio: anio,
+                mes: mes,
+                campoId: campoId,
+                valor: valor,
+                opcion: opcion,
+                actualizadoEn: actualizadoEn,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required int anio,
+                required int mes,
+                required String campoId,
+                Value<double?> valor = const Value.absent(),
+                Value<String?> opcion = const Value.absent(),
+                Value<DateTime> actualizadoEn = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CapturasSatCamposCompanion.insert(
+                anio: anio,
+                mes: mes,
+                campoId: campoId,
+                valor: valor,
+                opcion: opcion,
+                actualizadoEn: actualizadoEn,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$CapturasSatCamposTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CapturasSatCamposTable,
+      CapturasSatCampo,
+      $$CapturasSatCamposTableFilterComposer,
+      $$CapturasSatCamposTableOrderingComposer,
+      $$CapturasSatCamposTableAnnotationComposer,
+      $$CapturasSatCamposTableCreateCompanionBuilder,
+      $$CapturasSatCamposTableUpdateCompanionBuilder,
+      (
+        CapturasSatCampo,
+        BaseReferences<
+          _$AppDatabase,
+          $CapturasSatCamposTable,
+          CapturasSatCampo
+        >,
+      ),
+      CapturasSatCampo,
+      PrefetchHooks Function()
+    >;
 typedef $$DeduccionesPersonalesTableCreateCompanionBuilder =
     DeduccionesPersonalesCompanion Function({
       Value<int> id,
@@ -4671,6 +5322,8 @@ class $AppDatabaseManager {
       $$InversionesTableTableManager(_db, _db.inversiones);
   $$CapturasEspejoTableTableManager get capturasEspejo =>
       $$CapturasEspejoTableTableManager(_db, _db.capturasEspejo);
+  $$CapturasSatCamposTableTableManager get capturasSatCampos =>
+      $$CapturasSatCamposTableTableManager(_db, _db.capturasSatCampos);
   $$DeduccionesPersonalesTableTableManager get deduccionesPersonales =>
       $$DeduccionesPersonalesTableTableManager(_db, _db.deduccionesPersonales);
 }

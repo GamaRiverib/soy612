@@ -15,6 +15,8 @@ void main() {
         ptuPagada: 0,
         perdidasFiscales: 0,
         pagosProvisionalesAnteriores: 0,
+        isrRetenidoAcumulado: 0,
+        isrCausado: 1052.99,
         isrACargo: 1052.99,
       ),
       iva: const EspejoIvaDatos(

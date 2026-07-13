@@ -59,15 +59,54 @@ class CapturasEspejoController extends Notifier<void> {
     );
   }
 
-  Future<void> guardarPtuPagada(double valor) => _guardar(ptuPagada: valor);
+  Future<void> guardarCampoSat(String campoId, double valor) async {
+    final periodo = await ref.read(periodoActivoProvider.future);
+    final db = ref.read(appDatabaseProvider);
+    await db.guardarCapturaSatCampo(
+      anio: periodo.anio,
+      mes: periodo.mes,
+      campoId: campoId,
+      valor: valor,
+    );
+    switch (campoId) {
+      case 'isr_ptu':
+        await _guardar(ptuPagada: valor);
+      case 'isr_perdidas_fiscales':
+        await _guardar(perdidasFiscales: valor);
+      case 'isr_pagos_provisionales_anteriores':
+        await _guardar(pagosProvisionalesAnteriores: valor);
+      case 'iva_saldo_favor_anterior':
+        await _guardar(saldoFavorIvaAnterior: valor);
+    }
+  }
 
-  Future<void> guardarPerdidasFiscales(double valor) => _guardar(perdidasFiscales: valor);
+  Future<void> guardarOpcionSat(String campoId, String opcion) async {
+    final periodo = await ref.read(periodoActivoProvider.future);
+    final db = ref.read(appDatabaseProvider);
+    await db.guardarCapturaSatCampo(
+      anio: periodo.anio,
+      mes: periodo.mes,
+      campoId: campoId,
+      opcion: opcion,
+    );
+  }
+
+  Future<void> guardarPtuPagada(double valor) async {
+    await _guardar(ptuPagada: valor);
+    await guardarCampoSat('isr_ptu', valor);
+  }
+
+  Future<void> guardarPerdidasFiscales(double valor) async {
+    await _guardar(perdidasFiscales: valor);
+    await guardarCampoSat('isr_perdidas_fiscales', valor);
+  }
 
   Future<void> guardarPagosProvisionalesAnteriores(double valor) =>
-      _guardar(pagosProvisionalesAnteriores: valor);
+      _guardar(pagosProvisionalesAnteriores: valor)
+          .then((_) => guardarCampoSat('isr_pagos_provisionales_anteriores', valor));
 
   Future<void> guardarSaldoFavorIvaAnterior(double valor) =>
-      _guardar(saldoFavorIvaAnterior: valor);
+      _guardar(saldoFavorIvaAnterior: valor).then((_) => guardarCampoSat('iva_saldo_favor_anterior', valor));
 
   Future<void> guardarTipoDeclaracion(TipoDeclaracion valor) => _guardar(tipoDeclaracion: valor);
 
