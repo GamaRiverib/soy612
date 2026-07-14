@@ -61,6 +61,6 @@ Finanzas
 Adultos (18+) - la app trata datos fiscales/financieros y no esta dirigida a menores.
 
 ## Datos de contacto
-- Correo: soporte@soy612.click
+- Correo: contacto@gamarivera.dev
 - Sitio web: https://soy612.click
 - Politica de privacidad: https://soy612.click/privacidad
